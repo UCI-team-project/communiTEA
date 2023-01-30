@@ -22,6 +22,9 @@ Users are also able to add different businesses to their favorites list.
 
 - [x] JavaScript
 - [x] React
+- [x] MongoDB
+- [x] Mongoose
+- [x] GraphQL
 - [x] Tailwind CSS
 - [x] Material UI
 - [x] Deployed on Heroku
@@ -35,9 +38,9 @@ Enter a business to search up to view reviews
 
 ## Contributors
 
-[Darius Garcia](https://github.com/dariusgarcia/)
-
 [Stephanie Tseng](https://github.com/wytseng)
+
+[Darius Garcia](https://github.com/dariusgarcia/)
 
 [Johnathan Nguyen](https://github.com/jthnguyen9909)
 
