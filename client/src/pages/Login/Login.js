@@ -1,54 +1,88 @@
-import { useState } from "react";
-import { useMutation } from "@apollo/client";
-import { LOGIN_USER } from "../../utils/mutations";
-
-import Auth from "../../utils/auth.js";
-
+import { useState, useEffect } from 'react'
+import { useMutation } from '@apollo/client'
+import { LOGIN_USER } from '../../utils/mutations'
+import { Button, Checkbox, Form, Input } from 'antd'
+import Auth from '../../utils/auth.js'
+import './login.css'
+import Link from 'antd/es/typography/Link'
 function Login() {
   const [formState, setFormState] = useState({
-    email: "",
-    password: "",
-  });
+    username: '',
+    firstName: '',
+    lastName: '',
+    password: '',
+  })
+  const [Login, { error, data }] = useMutation(LOGIN_USER)
 
-  const [Login, { error, data }] = useMutation(LOGIN_USER);
+  useEffect(() => {
+    document.title = 'Login'
+  }, [])
 
   const handleInputChange = ({ target: { name, value } }) => {
-    setFormState({ ...formState, [name]: value });
-  };
+    setFormState({ ...formState, [name]: value })
+  }
 
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
     try {
       const { data } = await Login({
         variables: { ...formState },
-      });
+      })
 
-      Auth.login(data.login.token);
+      Auth.login(data.login.token)
     } catch (err) {
-      console.error(err);
+      console.error(err)
     }
-  };
+  }
   return (
-    <div>
-      <h1>Login Page</h1>
-      <form onSubmit={handleFormSubmit}>
+    <div className='container'>
+      <h1 className=''>Login Page</h1>
+      <form className='form-container' onSubmit={handleFormSubmit}>
         <input
-          type="email"
-          name="email"
-          value={formState.email}
+          className='input-field'
+          type='text'
+          name='username'
+          value={formState.username}
           onChange={handleInputChange}
+          placeholder='Enter username'
         />
         <input
-          type="password"
-          name="password"
+          className='input-field'
+          type='text'
+          name='firstName'
+          value={formState.firstName}
+          onChange={handleInputChange}
+          placeholder='Enter first name'
+        />
+        <input
+          className='input-field'
+          type='text'
+          name='lastName'
+          value={formState.lastName}
+          onChange={handleInputChange}
+          placeholder='Enter last name'
+        />
+        <input
+          className='input-field'
+          type='password'
+          name='password'
           value={formState.password}
           onChange={handleInputChange}
+          placeholder='Password'
         />
-        <button type="submit">Login User</button>
+        <button className='form-submit-btn' type='submit'>
+          Login User
+        </button>
+        <div className='alternative-option-section'>
+          <h3 className='alt-el'>Don't have an account yet?</h3>
+          <Link to='/register' className='alt-btn alt-el'>
+            Sign up
+          </Link>
+        </div>
       </form>
     </div>
-  );
+  )
 }
 
-export default Login;
+export default Login
