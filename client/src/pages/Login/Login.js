@@ -38,6 +38,10 @@ function Login() {
   return (
     <div className='container'>
       <h1 className=''>Login Page</h1>
+      <p className='text'>
+        Find the best boba in your area. Give them a review to help your fellow
+        boba-nians in finding the best boba in the area. 😉
+      </p>
       <form className='form-container' onSubmit={handleFormSubmit}>
         <input
           className='input-field'
