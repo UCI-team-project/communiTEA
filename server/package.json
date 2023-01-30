@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "api": "^5.0.7",
     "apollo-server-express": "^3.6.2",
     "bcrypt": "^5.1.0",
     "dotenv": "^16.0.3",
