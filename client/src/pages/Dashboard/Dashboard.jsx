@@ -1,4 +1,4 @@
-import { Breadcrumb, Layout, Menu, theme } from 'antd'
+import { Breadcrumb, Layout, Menu, Skeleton, theme } from 'antd'
 import './dashboard.css'
 import SearchBar from '../../Components/searchBar'
 import FavoritesContainer from '../../Components/favoritesList/favoritesListContainer'
@@ -55,6 +55,7 @@ const Dashboard = () => {
                *************************
                */}
               <SearchBar />
+              <Skeleton />
               <FavoritesContainer />
               <RecentReviewsContainer />
             </div>
