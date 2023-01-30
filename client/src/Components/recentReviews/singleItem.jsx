@@ -1,5 +1,5 @@
 import React from 'react'
-import './favoritesList.css'
+import './reviewsList.css'
 import { StarOutlined } from '@ant-design/icons'
 import { Carousel } from 'antd'
 const contentStyle = {

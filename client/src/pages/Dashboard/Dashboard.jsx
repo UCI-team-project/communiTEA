@@ -1,8 +1,8 @@
 import { Breadcrumb, Layout, Menu, theme } from 'antd'
 import './dashboard.css'
-import FooterComponent from '../../Components/footer'
 import SearchBar from '../../Components/searchBar'
-import FavoritesContainer from '../../Components/favoritesList/favoritesContainer'
+import FavoritesContainer from '../../Components/favoritesList/favoritesListContainer'
+import RecentReviewsContainer from '../../Components/recentReviews/recentReviewsContainer'
 const { Header, Content, Footer } = Layout
 
 const Dashboard = () => {
@@ -12,7 +12,7 @@ const Dashboard = () => {
 
   const navList = ['Home', 'Dashboard', 'Profile', 'Login']
   return (
-    <Layout className='layout'>
+    <Layout className='layout '>
       <Header>
         <div className='logo' />
         <Menu
@@ -28,34 +28,39 @@ const Dashboard = () => {
           })}
         />
       </Header>
-      <Content
-        style={{
-          padding: '0 50px',
-        }}
-      >
-        <Breadcrumb
-          style={{
-            margin: '16px 0',
-          }}
-        >
-          <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
-          <Breadcrumb.Item>Search</Breadcrumb.Item>
-        </Breadcrumb>
-        <div
-          className='site-layout-content'
-          style={{
-            background: colorBgContainer,
-          }}
-        >
-          {/*
-           *************************
-           * Main dashboard content
-           *************************
-           */}
-          <SearchBar />
-          <FavoritesContainer />
-        </div>
-      </Content>
+      <div className='wrapper'>
+        <section className='dashboard-container'>
+          <Content
+            style={{
+              padding: '0 50px',
+            }}
+          >
+            <Breadcrumb
+              style={{
+                margin: '16px 0',
+              }}
+            >
+              <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+              <Breadcrumb.Item>Search</Breadcrumb.Item>
+            </Breadcrumb>
+            <div
+              className='site-layout-content'
+              style={{
+                background: colorBgContainer,
+              }}
+            >
+              {/*
+               *************************
+               * Main dashboard content
+               *************************
+               */}
+              <SearchBar />
+              <FavoritesContainer />
+              <RecentReviewsContainer />
+            </div>
+          </Content>
+        </section>{' '}
+      </div>
       <Footer
         style={{
           textAlign: 'center',
