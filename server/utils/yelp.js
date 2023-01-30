@@ -1,5 +1,6 @@
 "use strict";
 require("dotenv").config();
+
 const yelp = require("yelp-fusion");
 
 // Place holder for Yelp Fusion's API Key. Grab them
