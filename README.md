@@ -50,9 +50,7 @@ Enter a business to search up to view reviews
 
 ## Installation
 
-```
 clone the repo to local machine
-```
 
 ```
 cd communitea/
@@ -85,6 +83,10 @@ npm run build
 ### Client
 
 start client
+
+```
+cd client/
+```
 
 ```
 npm run start
