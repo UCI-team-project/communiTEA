@@ -7,6 +7,12 @@
     width: 100%;
 }
 
+.text {
+    width: 24rem;
+    display: flex;
+    text-align: center;
+}
+
 .form-container {
     display: flex;
     flex-direction: column;
