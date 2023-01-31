@@ -5,7 +5,7 @@ const yelp = require("yelp-fusion");
 
 // Place holder for Yelp Fusion's API Key. Grab them
 // from https://www.yelp.com/developers/v3/manage_app
-const apiKey = process.env.APIKEY || "<your-api-key>";
+const apiKey = process.env.API_KEY || "<your-api-key>";
 
 // search for k number of businesses using term and location(required);
 const searchRequest = {
@@ -42,7 +42,7 @@ let testID = "Eq4v9VGhuYsghNuPiXVHZg";
 
 const sdk = require("api")("@yelp-developers/v1.0#2hsur2ylbank95o");
 
-sdk.auth("Bearer " + process.env.APIKEY);
+sdk.auth("Bearer " + process.env.API_KEY);
 
 function getBusinessByID(businessID) {
   sdk
