@@ -38,7 +38,7 @@ function Login() {
     <>
       <Navbar navItem={'login'} />
       <div className='container'>
-        <h1 className=''>Login Page</h1>
+        <h1 className='title'>Login Page</h1>
         <p className='text'>
           Find the best boba in your area. Give them a review to help your
           fellow boba-nians in finding the best boba in the area. 😉
@@ -62,13 +62,15 @@ function Login() {
             onChange={handleInputChange}
             placeholder='Password'
           />
-          <button className='form-submit-btn' type='submit'>
-            Login User
-          </button>
+          <span className='btn-container'>
+            <Button type='primary' block>
+              Login
+            </Button>
+          </span>
           <div className='alternative-option-section'>
-            <h3 className='alt-el'>Don't have an account yet?</h3>
-            <Link to='/register' className='alt-btn alt-el'>
-              Sign up
+            <h4 className='alt-el'>Don't have an account yet?</h4>
+            <Link to='/register'>
+              <Button>Sign Up</Button>
             </Link>
           </div>
         </form>

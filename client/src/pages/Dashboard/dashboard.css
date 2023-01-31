@@ -1,6 +1,7 @@
 .site-layout-content {
     min-height: 280px;
     padding: 24px;
+
 }
 
 #components-layout-demo-top .logo {
@@ -22,5 +23,15 @@
 }
 
 .dashboard-container {
-    width: 80vw;
+    width: 100%;
+}
+
+.review-section {
+    margin-top: 4rem;
+}
+
+@media (min-width: 968px) {
+    .dashboard-container {
+        width: 80vw;
+    }
 }

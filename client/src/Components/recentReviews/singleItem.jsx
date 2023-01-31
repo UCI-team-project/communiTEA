@@ -2,6 +2,7 @@ import React from 'react'
 import './reviewsList.css'
 import { StarOutlined } from '@ant-design/icons'
 import { Carousel } from 'antd'
+import EmptyCard from '../skeleton/emptyCard'
 const contentStyle = {
   margin: 0,
   height: '160px',
@@ -23,6 +24,7 @@ const SingleItem = () => {
   return (
     <div className='single-item-container'>
       <Carousel afterChange={onChange}>
+        <EmptyCard />
         {itemArray.map((item, key) => (
           <div key={key} style={contentStyle}>
             <article className='list-item-container'>

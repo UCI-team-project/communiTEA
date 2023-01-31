@@ -27,7 +27,7 @@ const Navbar = ({ navItem }) => {
     <Header>
       <div className='' />
       <Menu
-        theme='dark'
+        theme='light'
         mode='horizontal'
         defaultSelectedKeys={populateNav(navItem)}
         items={navList.map((item, index) => {

@@ -1,7 +1,10 @@
-import React from 'react'
+import { useEffect } from 'react'
 import Navbar from '../../Components/navbar'
 
 const Profile = () => {
+  useEffect(() => {
+    document.title = 'CommuniTEA - Profile'
+  }, [])
   return (
     <>
       <Navbar navItem={'profile'} />
