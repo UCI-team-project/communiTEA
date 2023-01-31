@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../../Components/navbar";
 function Login() {
   const [formState, setFormState] = useState({
-    username: "",
+    name: "",
     password: "",
   });
   const [Login, { error, data }] = useMutation(LOGIN_USER);
@@ -48,8 +48,8 @@ function Login() {
             className="input-field"
             type="text"
             autoComplete="off"
-            name="username"
-            value={formState.username}
+            name="name"
+            value={formState.name}
             onChange={handleInputChange}
             placeholder="Enter Username"
           />
@@ -63,7 +63,7 @@ function Login() {
             placeholder="Password"
           />
           <span className="btn-container">
-            <Button type="primary" block>
+            <Button type="primary" htmlType="submit" block>
               Login
             </Button>
           </span>
