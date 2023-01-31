@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" contnet="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CommuniTEA</title>
+    <link rel="stylesheet" href="" />
+</head>
+<body>
+    <header>
+        <h1>CommuniTEA</h1>
+        <nav>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#profile">Profile</a>
+            <a href="#aboutus">About Us</a>
+        </nav>
+    </header>
+    </section>
+    <script>
+        var a = document.getElementById('tfnewsearch');
+        a.addEventListener('submit',function(e) {
+        e.preventDefault();
+        var b = document.getElementById('tftextinput').value;
+        window.location.href = ''+b;
+        });
+        </script>
+        <input type="text" class="tftextinput" id="tftextinput" name="q" size="21" maxlength="120">
+        <div id="tfheader">
+            <form id="tfnewsearch" method="get" action="">
+                <input type="text" class="tftextinput" id="tftextinput" name="q" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton">
+            </form>
+        <div class="tfclear"></div>
+        </div>
+        <script>
+            var a = document.getElementById('tfnewsearch');
+            a.addEventListener('submit',function(e) {
+                e.preventDefault();
+                var b = document.getElementById('tftextinput').value;
+                window.location.href = ''+b;
+        
+            });
+        </script>
+    <main class="page-wrapper">
+    <section class="page-section" id="dashboard">
+        <h2>Dashboard</h2>
+        <div>
+            <p>
+                Find the best boba in your area. Give them a review to help 
+                your fellow boba-nians in finding the best boba in the area 😉
+            </p>
+        </div>
+    </section>
+    <section class = "button"
+        <button type="button">Login</button>
+    </section>
+    <section class ="button"
+        <button type="button">Sign Up</button>
+    </section>
