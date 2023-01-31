@@ -1,27 +1,14 @@
-import React from 'react'
-
+import { Layout } from 'antd'
+const { Footer } = Layout
 const FooterComponent = () => {
   return (
-    <>
-      <footer className='footer'>
-        <div className='nav-container'>
-          <ul>
-            <li className='nav-link'>Home</li>
-            <li className='nav-link'>Dashboard</li>
-          </ul>
-        </div>
-        <div className='nav-container'>
-          <h1 className='nav-title'>CommuniTEA</h1>
-        </div>
-        <div className='nav-container'>
-          <ul>
-            <li className='nav-link'>Profile</li>
-            <li className='nav-link'>Login</li>
-            <li className='nav-link'>Register</li>
-          </ul>
-        </div>
-      </footer>
-    </>
+    <Footer
+      style={{
+        textAlign: 'center',
+      }}
+    >
+      ©2023 Created by CommuniTEA
+    </Footer>
   )
 }
 

@@ -23,8 +23,8 @@ const SingleItem = () => {
   return (
     <div className='single-item-container'>
       <Carousel afterChange={onChange}>
-        {itemArray.map((item) => (
-          <div style={contentStyle}>
+        {itemArray.map((item, key) => (
+          <div key={key} style={contentStyle}>
             <article className='list-item-container'>
               <div className='container-row'>
                 <h3>{item.name}</h3>

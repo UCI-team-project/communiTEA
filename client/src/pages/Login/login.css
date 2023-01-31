@@ -18,11 +18,11 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    width: 50vw;
+    width: 100%;
 }
 
 .input-field {
-    width: 50%;
+    width: 100%;
     padding: 1rem;
 }
 
@@ -60,4 +60,15 @@
 
 .alt-btn:hover {
     background-color: #7DF9FF;
+}
+
+@media (min-width: 960px) {
+    .form-container {
+        width: 100%;
+
+    }
+
+    .input-field {
+        width: 50%;
+    }
 }

@@ -11,6 +11,7 @@ import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import Profile from './pages/Profile/profile'
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -37,8 +38,15 @@ function App() {
       <Router>
         <div>
           <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/home' element={<Home />} />
+            {/*
+             * TODO:
+             * - redirect user to login page if they want to access the Dashboard or Profile routes
+             * - if user is logged in, grant access to Dashboard route
+             * {user ? <Dashboard/> : <Login/>}
+             * */}
             <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/profile' element={<Profile />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
           </Routes>
