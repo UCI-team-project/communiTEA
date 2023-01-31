@@ -1,0 +1,23 @@
+.single-item-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+
+.list-item-container {
+    background-color: gainsboro;
+    padding: 2rem;
+    border-radius: 6px;
+
+}
+
+.container-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.rating {
+    font-size: 1rem;
+}
