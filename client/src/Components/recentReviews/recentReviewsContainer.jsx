@@ -4,11 +4,10 @@ import SingleItem from './singleItem'
 
 const RecentReviewsContainer = () => {
   return (
-    <div className=''>
+    <>
       <h2>Recent reviews</h2>
-
       <SingleItem />
-    </div>
+    </>
   )
 }
 

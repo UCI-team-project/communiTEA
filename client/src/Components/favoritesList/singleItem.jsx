@@ -5,10 +5,9 @@ import { Carousel } from 'antd'
 const contentStyle = {
   margin: 0,
   height: '160px',
-  color: '#fff',
+  color: 'red',
   lineHeight: '160px',
   textAlign: 'center',
-  background: '#364d79',
 }
 const itemArray = [
   { name: 'Boba House', rating: 5.0, description: 'business description' },
