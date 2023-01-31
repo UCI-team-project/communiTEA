@@ -12,13 +12,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "api": "^5.0.7",
     "apollo-server-express": "^3.6.2",
     "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
     "express": "^4.17.2",
     "graphql": "^16.3.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.2.0",
-    "dotenv": "^16.0.3"
+    "yelp-fusion": "^3.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

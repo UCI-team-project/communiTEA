@@ -1,82 +1,82 @@
-import { useState, useEffect } from 'react'
-import { useMutation } from '@apollo/client'
-import { LOGIN_USER } from '../../utils/mutations'
-import { Button, Checkbox, Form, Input } from 'antd'
-import Auth from '../../utils/auth.js'
-import './login.css'
-import { Link } from 'react-router-dom'
-import Navbar from '../../Components/navbar'
+import { useState, useEffect } from "react";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../../utils/mutations";
+import { Button, Checkbox, Form, Input } from "antd";
+import Auth from "../../utils/auth.js";
+import "./login.css";
+import { Link } from "react-router-dom";
+import Navbar from "../../Components/navbar";
 function Login() {
   const [formState, setFormState] = useState({
-    username: '',
-    password: '',
-  })
-  const [Login, { error, data }] = useMutation(LOGIN_USER)
+    name: "",
+    password: "",
+  });
+  const [Login, { error, data }] = useMutation(LOGIN_USER);
 
   useEffect(() => {
-    document.title = 'Login'
-  }, [])
+    document.title = "Login";
+  }, []);
 
   const handleInputChange = ({ target: { name, value } }) => {
-    setFormState({ ...formState, [name]: value })
-  }
+    setFormState({ ...formState, [name]: value });
+  };
 
   const handleFormSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
     try {
       const { data } = await Login({
         variables: { ...formState },
-      })
+      });
 
-      Auth.login(data.login.token)
+      Auth.login(data.login.token);
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }
-  }
+  };
   return (
     <>
-      <Navbar navItem={'login'} />
-      <div className='container'>
-        <h1 className='title'>Login Page</h1>
-        <p className='text'>
+      <Navbar navItem={"login"} />
+      <div className="container">
+        <h1 className="title">Login Page</h1>
+        <p className="text">
           Find the best boba in your area. Give them a review to help your
           fellow boba-nians in finding the best boba in the area. 😉
         </p>
-        <form className='form-container' onSubmit={handleFormSubmit}>
+        <form className="form-container" onSubmit={handleFormSubmit}>
           <input
-            className='input-field'
-            type='text'
-            autoComplete='off'
-            name='username'
-            value={formState.username}
+            className="input-field"
+            type="text"
+            autoComplete="off"
+            name="name"
+            value={formState.name}
             onChange={handleInputChange}
-            placeholder='Enter username'
+            placeholder="Enter Username"
           />
 
           <input
-            className='input-field'
-            type='password'
-            name='password'
+            className="input-field"
+            type="password"
+            name="password"
             value={formState.password}
             onChange={handleInputChange}
-            placeholder='Password'
+            placeholder="Password"
           />
-          <span className='btn-container'>
-            <Button type='primary' block>
+          <span className="btn-container">
+            <Button type="primary" htmlType="submit" block>
               Login
             </Button>
           </span>
-          <div className='alternative-option-section'>
-            <h4 className='alt-el'>Don't have an account yet?</h4>
-            <Link to='/register'>
+          <div className="alternative-option-section">
+            <h4 className="alt-el">Don't have an account yet?</h4>
+            <Link to="/register">
               <Button>Sign Up</Button>
             </Link>
           </div>
         </form>
       </div>
     </>
-  )
+  );
 }
 
-export default Login
+export default Login;
