@@ -3,6 +3,7 @@ import {
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
+
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -12,6 +13,8 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile/profile";
+import Signup from './pages/Signup'
+
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -45,12 +48,15 @@ function App() {
              * - if user is logged in, grant access to Dashboard route
              * {user ? <Dashboard/> : <Login/>}
              * */}
+
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/" element={<Home />} />
             <Route path="/logout" element={<Home />} />
+            <Route path='/signup' element={<Signup />} />
+
           </Routes>
         </div>
       </Router>
