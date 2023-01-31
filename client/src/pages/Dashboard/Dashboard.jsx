@@ -3,14 +3,18 @@ import './dashboard.css'
 import SearchBar from '../../Components/searchBar'
 import FavoritesContainer from '../../Components/favoritesList/favoritesListContainer'
 import RecentReviewsContainer from '../../Components/recentReviews/recentReviewsContainer'
-const { Header, Content, Footer } = Layout
+// import SearchResults from '../../Components/searchResults/searchResults'
+import FooterComponent from '../../Components/footer'
+import { Link } from 'react-router-dom'
+
+const { Header, Content } = Layout
 
 const Dashboard = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken()
 
-  const navList = ['Home', 'Dashboard', 'Profile', 'Login']
+  const navList = ['home', 'dashboard', 'profile', 'login']
   return (
     <Layout className='layout '>
       <Header>
@@ -23,7 +27,11 @@ const Dashboard = () => {
             const key = index + 1
             return {
               key,
-              label: `${item}`,
+              label: (
+                <Link to={`/${item}`}>
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </Link>
+              ),
             }
           })}
         />
@@ -40,7 +48,9 @@ const Dashboard = () => {
                 margin: '16px 0',
               }}
             >
-              <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
+              <Breadcrumb.Item>
+                <Link to='/dashboard'>Dashboard</Link>
+              </Breadcrumb.Item>
               <Breadcrumb.Item>Search</Breadcrumb.Item>
             </Breadcrumb>
             <div
@@ -50,11 +60,18 @@ const Dashboard = () => {
               }}
             >
               {/*
-               *************************
+               **************************************************
                * Main dashboard content
-               *************************
+               **************************************************
                */}
               <SearchBar />
+              {/*
+               *
+               * TODO:
+               * - add conditional statement to return a skeleton if no new search has been queried
+               * - if a search has been initiated, render the Search Results component instead of the Skeleton component
+               * {fetchedData ? <Skeleton/> : <SearchResults/>}
+               * */}
               <Skeleton />
               <FavoritesContainer />
               <RecentReviewsContainer />
@@ -62,13 +79,7 @@ const Dashboard = () => {
           </Content>
         </section>{' '}
       </div>
-      <Footer
-        style={{
-          textAlign: 'center',
-        }}
-      >
-        ©2023 Created by CommuniTEA
-      </Footer>
+      <FooterComponent />
     </Layout>
   )
 }
