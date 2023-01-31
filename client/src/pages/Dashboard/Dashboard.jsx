@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 import { Breadcrumb, Layout, Skeleton, theme } from 'antd'
 import './dashboard.css'
-import SearchBar from '../../Components/searchBar'
+import SearchBar from '../../Components/searchBar/searchBar'
 import FavoritesContainer from '../../Components/favoritesList/favoritesListContainer'
 import RecentReviewsContainer from '../../Components/recentReviews/recentReviewsContainer'
 // import SearchResults from '../../Components/searchResults/searchResults'
-import FooterComponent from '../../Components/footer'
+import FooterComponent from '../../Components/footer/footer'
 import { Link } from 'react-router-dom'
 import Navbar from '../../Components/navbar'
 
