@@ -51,7 +51,7 @@ function Login() {
             name="username"
             value={formState.username}
             onChange={handleInputChange}
-            placeholder="Enter username"
+            placeholder="Enter Username"
           />
 
           <input
