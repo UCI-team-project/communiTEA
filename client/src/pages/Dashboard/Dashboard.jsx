@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Breadcrumb, Layout, Skeleton, theme } from 'antd'
 import './dashboard.css'
 import SearchBar from '../../Components/searchBar'
@@ -11,6 +12,9 @@ import Navbar from '../../Components/navbar'
 const { Content } = Layout
 
 const Dashboard = () => {
+  useEffect(() => {
+    document.title = 'CommuniTEA - Dashboard'
+  }, [])
   const {
     token: { colorBgContainer },
   } = theme.useToken()
@@ -18,12 +22,12 @@ const Dashboard = () => {
   return (
     <>
       <Navbar navItem={'dashboard'} />
-      <Layout className='layout '>
+      <Layout>
         <div className='wrapper'>
           <section className='dashboard-container'>
             <Content
               style={{
-                padding: '0 50px',
+                padding: '0 1rem',
               }}
             >
               <Breadcrumb
@@ -43,9 +47,9 @@ const Dashboard = () => {
                 }}
               >
                 {/*
-                 **************************************************
+                 *************************
                  * Main dashboard content
-                 **************************************************
+                 *************************
                  */}
                 <SearchBar />
                 {/*
@@ -56,8 +60,12 @@ const Dashboard = () => {
                  * {fetchedData ? <Skeleton/> : <SearchResults/>}
                  * */}
                 <Skeleton />
-                <FavoritesContainer />
-                <RecentReviewsContainer />
+                <section className='review-section'>
+                  <FavoritesContainer />
+                </section>
+                <section className='review-section'>
+                  <RecentReviewsContainer />
+                </section>
               </div>
             </Content>
           </section>{' '}
