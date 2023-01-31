@@ -1,16 +1,18 @@
 .container {
     display: flex;
+    margin-top: 2rem;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     width: 100%;
 }
 
 .text {
-    width: 24rem;
+    width: 80%;
     display: flex;
     text-align: center;
+    margin-bottom: 2rem;
 }
 
 .form-container {
@@ -19,6 +21,7 @@
     align-items: center;
     gap: 2rem;
     width: 100%;
+    padding: 0 2rem;
 }
 
 .input-field {
@@ -26,20 +29,18 @@
     padding: 1rem;
 }
 
-.form-submit-btn {
-    padding: 1rem;
-    border-radius: 10px;
-    border: none;
-    background-color: #7DF9FF;
-    color: black;
+.btn-container {
+    width: 24rem;
+    padding: 0 2rem;
 }
 
 .alternative-option-section {
     display: flex;
     flex-direction: row;
-    gap: 4rem;
+    gap: 2rem;
     justify-content: center;
     align-items: center;
+
 }
 
 .alt-el {
@@ -63,12 +64,24 @@
 }
 
 @media (min-width: 960px) {
+    .container {
+        margin-top: 12rem;
+    }
+
+    .text {
+        width: 36rem;
+    }
+
     .form-container {
         width: 100%;
-
+        padding: 0;
     }
 
     .input-field {
         width: 50%;
+    }
+
+    .btn-container {
+        padding: 0;
     }
 }
