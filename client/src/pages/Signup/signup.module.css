@@ -36,13 +36,14 @@
     padding: 1rem;
 }
 
-.formSubmitBtn {
-    padding: 1rem;
-    border-radius: 10px;
-    border: none;
-    width: 24rem;
-    background-color: #7DF9FF;
-    color: black;
+.loginBtn {
+    background-color: var(--secondary-brown);
+    height: 3rem;
+}
+
+.signUpBtn {
+    background-color: var(--primary-blue);
+    height: 3rem;
 }
 
 .btnContainer {

@@ -3,6 +3,11 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 
+:root {
+    --primary-blue: #88DACB;
+    --secondary-brown: #C0AF82;
+    --primary-grey: #f1f1f1
+}
 
 * {
     box-sizing: border-box;
