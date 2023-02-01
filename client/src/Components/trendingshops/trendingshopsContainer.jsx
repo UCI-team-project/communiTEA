@@ -1,5 +1,5 @@
 import React from 'react'
-import '../favoritesList/favoritesList.css'
+
 import SingleItem from '../favoritesList/singleItem'
 
 const TrendingShopsContainer = () => {
