@@ -45,8 +45,8 @@ const Signup = () => {
       <div className={style.container}>
         <h1>Sign Up</h1>
         <p className={style.text}>
-          Find the best boba in your area. Give them a review to help your
-          fellow boba-nians in finding the best boba in the area. 😉
+          Sign up now for more information on trending boba shops from some of
+          the greatest boba enthusiasts in your area! 🧋
         </p>
         <form className={style.formContainer} onSubmit={handleFormSubmit}>
           <input
@@ -55,7 +55,7 @@ const Signup = () => {
             name="name"
             value={formState.name}
             onChange={handleChange}
-            placeholder="Enter username"
+            placeholder="Enter Username"
           />
           <input
             className={style.inputField}
