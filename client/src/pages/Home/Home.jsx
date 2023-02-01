@@ -14,6 +14,20 @@ const Home = () => {
     document.title = 'CommuniTEA - Home'
   }, [])
 
+  const headerText = {
+    header: {
+      text: 'Unsure of where to go for delicious boba drinks? Find the best boba spots near you curated by our friendly community!',
+    },
+    api: {
+      text: `"With millions of business updates every month, Yelp Fusion
+      delivers the most current and most accurate local data
+      available. Choose from dozens of attributes per business, and as
+      millions of new reviews and photos are added by active Yelp
+      users, the Yelp data set remains unparalleled in its rich
+      detail, freshness, and accuracy."`,
+    },
+  }
+
   return (
     <>
       <div className={style.navContainer}>
@@ -23,19 +37,12 @@ const Home = () => {
         <div className={style.wrapper}>
           <h1 className=''>CommuniTEA</h1>
           <article className={style.ctaWrapper}>
-            <p className={style.headerText}>
-              Unsure of where to go for delicious boba drinks? Find the best
-              boba spots near you curated by our friendly community!
-            </p>
+            <p className={style.headerText}>{headerText.header.text}</p>
             <img src={image} alt='header' className={style.image} />
             <article className={style.apiContainer}>
               <p className={style.apiInfo}>
-                "With millions of business updates every month, Yelp Fusion
-                delivers the most current and most accurate local data
-                available. Choose from dozens of attributes per business, and as
-                millions of new reviews and photos are added by active Yelp
-                users, the Yelp data set remains unparalleled in its rich
-                detail, freshness, and accuracy."{' '}
+                {' '}
+                {headerText.api.text}
                 <a
                   href='https://fusion.yelp.com/'
                   className={style.apiLink}
@@ -45,18 +52,22 @@ const Home = () => {
                 </a>
               </p>
             </article>
+          </article>
+          <section className={style.bottomSection}>
             <div className={style.cta}>
               <SearchBar />
               <Link to='/login'>
-                <Button>LOGIN</Button>
+                <Button className={style.btn1}>LOGIN</Button>
               </Link>
-              <h5>or</h5>
+              <p>or</p>
               <Link to='/signup'>
-                <Button>SIGNUP</Button>
+                <Button className={style.btn2}>SIGNUP</Button>
               </Link>
             </div>
-          </article>
-          <TrendingShopsContainer />
+            <section className={style.trendingShopsContainer}>
+              <TrendingShopsContainer />
+            </section>
+          </section>
         </div>
       </div>
       <FooterComponent />
