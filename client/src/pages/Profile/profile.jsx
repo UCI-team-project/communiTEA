@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import Navbar from '../../Components/navbar'
 import { Breadcrumb, Layout, theme } from 'antd'
-import './profile.css'
+import style from './profile.module.css'
 import { Card } from 'antd'
 import FooterComponent from '../../Components/footer/footer'
 import { Link } from 'react-router-dom'
@@ -17,12 +17,12 @@ const Profile = () => {
 
   return (
     <>
-      <div className='profile-container'>
+      <div className={style.profileContainer}>
         <Navbar navItem={'profile'} />
       </div>
       <Layout>
-        <div className='wrapper'>
-          <section className='dashboard-container'>
+        <div className={style.wrapper}>
+          <section className={style.profileLayout}>
             <Content
               style={{
                 padding: '0 1rem',
@@ -39,7 +39,7 @@ const Profile = () => {
                 <Breadcrumb.Item>profile</Breadcrumb.Item>
               </Breadcrumb>
               <div
-                className='site-layout-content'
+                className={style.siteLayoutContent}
                 style={{
                   background: colorBgContainer,
                 }}
@@ -50,7 +50,7 @@ const Profile = () => {
                  *************************
                  */}
                 <h1>Profile</h1>
-                <section className='profile-header-section'>
+                <section className={style.profileHeaderSection}>
                   <article>
                     <Card
                       title='Welcome back John Doe'
@@ -59,7 +59,7 @@ const Profile = () => {
                         width: 500,
                       }}
                     >
-                      <div className='card-body'>
+                      <div className={style.cardBody}>
                         <Link to='/dashboard'>View Milk Tea places</Link>
                         <Link to='/dashboard'>View favorites List</Link>
                         <Link to='/dashboard'>View reviews</Link>

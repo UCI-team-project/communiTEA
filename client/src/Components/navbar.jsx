@@ -88,18 +88,3 @@ const Navbar = ({ navItem }) => {
 }
 
 export default Navbar
-
-{
-  /* <Menu
-        theme='light'
-        mode='horizontal'
-        defaultSelectedKeys={populateNav(navItem)}
-        items={navList.map((item, index) => {
-          const key = index + 1
-          return {
-            key,
-            label: <Link to={`/${item}`}>{capitalizeFirstLetter(item)}</Link>,
-          }
-        })}
-      /> */
-}

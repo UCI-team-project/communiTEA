@@ -7,7 +7,7 @@ import RecentReviewsContainer from '../../Components/recentReviews/recentReviews
 import FooterComponent from '../../Components/footer/footer'
 import Navbar from '../../Components/navbar'
 // import SearchResults from '../../Components/searchResults/searchResults'
-import './dashboard.css'
+import style from './dashboard.module.css'
 
 const { Content } = Layout
 
@@ -22,12 +22,12 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className='nav-container'>
+      <div className={style.navContainer}>
         <Navbar navItem={'dashboard'} />
       </div>
       <Layout>
-        <div className='wrapper'>
-          <section className='dashboard-container'>
+        <div className={style.wrapper}>
+          <section className={style.dashboardContainer}>
             <Content
               style={{
                 padding: '0 1rem',
@@ -44,7 +44,7 @@ const Dashboard = () => {
                 <Breadcrumb.Item>Search</Breadcrumb.Item>
               </Breadcrumb>
               <div
-                className='site-layout-content'
+                className={style.siteLayoutContent}
                 style={{
                   background: colorBgContainer,
                 }}
@@ -63,11 +63,11 @@ const Dashboard = () => {
                  * */}
                 <Skeleton />
                 {/* displays the user's favorites list  */}
-                <section className='review-section'>
+                <section className={style.reviewSection}>
                   <FavoritesContainer />
                 </section>
                 {/* displays the user's recent reviews they have posted  */}
-                <section className='review-section'>
+                <section className={style.reviewSection}>
                   <RecentReviewsContainer />
                 </section>
               </div>

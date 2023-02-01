@@ -1,4 +1,4 @@
-.login-container {
+.loginContainer {
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -8,12 +8,12 @@
 
 .container {
     display: flex;
-    margin-top: 2rem;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     height: 100%;
     width: 100%;
+    margin-bottom: 8rem;
 }
 
 .text {
@@ -23,7 +23,7 @@
     margin-bottom: 2rem;
 }
 
-.form-container {
+.formContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,17 +32,17 @@
     padding: 0 2rem;
 }
 
-.input-field {
+.inputField {
     width: 100%;
     padding: 1rem;
 }
 
-.btn-container {
+.btnContainer {
     width: 24rem;
     padding: 0 2rem;
 }
 
-.alternative-option-section {
+.alternativeOptionSection {
     display: flex;
     flex-direction: row;
     gap: 2rem;
@@ -50,13 +50,13 @@
     align-items: center;
 }
 
-.alt-el {
+.altEl {
     height: 100%;
     display: flex;
     align-items: center;
 }
 
-.alt-btn {
+.altBtn {
     border: 1px solid #7DF9FF;
     border-radius: 8px;
     color: black;
@@ -66,29 +66,29 @@
     align-items: center;
 }
 
-.alt-btn:hover {
+.altBtn:hover {
     background-color: #7DF9FF;
 }
 
 @media (min-width: 960px) {
     .container {
-        margin-top: 6rem;
+        margin-top: 4rem;
     }
 
     .text {
-        width: 36rem;
+        width: 24rem;
     }
 
-    .form-container {
-        width: 100%;
+    .formContainer {
+        width: 50%;
         padding: 0;
     }
 
-    .input-field {
+    .inputField {
         width: 50%;
     }
 
-    .btn-container {
+    .btnContainer {
         padding: 0;
     }
 }
