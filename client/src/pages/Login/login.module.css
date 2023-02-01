@@ -42,6 +42,16 @@
     padding: 0 2rem;
 }
 
+.loginBtn {
+    background-color: var(--primary-blue);
+    height: 3rem;
+}
+
+.signUpBtn {
+    background-color: var(--secondary-brown);
+    height: 3rem;
+}
+
 .alternativeOptionSection {
     display: flex;
     flex-direction: row;

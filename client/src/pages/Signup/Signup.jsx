@@ -8,31 +8,26 @@ import style from './signup.module.css'
 import FooterComponent from '../../Components/footer/footer'
 import Navbar from '../../Components/navbar'
 
-const Signup = () => {
+export default function Signup() {
   const [formState, setFormState] = useState({
     username: '',
     firstName: '',
     lastName: '',
     password: '',
   })
-
   const [addUser, { error, data }] = useMutation(ADD_USER)
 
   const handleChange = (event) => {
     const { name, value } = event.target
     setFormState({ ...formState, [name]: value })
   }
-
   const handleFormSubmit = async (event) => {
     event.preventDefault()
     console.log(formState)
-    // console.log(...formState)
-
     try {
       const { data } = await addUser({
         variables: { ...formState },
       })
-
       Auth.login(data.addUser.token)
     } catch (err) {
       console.error(err)
@@ -84,14 +79,14 @@ const Signup = () => {
             placeholder='Password'
           />
           <span className={style.btnContainer}>
-            <Button type='primary' htmlType='submit' block>
+            <Button className={style.signUpBtn} htmlType='submit' block>
               Sign Up
             </Button>
           </span>
           <div className={style.alternativeOptionSection}>
             <h4 className={style.altEl}>Already have an account?</h4>
             <Link to='/login'>
-              <Button>Login</Button>
+              <Button className={style.loginBtn}>Login</Button>
             </Link>
           </div>
         </form>
@@ -100,5 +95,3 @@ const Signup = () => {
     </>
   )
 }
-
-export default Signup
