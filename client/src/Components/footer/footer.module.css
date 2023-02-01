@@ -7,7 +7,7 @@ footer {
     align-items: center;
     padding-top: 2rem;
     padding: 6rem 0;
-    background-color: gainsboro;
+    background-color: var(--primary-grey);
 }
 
 .footerSection {
@@ -18,14 +18,32 @@ footer {
 
 .footerTitle {
     font-size: 2rem;
-    color: black
+    color: black;
+    text-decoration: none;
 }
 
 .footerLinks {
     font-size: 1rem;
+    color: var(--primary-black);
+    text-decoration: none;
+}
+
+.footerLinks:hover {
+    font-size: 1rem;
+    color: var(--primary-blue);
+    text-decoration: underline;
+    opacity: 75%;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 75ms;
 }
 
 .socialLink {
     color: black;
+    font-size: 2rem;
+}
+
+.socialLink:hover {
+    color: var(--primary-blue);
     font-size: 2rem;
 }
