@@ -1,38 +1,43 @@
-require("dotenv").config();
+require('dotenv').config()
 
-const express = require("express");
-const { ApolloServer } = require("apollo-server-express");
-const { join } = require("path");
-const { authMiddleware } = require("./utils/auth.js");
+const express = require('express')
+const { ApolloServer } = require('apollo-server-express')
+const { join } = require('path')
+const { authMiddleware } = require('./utils/auth.js')
 
-const { typeDefs, resolvers } = require("./schemas");
-const db = require("./config");
+const { typeDefs, resolvers } = require('./schemas')
+const db = require('./config')
 
-const PORT = process.env.PORT || 3001;
-const app = express();
+const PORT = process.env.PORT || 3001
+const app = express()
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware,
-});
+})
 
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(join(__dirname, "..", "client", "build")));
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(join(__dirname, '..', 'client', 'build')))
 }
 
-app.get("/", (req, res) => {
-  res.sendFile(join(__dirname, "client", "build", "index.html"));
-});
+app.get('/', (req, res) => {
+  res.sendFile(join(__dirname, 'client', 'build', 'index.html'))
+})
 
 const startApolloServer = async (typeDefs, resolvers) => {
-  await server.start();
-  server.applyMiddleware({ app });
+  await server.start()
+  server.applyMiddleware({ app })
 
-  db.once("open", () => app.listen(PORT));
-};
+  db.once('open', () => app.listen(PORT))
+  console.log(
+    '\n------------------------------------------\nMongoDB successfully connected!\nserver now running on port: ' +
+      PORT +
+      '\n------------------------------------------'
+  )
+}
 
-startApolloServer(typeDefs, resolvers);
+startApolloServer(typeDefs, resolvers)
