@@ -1,45 +1,45 @@
-import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { Breadcrumb, Layout, Skeleton, theme } from 'antd'
-import SearchBar from '../../Components/searchBar/searchBar'
-import FavoritesContainer from '../../Components/favoritesList/favoritesListContainer'
-import RecentReviewsContainer from '../../Components/recentReviews/recentReviewsContainer'
-import FooterComponent from '../../Components/footer/footer'
-import Navbar from '../../Components/navbar'
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Breadcrumb, Layout, Skeleton, theme } from "antd";
+import SearchBar from "../../Components/searchBar/searchBar";
+import FavoritesContainer from "../../Components/favoritesList/favoritesListContainer";
+import RecentReviewsContainer from "../../Components/recentReviews/recentReviewsContainer";
+import FooterComponent from "../../Components/footer/footer";
+import Navbar from "../../Components/navbar";
 // import SearchResults from '../../Components/searchResults/searchResults'
-import style from './dashboard.module.css'
+import style from "./dashboard.module.css";
 
-const { Content } = Layout
+const { Content } = Layout;
 
 const Dashboard = () => {
   useEffect(() => {
-    document.title = 'CommuniTEA - Dashboard'
-  }, [])
+    document.title = "CommuniTEA - Dashboard";
+  }, []);
 
   const {
     token: { colorBgContainer },
-  } = theme.useToken()
+  } = theme.useToken();
 
   return (
     <>
       <div className={style.navContainer}>
-        <Navbar navItem={'dashboard'} />
+        <Navbar navItem={"dashboard"} />
       </div>
       <Layout>
         <div className={style.wrapper}>
           <section className={style.dashboardContainer}>
             <Content
               style={{
-                padding: '0 1rem',
+                padding: "0 1rem",
               }}
             >
               <Breadcrumb
                 style={{
-                  margin: '16px 0',
+                  margin: "16px 0",
                 }}
               >
                 <Breadcrumb.Item>
-                  <Link to='/dashboard'>Dashboard</Link>
+                  <Link to="/dashboard">Dashboard</Link>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item>Search</Breadcrumb.Item>
               </Breadcrumb>
@@ -74,9 +74,9 @@ const Dashboard = () => {
             </Content>
           </section>
         </div>
-        <FooterComponent />
       </Layout>
+      <FooterComponent />
     </>
-  )
-}
-export default Dashboard
+  );
+};
+export default Dashboard;
