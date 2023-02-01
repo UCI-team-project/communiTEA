@@ -1,5 +1,5 @@
 import React from 'react'
-import './favoritesList.css'
+import style from './favoritesList.module.css'
 import { StarOutlined } from '@ant-design/icons'
 import { Carousel } from 'antd'
 const contentStyle = {
@@ -20,14 +20,14 @@ const SingleItem = () => {
     console.log(currentSlide)
   }
   return (
-    <div className='single-item-container'>
+    <div className={style.singleItemContainer}>
       <Carousel afterChange={onChange}>
         {itemArray.map((item, key) => (
           <div key={key} style={contentStyle}>
-            <article className='list-item-container'>
-              <div className='container-row'>
+            <article className={style.listItemContainer}>
+              <div className={style.containerRow}>
                 <h3>{item.name}</h3>
-                <p className='rating'>
+                <p className={style.rating}>
                   {item.rating} <StarOutlined />
                 </p>
               </div>

@@ -1,40 +1,56 @@
+.navContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100%;
     width: 100%;
+    margin-bottom: 8rem;
 }
 
 .text {
-    width: 24rem;
+    width: 80%;
     display: flex;
     text-align: center;
 }
 
-.form-container {
+.formContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    width: 50vw;
+    padding: 0 2rem;
+    width: 100%;
 }
 
-.input-field {
-    width: 50%;
+.inputField {
+    width: 100%;
     padding: 1rem;
 }
 
-.form-submit-btn {
+.formSubmitBtn {
     padding: 1rem;
     border-radius: 10px;
     border: none;
+    width: 24rem;
     background-color: #7DF9FF;
     color: black;
 }
 
-.alternative-option-section {
+.btnContainer {
+    width: 24rem;
+    padding: 0 2rem;
+}
+
+.alternativeOptionSection {
     display: flex;
     flex-direction: row;
     gap: 4rem;
@@ -42,13 +58,13 @@
     align-items: center;
 }
 
-.alt-el {
+.altEl {
     height: 100%;
     display: flex;
     align-items: center;
 }
 
-.alt-btn {
+.altBtn {
     border: 1px solid #7DF9FF;
     border-radius: 8px;
     color: black;
@@ -58,6 +74,25 @@
     align-items: center;
 }
 
-.alt-btn:hover {
+.altBtn:hover {
     background-color: #7DF9FF;
+}
+
+@media (min-width: 968px) {
+    .container {
+        margin-top: 4rem;
+    }
+
+    .text {
+        width: 24rem;
+    }
+
+    .formContainer {
+        width: 50vw;
+    }
+
+    .inputField {
+        width: 50%;
+    }
+
 }

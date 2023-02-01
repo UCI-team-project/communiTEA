@@ -1,5 +1,5 @@
 import React from 'react'
-import './reviewsList.css'
+
 import SingleItem from './singleItem'
 
 const RecentReviewsContainer = () => {

@@ -10,22 +10,22 @@ footer {
     background-color: gainsboro;
 }
 
-.footer-section {
+.footerSection {
     display: flex;
     flex-direction: row;
     gap: 2rem;
 }
 
-.footer-title {
+.footerTitle {
     font-size: 2rem;
     color: black
 }
 
-.footer-links {
+.footerLinks {
     font-size: 1rem;
 }
 
-.social-link {
+.socialLink {
     color: black;
     font-size: 2rem;
 }

@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client'
 import { LOGIN_USER } from '../../utils/mutations'
 import { Button, Checkbox, Form, Input } from 'antd'
 import Auth from '../../utils/auth.js'
-import './login.css'
+import style from './login.module.css'
 import { Link } from 'react-router-dom'
 import Navbar from '../../Components/navbar'
 import FooterComponent from '../../Components/footer/footer'
@@ -39,18 +39,18 @@ export default function Login() {
 
   return (
     <>
-      <div className='profile-container'>
+      <div className={style.loginContainer}>
         <Navbar navItem={'login'} />
       </div>
-      <div className='container'>
-        <h1 className='title'>Login Page</h1>
-        <p className='text'>
+      <div className={style.container}>
+        <h1 className={style.title}>Login</h1>
+        <p className={style.text}>
           Find the best boba in your area. Give them a review to help your
           fellow boba-nians in finding the best boba in the area. 😉
         </p>
-        <form className='form-container' onSubmit={handleFormSubmit}>
+        <form className={style.formContainer} onSubmit={handleFormSubmit}>
           <input
-            className='input-field'
+            className={style.inputField}
             type='text'
             autoComplete='off'
             name='name'
@@ -60,21 +60,21 @@ export default function Login() {
           />
 
           <input
-            className='input-field'
+            className={style.inputField}
             type='password'
             name='password'
             value={formState.password}
             onChange={handleInputChange}
             placeholder='Password'
           />
-          <span className='btn-container'>
+          <span className={style.btnContainer}>
             <Button type='primary' htmlType='submit' block>
               Login
             </Button>
           </span>
-          <div className='alternative-option-section'>
-            <h4 className='alt-el'>Don't have an account yet?</h4>
-            <Link to='/register'>
+          <div className={style.alternativeOptionSection}>
+            <h4 className={style.altEl}>Don't have an account yet?</h4>
+            <Link to='/signup'>
               <Button>Sign Up</Button>
             </Link>
           </div>

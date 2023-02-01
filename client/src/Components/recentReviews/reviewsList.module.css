@@ -1,20 +1,21 @@
-.single-item-container {
+.singleItemContainer {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    background-color: rgb(241, 241, 241);
+
 }
 
-.list-item-container {
+.listItemContainer {
+    background-color: rgb(241, 241, 241);
     padding: 2rem;
     border-radius: 6px;
+
 }
 
-.container-row {
+.containerRow {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
 }
 
 .rating {

@@ -1,12 +1,12 @@
 import { SearchOutlined } from '@ant-design/icons'
 import { Input } from 'antd'
-import './searchBar.css'
+import style from './searchBar.module.css'
 
 export default function SearchBar() {
   return (
-    <div className='searchBarInput'>
+    <div>
       <Input
-        className='searchBar'
+        className={style.searchBar}
         prefix={<SearchOutlined />}
         placeholder={'Search for a place'}
       />
