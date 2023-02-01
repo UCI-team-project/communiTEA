@@ -13,19 +13,18 @@ Users are also able to add different businesses to their favorites list.
 
 ## User Stories
 
-- [x] User can search a keyword or search for a business to review
-- [x] User can create an account and login
-- [x] User can leave reviews and rating for a business
-- [x] User can add a business to their favorites list
+- User can search a keyword or search for a business to review
+- User can create an account and login
+- User can leave reviews and rating for a business
+- User can add a business to their favorites list
 
 ## Technologies Used
 
-- [x] JavaScript
+- [x] JavaScript (ES6+)
 - [x] React
 - [x] MongoDB
 - [x] Mongoose
 - [x] GraphQL
-- [x] Tailwind CSS
 - [x] Material UI
 - [x] Deployed on Heroku
 - [x] Yelp Fusion API
