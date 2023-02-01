@@ -1,0 +1,11 @@
+.imgContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 50;
+}
+
+.carouselImg {
+    width: 36rem;
+    z-index: 50;
+}
