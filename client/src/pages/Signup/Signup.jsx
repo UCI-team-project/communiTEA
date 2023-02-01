@@ -1,43 +1,41 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { useMutation } from '@apollo/client'
-import { ADD_USER } from '../../utils/mutations'
-import { Button } from 'antd'
-import Auth from '../../utils/auth'
-import style from './signup.module.css'
-import FooterComponent from '../../Components/footer/footer'
-import Navbar from '../../Components/navbar'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { REGISTER_USER } from "../../utils/mutations";
+import { Button } from "antd";
+import Auth from "../../utils/auth";
+import style from "./signup.module.css";
+import FooterComponent from "../../Components/footer/footer";
+import Navbar from "../../Components/navbar";
 
 const Signup = () => {
   const [formState, setFormState] = useState({
-    username: '',
-    firstName: '',
-    lastName: '',
-    password: '',
-  })
+    name: "",
+    password: "",
+  });
 
-  const [addUser, { error, data }] = useMutation(ADD_USER)
+  const [register, { error, data }] = useMutation(REGISTER_USER);
 
   const handleChange = (event) => {
-    const { name, value } = event.target
-    setFormState({ ...formState, [name]: value })
-  }
+    const { name, value } = event.target;
+    setFormState({ ...formState, [name]: value });
+  };
 
   const handleFormSubmit = async (event) => {
-    event.preventDefault()
-    console.log(formState)
+    event.preventDefault();
+    console.log(formState);
     // console.log(...formState)
 
     try {
-      const { data } = await addUser({
+      const { data } = await register({
         variables: { ...formState },
-      })
+      });
 
-      Auth.login(data.addUser.token)
+      Auth.login(data.register.token);
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }
-  }
+  };
 
   return (
     <>
@@ -53,44 +51,28 @@ const Signup = () => {
         <form className={style.formContainer} onSubmit={handleFormSubmit}>
           <input
             className={style.inputField}
-            type='text'
-            name='username'
-            value={formState.username}
+            type="text"
+            name="name"
+            value={formState.name}
             onChange={handleChange}
-            placeholder='Enter username'
+            placeholder="Enter username"
           />
           <input
             className={style.inputField}
-            type='text'
-            name='firstName'
-            value={formState.firstName}
-            onChange={handleChange}
-            placeholder='Enter first name'
-          />
-          <input
-            className={style.inputField}
-            type='text'
-            name='lastName'
-            value={formState.lastName}
-            onChange={handleChange}
-            placeholder='Enter last name'
-          />
-          <input
-            className={style.inputField}
-            type='password'
-            name='password'
+            type="password"
+            name="password"
             value={formState.password}
             onChange={handleChange}
-            placeholder='Password'
+            placeholder="Password"
           />
           <span className={style.btnContainer}>
-            <Button type='primary' htmlType='submit' block>
+            <Button type="primary" htmlType="submit" block>
               Sign Up
             </Button>
           </span>
           <div className={style.alternativeOptionSection}>
             <h4 className={style.altEl}>Already have an account?</h4>
-            <Link to='/login'>
+            <Link to="/login">
               <Button>Login</Button>
             </Link>
           </div>
@@ -98,7 +80,7 @@ const Signup = () => {
       </div>
       <FooterComponent />
     </>
-  )
-}
+  );
+};
 
-export default Signup
+export default Signup;
