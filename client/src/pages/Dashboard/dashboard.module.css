@@ -1,4 +1,4 @@
-.nav-container {
+.navContainer {
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -6,7 +6,7 @@
     align-items: center;
 }
 
-.site-layout-content {
+.siteLayoutContent {
     min-height: 280px;
     padding: 24px;
 
@@ -30,16 +30,16 @@
     justify-content: center;
 }
 
-.dashboard-container {
+.dashboardContainer {
     width: 100%;
 }
 
-.review-section {
+.reviewSection {
     margin-top: 4rem;
 }
 
 @media (min-width: 968px) {
-    .dashboard-container {
+    .dashboardContainer {
         width: 80vw;
     }
 }
