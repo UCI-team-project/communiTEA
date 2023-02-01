@@ -1,8 +1,16 @@
+.login-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .container {
     display: flex;
     margin-top: 2rem;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     height: 100%;
     width: 100%;
@@ -40,7 +48,6 @@
     gap: 2rem;
     justify-content: center;
     align-items: center;
-
 }
 
 .alt-el {
@@ -65,7 +72,7 @@
 
 @media (min-width: 960px) {
     .container {
-        margin-top: 12rem;
+        margin-top: 6rem;
     }
 
     .text {

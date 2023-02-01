@@ -6,10 +6,11 @@ import { Button, Checkbox, Form, Input } from "antd";
 import TrendingShopsContainer  from '../../Components/trendingshops/trendingshopsContainer'
 
 
+
 const Home = () => {
   useEffect(() => {
-    document.title = "CommuniTEA - Home";
-  }, []);
+    document.title = 'CommuniTEA - Home'
+  }, [])
   return (
     <>
       <Navbar navItem="home" />
@@ -24,9 +25,9 @@ const Home = () => {
           <Button>SIGNUP</Button>
         </Link>
       </div>
-        <TrendingShopsContainer />
+        <TrendingShopsContainer 
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
