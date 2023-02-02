@@ -9,6 +9,8 @@ import Navbar from "../../Components/navbar";
 // import SearchResults from '../../Components/searchResults/searchResults'
 import style from "./dashboard.module.css";
 
+import Auth from "../../utils/auth";
+
 const { Content } = Layout;
 
 const Dashboard = () => {
@@ -55,21 +57,23 @@ const Dashboard = () => {
                  *************************
                  */}
                 <SearchBar />
-                {/*
-                 * TODO:
-                 * - add conditional statement to return a skeleton if no new search has been queried
-                 * - if a search has been initiated, render the Search Results component instead of the Skeleton component
-                 * - ex: { fetchedData ? <SearchResults/> : <Skeleton/> }
-                 * */}
-                <Skeleton />
-                {/* displays the user's favorites list  */}
-                <section className={style.reviewSection}>
-                  <FavoritesContainer />
-                </section>
-                {/* displays the user's recent reviews they have posted  */}
-                <section className={style.reviewSection}>
-                  <RecentReviewsContainer />
-                </section>
+                {Auth.loggedIn() ? (
+                  <>
+                    <Skeleton />
+                    {/* displays the user's favorites list  */}
+                    <section className={style.reviewSection}>
+                      <FavoritesContainer />
+                    </section>
+                    {/* displays the user's recent reviews they have posted  */}
+                    <section className={style.reviewSection}>
+                      <RecentReviewsContainer />
+                    </section>
+                  </>
+                ) : (
+                  <>
+                    <p>You need to be logged in to use these features!</p>
+                  </>
+                )}
               </div>
             </Content>
           </section>

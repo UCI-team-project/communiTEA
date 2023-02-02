@@ -66,13 +66,13 @@ export default function Signup() {
             placeholder="Password"
           />
           <span className={style.btnContainer}>
-            <Button className={style.signUpBtn} htmlType='submit' block>
+            <Button className={style.signUpBtn} htmlType="submit" block>
               Sign Up
             </Button>
           </span>
           <div className={style.alternativeOptionSection}>
             <h4 className={style.altEl}>Already have an account?</h4>
-            <Link to='/login'>
+            <Link to="/login">
               <Button className={style.loginBtn}>Login</Button>
             </Link>
           </div>
@@ -81,6 +81,4 @@ export default function Signup() {
       <FooterComponent />
     </>
   );
-};
-
-export default Signup;
+}
