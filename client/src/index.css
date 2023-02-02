@@ -5,8 +5,12 @@
 
 :root {
     --primary-blue: #88DACB;
+    --primary-aqua: aquamarine;
     --secondary-brown: #C0AF82;
-    --primary-grey: #f1f1f1
+    --primary-grey: #f1f1f1;
+
+    /* border radius */
+    --br-primary: 8px;
 }
 
 * {

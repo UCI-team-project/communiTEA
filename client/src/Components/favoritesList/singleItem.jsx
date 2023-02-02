@@ -2,6 +2,7 @@ import React from 'react'
 import style from './favoritesList.module.css'
 import { StarOutlined } from '@ant-design/icons'
 import { Carousel } from 'antd'
+
 const contentStyle = {
   margin: 0,
   height: '160px',
@@ -15,7 +16,8 @@ const itemArray = [
   { name: 'Boba Place', rating: 4.0, description: 'business description' },
   { name: 'Milk Tea', rating: 4.6, description: 'business description' },
 ]
-const SingleItem = () => {
+
+export default function SingleItem() {
   const onChange = (currentSlide) => {
     console.log(currentSlide)
   }
@@ -39,5 +41,3 @@ const SingleItem = () => {
     </div>
   )
 }
-
-export default SingleItem

@@ -1,7 +1,13 @@
+.recentReviewsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
 .singleItemContainer {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    width: 24rem;
 
 }
 
@@ -9,13 +15,13 @@
     background-color: rgb(241, 241, 241);
     padding: 2rem;
     border-radius: 6px;
+    width: 24rem;
 
 }
 
 .containerRow {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
 }
 
 .rating {

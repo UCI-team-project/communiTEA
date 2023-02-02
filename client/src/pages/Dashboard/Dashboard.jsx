@@ -8,6 +8,7 @@ import FooterComponent from '../../Components/footer/footer'
 import Navbar from '../../Components/navbar'
 // import SearchResults from '../../Components/searchResults/searchResults'
 import style from './dashboard.module.css'
+import CardList from '../../Components/cardList/cardList'
 
 const { Content } = Layout
 
@@ -62,20 +63,16 @@ const Dashboard = () => {
                  * - ex: { fetchedData ? <SearchResults/> : <Skeleton/> }
                  * */}
                 <Skeleton />
-                {/* displays the user's favorites list  */}
                 <section className={style.reviewSection}>
                   <FavoritesContainer />
-                </section>
-                {/* displays the user's recent reviews they have posted  */}
-                <section className={style.reviewSection}>
                   <RecentReviewsContainer />
                 </section>
               </div>
             </Content>
           </section>
         </div>
-        <FooterComponent />
       </Layout>
+      <FooterComponent />
     </>
   )
 }

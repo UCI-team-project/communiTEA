@@ -8,4 +8,5 @@
 .carouselImg {
     width: 36rem;
     z-index: 50;
+    border-radius: 8px;
 }
