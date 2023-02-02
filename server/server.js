@@ -58,12 +58,15 @@ const startApolloServer = async (typeDefs, resolvers) => {
   await server.start()
   server.applyMiddleware({ app })
 
-  db.once('open', () => app.listen(PORT))
-  console.log(
-    '\n------------------------------------------\nMongoDB successfully connected!\nserver now running on port: ' +
-      PORT +
-      '\n------------------------------------------'
-  )
-}
+  db.once("open", () => {
+    app.listen(PORT, () => {
+      console.log(`
+        \n------------------------------------------
+        \nAPI server running on port ${PORT}!
+        \nUse GraphQL at http://localhost:${PORT}${server.graphqlPath}
+        \n------------------------------------------`);
+    });
+  });
+};
 
 startApolloServer(typeDefs, resolvers)
