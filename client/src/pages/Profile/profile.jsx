@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Navbar from "../../Components/navbar";
+import Navbar from "../../Components/navbar.jsx";
 import { Breadcrumb, Layout, theme } from "antd";
 import style from "./profile.module.css";
 import { Card } from "antd";

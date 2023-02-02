@@ -19,8 +19,9 @@ const Navbar = ({ navItem }) => {
       label: <Link to={`/${item}`}>{capitalizeFirstLetter(item)}</Link>,
     };
   });
+  let key = 4;
   nav.push({
-    key: 5,
+    key,
     label: (
       <Link to={`/`} onClick={Auth.logout}>
         Logout
@@ -44,7 +45,7 @@ const Navbar = ({ navItem }) => {
       return ["4"];
     }
     if (item === "logout") {
-      return ["5"];
+      return ["4"];
     }
   }
   /**
@@ -54,13 +55,16 @@ const Navbar = ({ navItem }) => {
    */
   return (
     <Header>
-      <div className="">
+      <div>
         {Auth.loggedIn() ? (
           <Menu
             theme="light"
             mode="horizontal"
             defaultSelectedKeys={populateNav(navItem)}
             items={nav}
+
+            // temp fix for navbar horizontal collapse, not sure if we want to use this
+            // style={{ minWidth: "317px", flex: "auto" }}
           />
         ) : (
           <Menu

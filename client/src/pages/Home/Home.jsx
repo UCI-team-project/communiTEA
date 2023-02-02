@@ -1,13 +1,13 @@
 /* eslint-disable react/jsx-no-target-blank */
 import { useEffect } from "react";
-import Navbar from "../../Components/navbar";
+import Navbar from "../../Components/navbar.jsx";
 import { Link } from "react-router-dom";
 import SearchBar from "../../Components/searchBar/searchBar";
 import { Button } from "antd";
 import TrendingShopsContainer from "../../Components/trendingshops/trendingshopsContainer";
 import style from "./home.module.css";
 import FooterComponent from "../../Components/footer/footer";
-// import image from '../../assets/images/tea.jpg'
+// import image from "../../assets/images/tea.jpg";
 import ImageCarousel from "../../Components/carousel/carousel";
 
 export default function Home() {

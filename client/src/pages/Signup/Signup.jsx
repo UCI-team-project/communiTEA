@@ -10,7 +10,9 @@ import Navbar from "../../Components/navbar";
 
 export default function Signup() {
   const [formState, setFormState] = useState({
-    name: "",
+    username: "",
+    first_name: "",
+    last_name: "",
     password: "",
   });
 
@@ -58,10 +60,26 @@ export default function Signup() {
               <input
                 className={style.inputField}
                 type="text"
-                name="name"
-                value={formState.name}
+                name="username"
+                value={formState.username}
                 onChange={handleChange}
                 placeholder="Enter Username"
+              />
+              <input
+                className={style.inputField}
+                type="text"
+                name="first_name"
+                value={formState.first_name}
+                onChange={handleChange}
+                placeholder="Enter First Name"
+              />
+              <input
+                className={style.inputField}
+                type="text"
+                name="last_name"
+                value={formState.last_name}
+                onChange={handleChange}
+                placeholder="Enter Last Name"
               />
               <input
                 className={style.inputField}
