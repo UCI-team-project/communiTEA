@@ -8,8 +8,9 @@ import TrendingShopsContainer from '../../Components/trendingshops/trendingshops
 import style from './home.module.css'
 import FooterComponent from '../../Components/footer/footer'
 import image from '../../assets/images/tea.jpg'
+import ImageCarousel from '../../Components/carousel/carousel'
 
-const Home = () => {
+export default function Home() {
   useEffect(() => {
     document.title = "CommuniTEA - Home";
   }, []);
@@ -36,9 +37,11 @@ const Home = () => {
       <div className={style.homeContainer}>
         <div className={style.wrapper}>
           <h1 className=''>CommuniTEA</h1>
-          <article className={style.ctaWrapper}>
+          <span className={style.headerTextWrapper}>
             <p className={style.headerText}>{headerText.header.text}</p>
-            <img src={image} alt='header' className={style.image} />
+          </span>
+          <article className={style.ctaWrapper}>
+            <ImageCarousel />
             <article className={style.apiContainer}>
               <p className={style.apiInfo}>
                 {' '}
@@ -72,7 +75,5 @@ const Home = () => {
       </div>
       <FooterComponent />
     </>
-  );
-};
-
-export default Home;
+  )
+}

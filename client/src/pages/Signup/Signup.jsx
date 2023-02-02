@@ -8,7 +8,7 @@ import style from "./signup.module.css";
 import FooterComponent from "../../Components/footer/footer";
 import Navbar from "../../Components/navbar";
 
-const Signup = () => {
+export default function Signup() {
   const [formState, setFormState] = useState({
     name: "",
     password: "",
@@ -66,14 +66,14 @@ const Signup = () => {
             placeholder="Password"
           />
           <span className={style.btnContainer}>
-            <Button type="primary" htmlType="submit" block>
+            <Button className={style.signUpBtn} htmlType='submit' block>
               Sign Up
             </Button>
           </span>
           <div className={style.alternativeOptionSection}>
             <h4 className={style.altEl}>Already have an account?</h4>
-            <Link to="/login">
-              <Button>Login</Button>
+            <Link to='/login'>
+              <Button className={style.loginBtn}>Login</Button>
             </Link>
           </div>
         </form>

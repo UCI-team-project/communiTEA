@@ -68,14 +68,14 @@ export default function Login() {
             placeholder="Password"
           />
           <span className={style.btnContainer}>
-            <Button type="primary" htmlType="submit" block>
+            <Button className={style.loginBtn} htmlType='submit' block>
               Login
             </Button>
           </span>
           <div className={style.alternativeOptionSection}>
             <h4 className={style.altEl}>Don't have an account yet?</h4>
-            <Link to="/signup">
-              <Button>Sign Up</Button>
+            <Link to='/signup'>
+              <Button className={style.signUpBtn}>Sign Up</Button>
             </Link>
           </div>
         </form>
