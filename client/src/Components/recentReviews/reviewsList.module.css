@@ -1,0 +1,23 @@
+.singleItemContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+
+.listItemContainer {
+    background-color: rgb(241, 241, 241);
+    padding: 2rem;
+    border-radius: 6px;
+
+}
+
+.containerRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.rating {
+    font-size: 1rem;
+}

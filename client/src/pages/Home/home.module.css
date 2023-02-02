@@ -1,0 +1,151 @@
+.navContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    padding-bottom: 8rem;
+
+}
+
+.wrapper {
+    width: 100%;
+    padding: 0 2rem;
+}
+
+.headerTextWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerText {
+    font-size: 1.2rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    width: 56rem;
+    border-radius: 6px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    margin: 2rem 0;
+}
+
+.ctaWrapper {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
+    width: 100%;
+    height: 100%;
+
+}
+
+.bottomSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    justify-content: center;
+    background-color: #88DACB;
+    padding: 1rem 0;
+}
+
+
+
+.cta {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #EAEAEA;
+    padding: 1rem 0;
+    border-radius: 8px;
+}
+
+.apiContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.apiInfo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5rem;
+
+}
+
+
+.apiLink {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 4rem;
+    text-decoration: none;
+    color: #88DACB;
+}
+
+.apiLink:hover {
+    opacity: 75%;
+    text-decoration: underline;
+}
+
+.btn1 {
+    background-color: #82B5C0;
+    height: 3rem;
+    width: 8rem;
+}
+
+.btn2 {
+    background-color: var(--secondary-brown);
+    height: 3rem;
+    width: 8rem;
+}
+
+
+.trendingShopsContainer {
+    width: 100%;
+    border-radius: 6px;
+}
+
+@media (min-width: 968px) {
+    .wrapper {
+        width: 80%;
+        padding: 0 0;
+    }
+
+    .headerText {
+        width: 40%;
+    }
+
+    .apiInfo {
+        width: 36rem;
+        line-height: 2rem;
+    }
+
+    .cta {
+        width: 48rem;
+    }
+
+    .trendingShopsContainer {
+        width: 48rem;
+    }
+}
