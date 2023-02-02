@@ -1,7 +1,5 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
-const reviewSchema = require("./Review");
-const storeSchema = require('./Store');
 
 const userSchema = new Schema({
   username: {
@@ -26,9 +24,24 @@ const userSchema = new Schema({
   description: {
     type: String,
   },
-  savedStores: [storeSchema],
-  reviews: [reviewSchema], 
+  savedStores: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Store',
+  }],
+  reviews: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Review',
+  }], 
+}, {
+  toJSON: {
+    virtuals: true,
+  }, 
+  id: false,
 });
+
+userSchema.virtual("full_name").get(function() {
+  return `${this.first_name} ${this.last_name}`;
+})
 
 userSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {

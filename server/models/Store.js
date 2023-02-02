@@ -1,5 +1,15 @@
-const { Schema } = require('mongoose');
-const reviewSchema = require('./Review');
+const { Schema, model } = require('mongoose');
+
+const reactionSchema = new Schema({
+  reaction: {
+    type: String,
+    required: true,
+  },
+  by: [{
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  }],
+})
 
 const storeSchema = new Schema({
   storeId: {
@@ -15,12 +25,19 @@ const storeSchema = new Schema({
     required: true,
   },
   categories: [{ type : String }],
-  yelpURL: {
+  URL: {
     type: String,
     required: true,
   },
-  ratings: [reviewSchema]
+  photos: [{ type: String }],
+  reactions: [reactionSchema],
+  reviews: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Review',
+  }]
 });
 
-module.exports = storeSchema;
+const Store = model("Store", storeSchema);
+
+module.exports = Store;
 
