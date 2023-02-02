@@ -1,8 +1,16 @@
+.favoritesListContainer {
+    display: flex;
+    flex-direction: column;
+
+}
+
 .singleItemContainer {
     display: flex;
     flex-direction: column;
     gap: 2rem;
     background-color: rgb(241, 241, 241);
+    border-radius: 6px;
+    /* width: 24rem; */
 }
 
 .listItemContainer {
@@ -19,4 +27,13 @@
 
 .rating {
     font-size: 1rem;
+}
+
+
+@media (min-width: 968px) {
+
+    .singleItemContainer {
+        width: 24rem;
+    }
+
 }

@@ -1,0 +1,123 @@
+.navContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    margin-bottom: 12rem;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 2rem;
+
+}
+
+.imageContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.image {
+    height: 12rem;
+    width: 90%;
+
+    background-color: var(--primary-aqua);
+    border-radius: var(--br-primary);
+}
+
+
+.storeDescription {
+    margin-top: 4rem;
+    height: 24rem;
+    width: 100%;
+    border-radius: var(--br-primary);
+    background-color: gainsboro;
+}
+
+.reviewsContainer {
+    margin: 4rem 0;
+}
+
+.reviewFormArticle {
+    background-color: var(--primary-blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: var(--br-primary);
+}
+
+.reviewForm {
+    margin: 2rem 0;
+    width: 100%;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.reviewForm>textarea {
+    width: 100%;
+    border-radius: var(--br-primary);
+    padding: 0.5rem;
+}
+
+.reviewBtnContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.reviewBtn {
+    width: 12rem;
+    padding: 1rem;
+    background-color: ;
+    border-radius: var(--br-primary);
+    border: none;
+}
+
+.reviewBtn:hover {
+    opacity: 75%;
+}
+
+@media (min-width: 968px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .imageContainer {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    .image {
+        height: 12rem;
+        width: 16rem;
+        background-color: var(--primary-aqua);
+        border-radius: var(--br-primary);
+    }
+
+    .contentWrapper {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        max-width: 1200px;
+    }
+}
