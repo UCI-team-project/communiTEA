@@ -5,7 +5,7 @@ import SearchBar from "../../Components/searchBar/searchBar";
 import FavoritesContainer from "../../Components/favoritesList/favoritesListContainer";
 import RecentReviewsContainer from "../../Components/recentReviews/recentReviewsContainer";
 import FooterComponent from "../../Components/footer/footer";
-import Navbar from "../../Components/navbar";
+import Navbar from "../../Components/navbar.jsx";
 // import SearchResults from '../../Components/searchResults/searchResults'
 import style from "./dashboard.module.css";
 
