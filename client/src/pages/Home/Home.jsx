@@ -12,8 +12,8 @@ import ImageCarousel from '../../Components/carousel/carousel'
 
 export default function Home() {
   useEffect(() => {
-    document.title = 'CommuniTEA - Home'
-  }, [])
+    document.title = "CommuniTEA - Home";
+  }, []);
 
   const headerText = {
     header: {
