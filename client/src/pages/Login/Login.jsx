@@ -11,7 +11,7 @@ import FooterComponent from "../../Components/footer/footer";
 
 export default function Login() {
   const [formState, setFormState] = useState({
-    name: "",
+    username: "",
     password: "",
   });
   const [Login, { error, data }] = useMutation(LOGIN_USER);
@@ -60,8 +60,8 @@ export default function Login() {
                 className={style.inputField}
                 type="text"
                 autoComplete="off"
-                name="name"
-                value={formState.name}
+                name="username"
+                value={formState.username}
                 onChange={handleInputChange}
                 placeholder="Enter Username"
               />

@@ -7,7 +7,7 @@ import { Button } from "antd";
 import TrendingShopsContainer from "../../Components/trendingshops/trendingshopsContainer";
 import style from "./home.module.css";
 import FooterComponent from "../../Components/footer/footer";
-import image from "../../assets/images/tea.jpg";
+// import image from "../../assets/images/tea.jpg";
 import ImageCarousel from "../../Components/carousel/carousel";
 
 export default function Home() {

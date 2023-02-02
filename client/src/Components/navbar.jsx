@@ -19,7 +19,7 @@ const Navbar = ({ navItem }) => {
       label: <Link to={`/${item}`}>{capitalizeFirstLetter(item)}</Link>,
     };
   });
-  let key = 5;
+  let key = 4;
   nav.push({
     key,
     label: (
@@ -45,7 +45,7 @@ const Navbar = ({ navItem }) => {
       return ["4"];
     }
     if (item === "logout") {
-      return ["5"];
+      return ["4"];
     }
   }
   /**
