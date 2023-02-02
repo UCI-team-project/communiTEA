@@ -39,9 +39,9 @@ Enter a business to search up to view reviews
 
 [Stephanie Tseng](https://github.com/wytseng)
 
-[Darius Garcia](https://github.com/dariusgarcia/)
-
 [Johnathan Nguyen](https://github.com/jthnguyen9909)
+
+[Darius Garcia](https://github.com/dariusgarcia/)
 
 [Justin Chen](https://github.com/JustinCChen)
 

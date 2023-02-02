@@ -9,7 +9,6 @@
 .siteLayoutContent {
     min-height: 280px;
     padding: 24px;
-
 }
 
 #components-layout-demo-top .logo {
@@ -28,6 +27,7 @@
 .wrapper {
     display: flex;
     justify-content: center;
+    margin-bottom: 8rem;
 }
 
 .dashboardContainer {
@@ -36,10 +36,19 @@
 
 .reviewSection {
     margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 @media (min-width: 968px) {
     .dashboardContainer {
         width: 80vw;
+    }
+
+    .reviewSection {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
     }
 }
