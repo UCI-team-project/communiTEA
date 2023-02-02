@@ -4,17 +4,25 @@ const { signToken } = require("../utils/auth.js");
 
 const resolvers = {
   Query: {
-    me: async (parent, { userId }, context) => {
+    me: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findOne({ _id: context.user._id }).select("-__v -password");
         return user.populate("savedStores reviews");
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    singleStore: async (parent, {store_id}) => {
+    getSingleUser: async ( parent, { userId }) => {
+      const user = await User.findById(userId);
+      return user.populate("savedStores reviews");
+    },
+    getAllStores: async (parent, args) => {
+      const stores = await Store.find({}).populate("reactions.by reviews");
+      return stores;
+    },
+    getStore: async (parent, { store_id }) => {
       const store = await Store.findById(store_id);
       return store.populate("reactions.by reviews");
-    }
+    },
   },
   Mutation: {
     register: async (parent, { username, password, first_name, last_name }) => {

@@ -35,7 +35,24 @@ const storeSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Review',
   }]
+}, {
+  toJSON: {
+    virtuals: true,
+  },
+  id: false,
 });
+
+storeSchema.virtual("avg_rating").get(function() {
+  if (this.reviews.length === 0) {
+    return null;
+  }
+  let sum = 0
+  this.reviews.forEach((review) => {
+    sum += review.score;
+  });
+  const avg = sum / this.reviews.length;
+  return avg;
+})
 
 const Store = model("Store", storeSchema);
 

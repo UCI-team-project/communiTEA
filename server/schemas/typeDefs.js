@@ -23,6 +23,7 @@ const typeDefs = gql`
     photos: [String]
     reactions: [Reaction]
     reviews: [Review]
+    avg_rating: Float
   }
 
   type Reaction {
@@ -79,8 +80,10 @@ const typeDefs = gql`
   }
 
   type Query {
-    me(userId: String!): User
-    singleStore(store_id: ID!): Store
+    me: User
+    getSingleUser(userId: ID!): User 
+    getAllStores: [Store] 
+    getStore(store_id: ID!): Store
   }
 
   type Mutation {

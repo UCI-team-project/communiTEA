@@ -18,6 +18,7 @@ export const QUERY_ME = gql`
         categories
         URL 
         photos
+        avg_rating
       }
       reviews {
         _id 
@@ -34,9 +35,44 @@ export const QUERY_ME = gql`
   }
 `;
 
-export const SINGLE_STORE = gql `
-  query singleStore($store_id: ID!) {
-    singleStore(store_id: $store_id) {
+export const GET_SINGLE_USER = gql`
+  query getSingleUser($userId: ID!) {
+    getSingleUser(userId: $userId) {
+      _id
+      username 
+      password
+      first_name
+      last_name
+      full_name
+      description
+      savedStores {
+        _id
+        storeId
+        name
+        address
+        categories
+        URL 
+        photos
+        avg_rating
+      }
+      reviews {
+        _id 
+        content
+        score
+        createdAt
+        storeId
+        storeName
+        storeURL
+        username
+        fullname
+      }
+    }
+  }
+`;
+
+export const GET_ALL_STORES = gql`
+  query getAllStores {
+    getAllStores {
       _id
       storeId
       name
@@ -44,6 +80,22 @@ export const SINGLE_STORE = gql `
       categories
       URL
       photos
+      avg_rating
+    }
+  }
+`
+
+export const GET_STORE = gql `
+  query getStore($store_id: ID!) {
+    getStore(store_id: $store_id) {
+      _id
+      storeId
+      name
+      address
+      categories
+      URL
+      photos
+      avg_rating
       reactions {
         reaction
         by {
@@ -56,11 +108,12 @@ export const SINGLE_STORE = gql `
         content
         score
         createdAt
-        storeId
+        store_id
         storeName
         storeURL
+        userId
         username
-        fullname
+        full_name
       }
     }
   }
