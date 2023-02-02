@@ -4,7 +4,117 @@ export const QUERY_ME = gql`
   query me {
     me {
       _id
-      name
+      username 
+      password
+      first_name
+      last_name
+      full_name
+      description
+      savedStores {
+        _id
+        storeId
+        name
+        address
+        categories
+        URL 
+        photos
+        avg_rating
+      }
+      reviews {
+        _id 
+        content
+        score
+        createdAt
+        storeId
+        storeName
+        storeURL
+        username
+        fullname
+      }
     }
   }
 `;
+
+export const GET_SINGLE_USER = gql`
+  query getSingleUser($userId: ID!) {
+    getSingleUser(userId: $userId) {
+      _id
+      username 
+      password
+      first_name
+      last_name
+      full_name
+      description
+      savedStores {
+        _id
+        storeId
+        name
+        address
+        categories
+        URL 
+        photos
+        avg_rating
+      }
+      reviews {
+        _id 
+        content
+        score
+        createdAt
+        storeId
+        storeName
+        storeURL
+        username
+        fullname
+      }
+    }
+  }
+`;
+
+export const GET_ALL_STORES = gql`
+  query getAllStores {
+    getAllStores {
+      _id
+      storeId
+      name
+      address
+      categories
+      URL
+      photos
+      avg_rating
+    }
+  }
+`
+
+export const GET_STORE = gql `
+  query getStore($store_id: ID!) {
+    getStore(store_id: $store_id) {
+      _id
+      storeId
+      name
+      address
+      categories
+      URL
+      photos
+      avg_rating
+      reactions {
+        reaction
+        by {
+          username
+          full_name
+        }
+      }
+      reviews {
+        _id 
+        content
+        score
+        createdAt
+        store_id
+        storeName
+        storeURL
+        userId
+        username
+        full_name
+      }
+    }
+  }
+`

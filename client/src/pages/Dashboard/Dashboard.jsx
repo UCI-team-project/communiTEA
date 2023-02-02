@@ -8,7 +8,8 @@ import FooterComponent from '../../Components/footer/footer'
 import Navbar from '../../Components/navbar'
 // import SearchResults from '../../Components/searchResults/searchResults'
 import style from './dashboard.module.css'
-import CardList from '../../Components/cardList/cardList'
+
+import Auth from '../../utils/auth'
 
 const { Content } = Layout
 
@@ -62,11 +63,21 @@ const Dashboard = () => {
                  * - if a search has been initiated, render the Search Results component instead of the Skeleton component
                  * - ex: { fetchedData ? <SearchResults/> : <Skeleton/> }
                  * */}
-                <Skeleton />
-                <section className={style.reviewSection}>
-                  <FavoritesContainer />
-                  <RecentReviewsContainer />
-                </section>
+
+                {Auth.loggedIn() ? (
+                  <>
+                    <Skeleton />
+                    {/* displays the user's favorites list  */}
+                    <section className={style.reviewSection}>
+                      <FavoritesContainer />
+                      <RecentReviewsContainer />
+                    </section>
+                  </>
+                ) : (
+                  <>
+                    <p>You need to be logged in to use these features!</p>
+                  </>
+                )}
               </div>
             </Content>
           </section>
