@@ -5,6 +5,8 @@ import style from "./profile.module.css";
 import { Card } from "antd";
 import FooterComponent from "../../Components/footer/footer";
 import { Link } from "react-router-dom";
+import Auth from "../../utils/auth";
+
 const { Content } = Layout;
 
 const Profile = () => {
@@ -44,29 +46,32 @@ const Profile = () => {
                   background: colorBgContainer,
                 }}
               >
-                {/*
-                 *************************
-                 * Main profile content
-                 *************************
-                 */}
-                <h1>Profile</h1>
-                <section className={style.profileHeaderSection}>
-                  <article>
-                    <Card
-                      title="Welcome back John Doe"
-                      bordered={false}
-                      style={{
-                        width: 500,
-                      }}
-                    >
-                      <div className={style.cardBody}>
-                        <Link to="/dashboard">View Milk Tea places</Link>
-                        <Link to="/dashboard">View favorites List</Link>
-                        <Link to="/dashboard">View reviews</Link>
-                      </div>
-                    </Card>
-                  </article>
-                </section>
+                {Auth.loggedIn() ? (
+                  <>
+                    <h1>Profile</h1>
+                    <section className={style.profileHeaderSection}>
+                      <article>
+                        <Card
+                          title="Welcome back John Doe"
+                          bordered={false}
+                          style={{
+                            width: 500,
+                          }}
+                        >
+                          <div className={style.cardBody}>
+                            <Link to="/dashboard">View Milk Tea places</Link>
+                            <Link to="/dashboard">View favorites List</Link>
+                            <Link to="/dashboard">View reviews</Link>
+                          </div>
+                        </Card>
+                      </article>
+                    </section>
+                  </>
+                ) : (
+                  <>
+                    <p>You need to be logged in to use these features!</p>
+                  </>
+                )}
               </div>
             </Content>
           </section>
