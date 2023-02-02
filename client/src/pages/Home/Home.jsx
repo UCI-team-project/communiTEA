@@ -1,14 +1,14 @@
 /* eslint-disable react/jsx-no-target-blank */
-import { useEffect } from 'react'
-import Navbar from '../../Components/navbar'
-import { Link } from 'react-router-dom'
-import SearchBar from '../../Components/searchBar/searchBar'
-import { Button } from 'antd'
-import TrendingShopsContainer from '../../Components/trendingshops/trendingshopsContainer'
-import style from './home.module.css'
-import FooterComponent from '../../Components/footer/footer'
-import image from '../../assets/images/tea.jpg'
-import ImageCarousel from '../../Components/carousel/carousel'
+import { useEffect } from "react";
+import Navbar from "../../Components/navbar";
+import { Link } from "react-router-dom";
+import SearchBar from "../../Components/searchBar/searchBar";
+import { Button } from "antd";
+import TrendingShopsContainer from "../../Components/trendingshops/trendingshopsContainer";
+import style from "./home.module.css";
+import FooterComponent from "../../Components/footer/footer";
+// import image from '../../assets/images/tea.jpg'
+import ImageCarousel from "../../Components/carousel/carousel";
 
 export default function Home() {
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function Home() {
 
   const headerText = {
     header: {
-      text: 'Unsure of where to go for delicious boba drinks? Find the best boba spots near you curated by our friendly community!',
+      text: "Unsure of where to go for delicious boba drinks? Find the best boba spots near you curated by our friendly community!",
     },
     api: {
       text: `"With millions of business updates every month, Yelp Fusion
@@ -27,16 +27,16 @@ export default function Home() {
       users, the Yelp data set remains unparalleled in its rich
       detail, freshness, and accuracy."`,
     },
-  }
+  };
 
   return (
     <>
       <div className={style.navContainer}>
-        <Navbar navItem={'home'} />
+        <Navbar navItem={"home"} />
       </div>
       <div className={style.homeContainer}>
         <div className={style.wrapper}>
-          <h1 className=''>CommuniTEA</h1>
+          <h1 className="">CommuniTEA</h1>
           <span className={style.headerTextWrapper}>
             <p className={style.headerText}>{headerText.header.text}</p>
           </span>
@@ -44,14 +44,14 @@ export default function Home() {
             <ImageCarousel />
             <article className={style.apiContainer}>
               <p className={style.apiInfo}>
-                {' '}
+                {" "}
                 {headerText.api.text}
                 <a
-                  href='https://fusion.yelp.com/'
+                  href="https://fusion.yelp.com/"
                   className={style.apiLink}
-                  target='_blank'
+                  target="_blank"
                 >
-                  - Yelp Fusion API{' '}
+                  - Yelp Fusion API{" "}
                 </a>
               </p>
             </article>
@@ -59,11 +59,11 @@ export default function Home() {
           <section className={style.bottomSection}>
             <div className={style.cta}>
               <SearchBar />
-              <Link to='/login'>
+              <Link to="/login">
                 <Button className={style.btn1}>LOGIN</Button>
               </Link>
               <p>or</p>
-              <Link to='/signup'>
+              <Link to="/signup">
                 <Button className={style.btn2}>SIGNUP</Button>
               </Link>
             </div>
@@ -75,5 +75,5 @@ export default function Home() {
       </div>
       <FooterComponent />
     </>
-  )
+  );
 }
