@@ -99,10 +99,10 @@ const Dashboard = () => {
                     <pre className={style.art}>
                       <code>{`
          ⣀⣀⣀ ⣀⣀⣀ ⣀⡀⣀⣀ 
-      ⠴⠊                    ⠈⠢⢄
-     ⠄⠒        Yes, I'm            
-    ⠘⡀        member of           ⠘⡀ 
-  ⠀⠀⠘⡀⠀⠀⠀⠀     CommuniTea    ⠀⠀⠀⠀⠀⠀⡜⠀⠀⠀
+    ⠴⠊                    ⠈⠢⢄
+            Yes, I'm            
+   ⠘⡀          member of           ⠘⡀ 
+  ⠀⠀⠘⡀⠀⠀⠀⠀     CommuniTEA    ⠀⠀⠀⠀⠀⠀⡜⠀⠀⠀
   ⠀⠀⠀⠑⡀⠀⠀⠀⠀⠀⠀                    ⡔⠁⠀⠀⠀
    ⠈⠢⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀        ⡔⠁
             ⢸⠀⠀⠀⢀⣀⣀⣀ ⣀⣀⣀⣀⡀⠤⡔⠀⠀⠀⠀⠀⠀⠀
