@@ -33,7 +33,7 @@ const SearchResults = ({ storesData }) => {
             />,
             <IconText
               icon={LikeOutlined}
-              text='156'
+              text={`reviews count: ${item.review_count}`}
               key='list-vertical-like-o'
             />,
             <IconText
@@ -55,13 +55,18 @@ const SearchResults = ({ storesData }) => {
         >
           <List.Item.Meta
             // avatar={<Avatar src={item.avatar} />}
-            title={<a href={item.url}>{item.name}</a>}
+            title={
+              <a target='_blank' href={`/store/${item.name}`}>
+                {item.name}
+              </a>
+            }
             description={
               <section>
+                <button className={style.addToFavBtn}>Add to favorites</button>
                 <article>
                   <div className={style.categoryContainer}>
-                    {item.categories.map((category) => (
-                      <p>{category.alias}</p>
+                    {item.categories.map((category, key) => (
+                      <p key={key}>{category.alias}</p>
                     ))}
                   </div>
                   <p>{item?.location.display_address[0]}</p>

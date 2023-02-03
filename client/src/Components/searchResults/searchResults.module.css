@@ -6,6 +6,16 @@
 
 }
 
+.addToFavBtn {
+    border-radius: var(--br-primary);
+    border: none;
+    padding: 0.5rem;
+}
+
+.addToFavBtn:hover {
+    opacity: 75%;
+}
+
 .storeImg {
     background-color: gainsboro;
 

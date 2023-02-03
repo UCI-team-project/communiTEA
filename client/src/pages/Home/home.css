@@ -1,0 +1,45 @@
+.navContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.siteLayoutContent {
+    min-height: 280px;
+    padding: 24px;
+
+}
+
+#components-layout-demo-top .logo {
+    float: left;
+    width: 120px;
+    height: 31px;
+    margin: 16px 24px 16px 0;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.ant-row-rtl #components-layout-demo-top .logo {
+    float: right;
+    margin: 16px 0 16px 24px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+}
+
+.reviewSection {
+    margin-top: 4rem;
+}
+
+@media (min-width: 968px) {
+    .container {
+        width: 80vw;
+    }
+}
