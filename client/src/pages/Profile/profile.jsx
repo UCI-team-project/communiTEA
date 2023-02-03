@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-// import Navbar from "../../Components/navbar.jsx";
-import DrawerComp from "../../Components/drawer";
+import HeaderComponent from "../../Components/header";
 import { Breadcrumb, Layout, theme } from "antd";
 import style from "./profile.module.css";
 import { Card } from "antd";
@@ -21,7 +20,7 @@ const Profile = () => {
   return (
     <>
       <div className={style.profileContainer}>
-        <DrawerComp navItem={"profile"} />
+        <HeaderComponent navItem={"profile"} />
       </div>
       <Layout>
         <div className={style.wrapper}>

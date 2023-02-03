@@ -5,9 +5,9 @@
   padding: 12px 16px; /* Some padding */
   font-size: 16px; /* Set a font size */
   cursor: pointer; /* Mouse pointer on hover */
-  /* display:flex;
-  justify-content: flex-end;
-  align-items: flex-end; */
+position: fixed;
+right: 5px;
+top: 5px;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;

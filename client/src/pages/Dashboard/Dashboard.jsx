@@ -5,8 +5,8 @@ import SearchBar from "../../Components/searchBar/searchBar";
 import FavoritesContainer from "../../Components/favoritesList/favoritesListContainer";
 import RecentReviewsContainer from "../../Components/recentReviews/recentReviewsContainer";
 import FooterComponent from "../../Components/footer/footer";
-// import Navbar from "../../Components/navbar";
-import DrawerComp from "../../Components/drawer";
+import HeaderComponent from "../../Components/header";
+
 // import SearchResults from '../../Components/searchResults/searchResults'
 import style from "./dashboard.module.css";
 import { Card } from "antd";
@@ -27,7 +27,7 @@ const Dashboard = () => {
   return (
     <>
       <div className={style.navContainer}>
-        <DrawerComp />
+        <HeaderComponent />
       </div>
       <Layout>
         <div className={style.wrapper}>

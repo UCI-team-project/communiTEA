@@ -6,8 +6,8 @@ import { Button } from "antd";
 import Auth from "../../utils/auth.js";
 import style from "./login.module.css";
 import { Link } from "react-router-dom";
-// import Navbar from "../../Components/navbar.jsx";
-import DrawerComp from "../../Components/drawer";
+
+import HeaderComponent from "../../Components/header";
 import FooterComponent from "../../Components/footer/footer";
 
 export default function Login() {
@@ -40,7 +40,7 @@ export default function Login() {
   return (
     <>
       <div className={style.loginContainer}>
-        <DrawerComp />
+        <HeaderComponent />
       </div>
       <div className={style.container}>
         {data ? (

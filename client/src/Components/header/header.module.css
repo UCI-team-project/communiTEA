@@ -1,0 +1,19 @@
+.icon {
+  max-height: 25px;
+  max-width: 25px;
+  overflow:hidden;
+}
+
+
+.header {
+  background-color: #88DACB;
+  position:fixed;
+  /* z-index: 0; */
+
+  font-size: 1.5rem;
+  width: 100vw;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  left: 0px;
+}
