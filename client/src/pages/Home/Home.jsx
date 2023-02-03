@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-no-target-blank */
 import { useEffect } from "react";
 // import Navbar from "../../Components/navbar.jsx";
-import DrawerComp from "../../Components/drawer";
+import HeaderComponent from "../../Components/header";
+
 import { Link } from "react-router-dom";
 import SearchBar from "../../Components/searchBar/searchBar";
 import { Button } from "antd";
@@ -33,8 +34,9 @@ export default function Home() {
   return (
     <>
       <div className={style.navContainer}>
+        <HeaderComponent />
         {/* <Navbar navItem={"home"} /> */}
-        <DrawerComp />
+        {/* <DrawerComp /> */}
       </div>
       <div className={style.homeContainer}>
         <div className={style.wrapper}>

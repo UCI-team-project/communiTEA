@@ -1,8 +1,7 @@
 import { Button } from "antd/es/radio";
 import { useState, useEffect } from "react";
 import FooterComponent from "../../Components/footer/footer";
-// import NavBar from '../../Components/navbar'
-import DrawerComp from "../../Components/drawer";
+import HeaderComponent from "../../Components/header";
 import RecentReviewsContainer from "../../Components/recentReviews/recentReviewsContainer";
 import style from "./singleStore.module.css";
 
@@ -10,7 +9,7 @@ const SingleStore = () => {
   return (
     <>
       <div className={style.navContainer}>
-        <DrawerComp />
+        <HeaderComponent />
       </div>
       <main className={style.main}>
         <div className={style.contentWrapper}>

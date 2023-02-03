@@ -6,8 +6,7 @@ import { Button } from "antd";
 import Auth from "../../utils/auth";
 import style from "./signup.module.css";
 import FooterComponent from "../../Components/footer/footer";
-// import Navbar from "../../Components/navbar";
-import DrawerComp from "../../Components/drawer";
+import HeaderComponent from "../../Components/header";
 
 export default function Signup() {
   const [formState, setFormState] = useState({
@@ -43,7 +42,7 @@ export default function Signup() {
   return (
     <>
       <div className={style.navContainer}>
-        <DrawerComp />
+        <HeaderComponent />
       </div>
       <div className={style.container}>
         {data ? (
