@@ -52,6 +52,17 @@ h1 {
 
 }
 
+.text {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.art {
+    font-size: 0.5rem;
+    /* background-color:blue; */
+}
+
+
 @media (min-width: 968px) {
     .profileInfoHeader {
         width: 80%;
