@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Breadcrumb, Layout, Skeleton, theme } from 'antd'
 import SearchBar from '../../Components/searchBar/searchBar'
@@ -10,14 +10,24 @@ import Navbar from '../../Components/navbar'
 import style from './dashboard.module.css'
 
 import Auth from '../../utils/auth'
+import SearchResults from '../../Components/searchResults/searchResults'
 
 const { Content } = Layout
 
-const Dashboard = () => {
+export default function Dashboard() {
+  const [stores, setStores] = useState({})
+
   useEffect(() => {
     document.title = 'CommuniTEA - Dashboard'
+    fetchStores()
   }, [])
 
+  async function fetchStores() {
+    await fetch('http://localhost:3001/api/yelp')
+      .then((res) => res.json())
+      .then((stores) => setStores(stores))
+  }
+  // console.log('fetched data: ' + stores?.map((store) => store?.name))
   const {
     token: { colorBgContainer },
   } = theme.useToken()
@@ -66,7 +76,11 @@ const Dashboard = () => {
 
                 {Auth.loggedIn() ? (
                   <>
-                    <Skeleton />
+                    {stores ? (
+                      <SearchResults storesData={stores} />
+                    ) : (
+                      <Skeleton />
+                    )}
                     {/* displays the user's favorites list  */}
                     <section className={style.reviewSection}>
                       <FavoritesContainer />
@@ -87,4 +101,3 @@ const Dashboard = () => {
     </>
   )
 }
-export default Dashboard

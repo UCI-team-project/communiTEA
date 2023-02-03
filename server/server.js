@@ -41,7 +41,7 @@ const options = {
 app.get('/api/yelp', async (req, res) => {
   const response = await axios
     .get(
-      'https://api.yelp.com/v3/businesses/search?location=90703&term=boba&radius=1000&sort_by=best_match&limit=20',
+      'https://api.yelp.com/v3/businesses/search?location=90703&term=milk+tea&radius=10000&sort_by=best_match&limit=20',
       options
     )
     .then((response) => {

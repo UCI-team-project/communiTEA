@@ -28,10 +28,12 @@
     display: flex;
     justify-content: center;
     margin-bottom: 8rem;
+
 }
 
 .dashboardContainer {
     width: 100%;
+    max-width: 1220px;
 }
 
 .reviewSection {
