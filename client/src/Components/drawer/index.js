@@ -27,7 +27,7 @@ const DrawerComp: React.FC = () => {
       {/* Todo: add styling to the drawer header */}
       <Drawer
         className={style.drawerTitle}
-        title="CommuniTea"
+        title="CommuniTEA"
         placement="right"
         onClose={onClose}
         open={open}

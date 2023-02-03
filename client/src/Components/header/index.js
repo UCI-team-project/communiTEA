@@ -9,7 +9,7 @@ const HeaderComponent = () => {
     <Layout className="layout">
       <div>
         <header className={style.header}>
-          CommuniTea
+          CommuniTEA
           <img className={style.icon} src={image} alt="boba icon"></img>
           <DrawerComp />
         </header>
