@@ -29,21 +29,21 @@ app.get('/', (req, res) => {
   res.sendFile(join(__dirname, 'client', 'build', 'index.html'))
 })
 
-const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    Authorization:
-      'Bearer vS6Jx8XbtA3xq0cYn9s--SOFHtlDBRsgMu2b2GjLBMOnr2XvcTcoNTpFLcR6E9Gov1OTWlTXda6CprgUGD9hdmIyqFIUI3SHPsyTuwim7hfHy5NYCFJz-rI7yDl9Y3Yx',
-  },
-}
-
 app.get('/api/yelp', async (req, res) => {
+  const location = req.headers.location
+  const searchQuery = req.headers.searchQuery
+
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: `Bearer ${process.env.API_KEY}`,
+    },
+  }
+
+  const yelpAPI = `https://api.yelp.com/v3/businesses/search?location=${location}&term=milk+tea&radius=10000&sort_by=best_match&limit=20`
   const response = await axios
-    .get(
-      'https://api.yelp.com/v3/businesses/search?location=90703&term=milk+tea&radius=10000&sort_by=best_match&limit=20',
-      options
-    )
+    .get(yelpAPI, options)
     .then((response) => {
       console.log(response.data)
       res.json(response.data)

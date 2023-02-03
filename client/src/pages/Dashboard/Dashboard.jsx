@@ -16,22 +16,36 @@ const { Content } = Layout
 
 export default function Dashboard() {
   const [stores, setStores] = useState({})
+  const [location, setLocation] = useState('')
+  const [searchQuery, setSearchQuery] = useState('')
+
+  console.log('location state: ' + location)
+  console.log('search state: ' + searchQuery)
 
   useEffect(() => {
     document.title = 'CommuniTEA - Dashboard'
-    fetchStores()
-  }, [])
+    // fetchStores()
+  }, [searchQuery])
 
   async function fetchStores() {
-    await fetch('http://localhost:3001/api/yelp')
+    await fetch('http://localhost:3001/api/yelp', {
+      method: 'GET',
+      headers: {
+        location: location,
+        searchQuery: searchQuery,
+      },
+    })
       .then((res) => res.json())
       .then((stores) => setStores(stores))
   }
-  // console.log('fetched data: ' + stores?.map((store) => store?.name))
   const {
     token: { colorBgContainer },
   } = theme.useToken()
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    fetchStores()
+  }
   return (
     <>
       <div className={style.navContainer}>
@@ -66,13 +80,19 @@ export default function Dashboard() {
                  * Main dashboard content
                  *************************
                  */}
-                <SearchBar />
-                {/*
-                 * TODO:
-                 * - add conditional statement to return a skeleton if no new search has been queried
-                 * - if a search has been initiated, render the Search Results component instead of the Skeleton component
-                 * - ex: { fetchedData ? <SearchResults/> : <Skeleton/> }
-                 * */}
+                <form onSubmit={handleSubmit}>
+                  {/* <input
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder='Search for a place'
+                  /> */}
+                  <input
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    placeholder='Enter location'
+                  />
+                  <button>Search</button>
+                </form>
 
                 {Auth.loggedIn() ? (
                   <>
