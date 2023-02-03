@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 
 app.get('/api/yelp', async (req, res) => {
   const location = req.headers.location
-  const searchQuery = req.headers.searchQuery
+  // const searchQuery = req.headers.searchQuery
 
   const options = {
     method: 'GET',
