@@ -9,6 +9,7 @@ import FooterComponent from "../../Components/footer/footer";
 import DrawerComp from "../../Components/drawer";
 // import SearchResults from '../../Components/searchResults/searchResults'
 import style from "./dashboard.module.css";
+import { Card } from "antd";
 
 import Auth from "../../utils/auth";
 
@@ -65,8 +66,25 @@ const Dashboard = () => {
                  * - ex: { fetchedData ? <SearchResults/> : <Skeleton/> }
                  * */}
 
-                {Auth.loggedIn() ? (
+                {Auth.loggedIn() ? ( 
                   <>
+                    <section className={style.profileHeaderSection}>
+                      <article>
+                        <Card
+                          title="Welcome back John Doe"
+                          bordered={false}
+                          style={{
+                            width: 500,
+                          }}
+                        >
+                          <div className={style.cardBody}>
+                            <Link to="/dashboard">View Milk Tea places</Link>
+                            <Link to="/dashboard">View favorites List</Link>
+                            <Link to="/dashboard">View reviews</Link>
+                          </div>
+                        </Card>
+                      </article>
+                    </section>
                     <Skeleton />
                     {/* displays the user's favorites list  */}
                     <section className={style.reviewSection}>
