@@ -9,6 +9,7 @@
 .siteLayoutContent {
     min-height: 280px;
     padding: 24px;
+
 }
 
 #components-layout-demo-top .logo {
@@ -27,41 +28,18 @@
 .wrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 8rem;
 }
 
-.dashboardContainer {
+.container {
     width: 100%;
 }
 
 .reviewSection {
     margin-top: 4rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-
-.profileHeaderSection {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.cardBody {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-
 }
 
 @media (min-width: 968px) {
-    .dashboardContainer {
+    .container {
         width: 80vw;
-    }
-
-    .reviewSection {
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-around;
     }
 }
