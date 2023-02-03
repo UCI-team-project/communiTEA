@@ -9,8 +9,10 @@ const HeaderComponent = () => {
     <Layout className="layout">
       <div>
         <header className={style.header}>
-          CommuniTEA
-          <img className={style.icon} src={image} alt="boba icon"></img>
+          <a href="/">
+            CommuniTEA
+            <img className={style.icon} src={image} alt="boba icon"></img>
+          </a>
           <DrawerComp />
         </header>
       </div>

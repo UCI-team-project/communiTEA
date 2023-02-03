@@ -4,6 +4,19 @@
   overflow:hidden;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  text-decoration:none;
+  color: black;
+}
+
+a:hover {
+  color: var(--secondary-brown);
+}
 
 .header {
   background-color: #88DACB;
