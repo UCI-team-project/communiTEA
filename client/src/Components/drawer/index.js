@@ -17,6 +17,7 @@ const DrawerComp: React.FC = () => {
 
   return (
     <>
+      {/* Todo: render this button on the right side of the page and replace it with a symbol, maybe a boba symbol */}
       <Button type="primary" onClick={showDrawer}>
         Open
       </Button>
