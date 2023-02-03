@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Button, Drawer } from "antd";
+import { Drawer } from "antd";
 import { Link } from "react-router-dom";
+import style from "./drawer.module.css";
+// import icon from "../../assets/icons/boba-icon.png";
 
 import Auth from "../../utils/auth";
 
@@ -17,34 +19,45 @@ const DrawerComp: React.FC = () => {
 
   return (
     <>
-      {/* Todo: render this button on the right side of the page and replace it with a symbol, maybe a boba symbol */}
-      <Button type="primary" onClick={showDrawer}>
-        Open
-      </Button>
+      {/* Todo: get button to float right */}
+      <button className={style.btn} onClick={showDrawer}>
+        <i className="fa fa-bars"></i> Menu
+      </button>
+
+      {/* Todo: add styling to the drawer header */}
       <Drawer
+        className={style.drawerTitle}
         title="CommuniTea"
         placement="right"
         onClose={onClose}
         open={open}
       >
         <div>
-          <Link to={"/"}>Home</Link>
+          <Link className={style.drawer} to={"/"}>
+            Home
+          </Link>
         </div>
         <div>
-          <Link to={"/dashboard"}>Dashboard</Link>
+          <Link className={style.drawer} to={"/dashboard"}>
+            Dashboard
+          </Link>
         </div>
         <div>
-          <Link to={"/profile"}>Profile</Link>
+          <Link className={style.drawer} to={"/profile"}>
+            Profile
+          </Link>
         </div>
         {Auth.loggedIn() ? (
           <div>
-            <Link to={"/"} onClick={Auth.logout}>
+            <Link className={style.drawer} to={"/"} onClick={Auth.logout}>
               Logout
             </Link>
           </div>
         ) : (
           <div>
-            <Link to={"/login"}>Login</Link>
+            <Link className={style.drawer} to={"/login"}>
+              Login
+            </Link>
           </div>
         )}
       </Drawer>
