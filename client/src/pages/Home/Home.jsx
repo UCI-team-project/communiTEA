@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-target-blank */
 import { useEffect } from "react";
-import Navbar from "../../Components/navbar.jsx";
+// import Navbar from "../../Components/navbar.jsx";
 import DrawerComp from "../../Components/drawer";
 import { Link } from "react-router-dom";
 import SearchBar from "../../Components/searchBar/searchBar";
