@@ -1,10 +1,10 @@
 require('dotenv').config()
 
-const express = require("express");
-const { ApolloServer } = require("apollo-server-express");
-const { join } = require("path");
-const { authMiddleware } = require("./utils/auth.js");
-const axios = require("axios");
+const express = require('express')
+const { ApolloServer } = require('apollo-server-express')
+const { join } = require('path')
+const { authMiddleware } = require('./utils/auth.js')
+const axios = require('axios')
 
 const { typeDefs, resolvers } = require('./schemas')
 const db = require('./config')
@@ -29,44 +29,45 @@ app.get('/', (req, res) => {
   res.sendFile(join(__dirname, 'client', 'build', 'index.html'))
 })
 
-// let config = {
-//   headers: {
-//     Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
-//   },
-//   params: {
-//     term: "boba",
-//     location: "92683",
-//     radius: 10000,
-//     sort_by: "best_match",
-//     limit: 1,
-//   },
-// };
+app.get('/api/yelp', async (req, res) => {
+  const location = req.headers.location
+  const searchQuery = req.headers.searchQuery
 
-// app.get("/api/yelp", async (req, res) => {
-//   const response = await axios
-//     .get("https://api.yelp.com/v3/businesses/search", config)
-//     .then((response) => {
-//       console.log(response.data);
-//       res.json(response.data);
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//     });
-// });
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: `Bearer ${process.env.API_KEY}`,
+    },
+  }
+
+  const yelpAPI = `https://api.yelp.com/v3/businesses/search?location=${location}&term=milk+tea&radius=10000&sort_by=best_match&limit=20`
+  const response = await axios
+    .get(yelpAPI, options)
+    .then((response) => {
+      console.log(response.data)
+      res.json(response.data)
+    })
+    .catch((err) => {
+      console.error(err)
+    })
+
+  response
+})
 
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start()
   server.applyMiddleware({ app })
 
-  db.once("open", () => {
+  db.once('open', () => {
     app.listen(PORT, () => {
       console.log(`
         \n------------------------------------------
         \nAPI server running on port ${PORT}!
         \nUse GraphQL at http://localhost:${PORT}${server.graphqlPath}
-        \n------------------------------------------`);
-    });
-  });
-};
+        \n------------------------------------------`)
+    })
+  })
+}
 
 startApolloServer(typeDefs, resolvers)
