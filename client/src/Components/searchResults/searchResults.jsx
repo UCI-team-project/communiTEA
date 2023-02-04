@@ -56,7 +56,7 @@ export default function SearchResults({ storesData }) {
             }
             description={
               <section>
-                {/* <button className={style.addToFavBtn}>Add to favorites</button> */}
+                <button className={style.moreInfoBtn}>More info</button>
                 <article>
                   <div className={style.categoryContainer}>
                     {item.categories.map((category, key) => (
