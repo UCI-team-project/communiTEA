@@ -55,6 +55,61 @@ app.get('/api/yelp', async (req, res) => {
   response
 })
 
+// get yelp reviews of a single store
+app.get('/api/yelp/reviews/:id', async (req, res) => {
+  const id = req.params.id
+
+  // const searchQuery = req.headers.searchQuery
+
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: `Bearer ${process.env.API_KEY}`,
+    },
+  }
+
+  const yelpAPI = `https://api.yelp.com/v3/businesses/${id}/reviews?limit=20&sort_by=yelp_sort`
+  const response = await axios
+    .get(yelpAPI, options)
+    .then((response) => {
+      console.log(response.data)
+      res.json(response.data)
+    })
+    .catch((err) => {
+      console.error(err)
+    })
+
+  response
+})
+
+app.get('/api/yelp/store/:id', async (req, res) => {
+  const id = req.params.id
+
+  // const searchQuery = req.headers.searchQuery
+
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: `Bearer ${process.env.API_KEY}`,
+    },
+  }
+
+  const yelpAPI = `https://api.yelp.com/v3/businesses/${id}/reviews?limit=20&sort_by=yelp_sort`
+  const response = await axios
+    .get(yelpAPI, options)
+    .then((response) => {
+      console.log(response.data)
+      res.json(response.data)
+    })
+    .catch((err) => {
+      console.error(err)
+    })
+
+  response
+})
+
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start()
   server.applyMiddleware({ app })

@@ -28,7 +28,6 @@
     display: flex;
     justify-content: center;
     margin-bottom: 8rem;
-
 }
 
 .dashboardContainer {
@@ -63,7 +62,6 @@
 
 .art {
     font-size: 0.6rem;
-    /* background-color:blue; */
 }
 
 .locationForm {
@@ -89,7 +87,6 @@
     border-radius: var(--br-primary);
     border: none;
     text-align: center;
-
 }
 
 .formSubmitBtn:hover {

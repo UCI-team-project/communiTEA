@@ -22,8 +22,16 @@
 .containerRow {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
 }
 
 .rating {
     font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
