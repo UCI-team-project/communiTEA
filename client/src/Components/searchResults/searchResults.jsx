@@ -1,15 +1,9 @@
-import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons'
-import { Avatar, List, Space } from 'antd'
 import React from 'react'
+import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons'
+import { List, Space } from 'antd'
 import style from './searchResults.module.css'
 
-const IconText = ({ icon, text }) => (
-  <Space>
-    {React.createElement(icon)}
-    {text}
-  </Space>
-)
-const SearchResults = ({ storesData }) => {
+export default function SearchResults({ storesData }) {
   return (
     <List
       itemLayout='vertical'
@@ -18,7 +12,7 @@ const SearchResults = ({ storesData }) => {
         onChange: (page) => {
           console.log(page)
         },
-        pageSize: 3,
+        pageSize: 2,
       }}
       dataSource={storesData.businesses}
       footer={<div></div>}
@@ -54,7 +48,6 @@ const SearchResults = ({ storesData }) => {
           }
         >
           <List.Item.Meta
-            // avatar={<Avatar src={item.avatar} />}
             title={
               // eslint-disable-next-line react/jsx-no-target-blank
               <a target='_blank' href={`/store/${item.id}`}>
@@ -63,7 +56,7 @@ const SearchResults = ({ storesData }) => {
             }
             description={
               <section>
-                <button className={style.addToFavBtn}>Add to favorites</button>
+                {/* <button className={style.addToFavBtn}>Add to favorites</button> */}
                 <article>
                   <div className={style.categoryContainer}>
                     {item.categories.map((category, key) => (
@@ -84,4 +77,10 @@ const SearchResults = ({ storesData }) => {
     />
   )
 }
-export default SearchResults
+
+const IconText = ({ icon, text }) => (
+  <Space>
+    {React.createElement(icon)}
+    {text}
+  </Space>
+)

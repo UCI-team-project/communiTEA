@@ -1,26 +1,12 @@
-import React from 'react'
-import style from './favoritesList.module.css'
-import { StarOutlined } from '@ant-design/icons'
 import { Carousel } from 'antd'
-
-const contentStyle = {
-  margin: 0,
-  height: '160px',
-  color: 'red',
-  lineHeight: '160px',
-  textAlign: 'center',
-}
-const itemArray = [
-  { name: 'Boba House', rating: 5.0, description: 'business description' },
-  { name: 'ShareTea', rating: 3.5, description: 'business description' },
-  { name: 'Boba Place', rating: 4.0, description: 'business description' },
-  { name: 'Milk Tea', rating: 4.6, description: 'business description' },
-]
+import { StarOutlined } from '@ant-design/icons'
+import style from './favoritesList.module.css'
 
 export default function SingleItem() {
   const onChange = (currentSlide) => {
     console.log(currentSlide)
   }
+
   return (
     <div className={style.singleItemContainer}>
       <Carousel afterChange={onChange}>
@@ -41,3 +27,17 @@ export default function SingleItem() {
     </div>
   )
 }
+
+const contentStyle = {
+  margin: 0,
+  height: '160px',
+  color: 'red',
+  lineHeight: '160px',
+  textAlign: 'center',
+}
+const itemArray = [
+  { name: 'Boba House', rating: 5.0, description: 'business description' },
+  { name: 'ShareTea', rating: 3.5, description: 'business description' },
+  { name: 'Boba Place', rating: 4.0, description: 'business description' },
+  { name: 'Milk Tea', rating: 4.6, description: 'business description' },
+]

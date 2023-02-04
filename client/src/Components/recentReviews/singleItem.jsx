@@ -1,21 +1,13 @@
-import React from 'react'
-import style from './reviewsList.module.css'
-import { StarOutlined } from '@ant-design/icons'
-import { Carousel } from 'antd'
 import EmptyCard from '../skeleton/emptyCard'
-const contentStyle = {
-  margin: 0,
-  height: '160px',
-  color: '#fff',
-  lineHeight: '160px',
-  textAlign: 'center',
-  background: '#364d79',
-}
+import { Carousel } from 'antd'
+import { StarOutlined } from '@ant-design/icons'
+import style from './reviewsList.module.css'
 
-const SingleItem = ({ reviews }) => {
+export default function SingleItem({ reviews }) {
   const onChange = (currentSlide) => {
     console.log(currentSlide)
   }
+
   return (
     <div className={style.singleItemContainer}>
       <Carousel afterChange={onChange}>
@@ -43,4 +35,11 @@ const SingleItem = ({ reviews }) => {
   )
 }
 
-export default SingleItem
+const contentStyle = {
+  margin: 0,
+  height: '160px',
+  color: '#fff',
+  lineHeight: '160px',
+  textAlign: 'center',
+  background: '#364d79',
+}

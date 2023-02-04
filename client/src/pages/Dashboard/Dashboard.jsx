@@ -1,24 +1,21 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Breadcrumb, Layout, Skeleton, theme } from 'antd'
-import FavoritesContainer from '../../Components/favoritesList/favoritesListContainer'
+import Auth from '../../utils/auth'
 import RecentReviewsContainer from '../../Components/recentReviews/recentReviewsContainer'
+import FavoritesContainer from '../../Components/favoritesList/favoritesListContainer'
+import SearchResults from '../../Components/searchResults/searchResults'
 import FooterComponent from '../../Components/footer/footer'
 import HeaderComponent from '../../Components/header'
-
-// import SearchResults from '../../Components/searchResults/searchResults'
-import style from './dashboard.module.css'
+import CodeArt from '../../Components/codeArt/art'
+import { Breadcrumb, Layout, Skeleton, theme } from 'antd'
 import { Card } from 'antd'
-
-import Auth from '../../utils/auth'
-import SearchResults from '../../Components/searchResults/searchResults'
+import style from './dashboard.module.css'
 
 const { Content } = Layout
 
 export default function Dashboard() {
   const [stores, setStores] = useState({})
   const [location, setLocation] = useState('')
-  // const [searchQuery, setSearchQuery] = useState('')
 
   useEffect(() => {
     document.title = 'CommuniTEA - Dashboard'
@@ -30,7 +27,6 @@ export default function Dashboard() {
       method: 'GET',
       headers: {
         location: location,
-        // searchQuery: searchQuery,
       },
     })
       .then((res) => res.json())
@@ -40,7 +36,7 @@ export default function Dashboard() {
     token: { colorBgContainer },
   } = theme.useToken()
 
-  // form submit for location
+  // form for location search
   const handleSubmit = (e) => {
     e.preventDefault()
     fetchStores()
@@ -80,46 +76,54 @@ export default function Dashboard() {
                  * Main dashboard content
                  *************************
                  */}
+                <section className={style.profileHeaderSection}>
+                  <article>
+                    <Card
+                      title='Welcome back John Doe'
+                      bordered={false}
+                      style={{
+                        width: '100%',
+                        backgroundColor: 'gainsboro',
+                      }}
+                    >
+                      <div className={style.cardBody}>
+                        <Link to='/dashboard'>View Milk Tea places</Link>
+                        <Link to='/dashboard'>View favorites List</Link>
+                        <Link to='/dashboard'>View reviews</Link>
+                      </div>
+                    </Card>
+                  </article>
+                </section>
+                {/*
+                 *******************
+                 * Search store form
+                 *******************
+                 */}
                 <form className={style.locationForm} onSubmit={handleSubmit}>
-                  <input
-                    className={style.formInput}
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
-                    placeholder='Enter location'
-                  />
-                  {/* <input
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder='Search for a place'
-                  /> */}
-                  <button className={style.formSubmitBtn}>Search</button>
+                  <h3>Search for a Milk Tea place!</h3>
+                  <span className={style.inputContainer}>
+                    {' '}
+                    <input
+                      className={style.formInput}
+                      value={location}
+                      onChange={(e) => setLocation(e.target.value)}
+                      placeholder='Enter location'
+                    />
+                    <button className={style.formSubmitBtn}>Search</button>
+                  </span>
                 </form>
-
                 {Auth.loggedIn() ? (
                   <>
-                    {stores ? (
-                      <SearchResults storesData={stores} />
+                    {location ? (
+                      <>
+                        <SearchResults storesData={stores} />
+                      </>
                     ) : (
-                      <Skeleton />
+                      <div className={style.skeletonContainer}>
+                        <Skeleton />
+                      </div>
                     )}
-                    <section className={style.profileHeaderSection}>
-                      <article>
-                        <Card
-                          title='Welcome back John Doe'
-                          bordered={false}
-                          style={{
-                            width: 500,
-                          }}
-                        >
-                          <div className={style.cardBody}>
-                            <Link to='/dashboard'>View Milk Tea places</Link>
-                            <Link to='/dashboard'>View favorites List</Link>
-                            <Link to='/dashboard'>View reviews</Link>
-                          </div>
-                        </Card>
-                      </article>
-                    </section>
-                    <Skeleton />
+
                     {/* displays the user's favorites list  */}
                     <section className={style.reviewSection}>
                       <FavoritesContainer />
@@ -127,49 +131,7 @@ export default function Dashboard() {
                     </section>
                   </>
                 ) : (
-                  <div className={style.text}>
-                    <p>You need to be logged in to use these features!</p>
-
-                    <pre className={style.art}>
-                      <code>{`
-         ⣀⣀⣀ ⣀⣀⣀ ⣀⡀⣀⣀ 
-    ⠴⠊                    ⠈⠢⢄
-            Yes, I'm            
-   ⠘⡀          member of           ⠘⡀ 
-  ⠀⠀⠘⡀⠀⠀⠀⠀     CommuniTEA    ⠀⠀⠀⠀⠀⠀⡜⠀⠀⠀
-  ⠀⠀⠀⠑⡀⠀⠀⠀⠀⠀⠀                    ⡔⠁⠀⠀⠀
-   ⠈⠢⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀        ⡔⠁
-            ⢸⠀⠀⠀⢀⣀⣀⣀ ⣀⣀⣀⣀⡀⠤⡔⠀⠀⠀⠀⠀⠀⠀
-  ⠀⠀⠀⠀⠀⠀⠀⠘⣀⠄⠊⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-   
-  ⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠛⠛⠛⠋⠉⠈⠉⠉⠉⠉⠛⠻⢿⣿⣿⣿⣿⣿⣿⣿
-  ⣿⣿⣿⣿⣿⡿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⢿⣿⣿⣿⣿
-  ⣿⣿⣿⣿⡏⣀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿
-  ⣿⣿⣿⢏⣴⣿⣷⠀⠀⠀⠀⠀⢾⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿
-  ⣿⣿⣟⣾⣿⡟⠁⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣷⢢⠀⠀⠀⠀⠀⠀⠀⢸⣿
-  ⣿⣿⣿⣿⣟⠀⡴⠄⠀⠀⠀⠀⠀⠀⠙⠻⣿⣿⣿⣿⣷⣄⠀⠀⠀⠀⠀⠀⠀⣿
-  ⣿⣿⣿⠟⠻⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠶⢴⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠀⣿
-  ⣿⣁⡀⠀⠀⢰⢠⣦⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⡄⠀⣴⣶⣿⡄⣿
-  ⣿⡋⠀⠀⠀⠎⢸⣿⡆⠀⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⠗⢘⣿⣟⠛⠿⣼
-  ⣿⣿⠋⢀⡌⢰⣿⡿⢿⡀⠀⠀⠀⠀⠀⠙⠿⣿⣿⣿⣿⣿⡇⠀⢸⣿⣿⣧⢀⣼
-  ⣿⣿⣷⢻⠄⠘⠛⠋⠛⠃⠀⠀⠀⠀⠀⢿⣧⠈⠉⠙⠛⠋⠀⠀⠀⣿⣿⣿⣿⣿
-  ⣿⣿⣧⠀⠈⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠟⠀⠀⠀⠀⢀⢃⠀⠀⢸⣿⣿⣿⣿
-  ⣿⣿⡿⠀⠴⢗⣠⣤⣴⡶⠶⠖⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡸⠀⣿⣿⣿⣿
-  ⣿⣿⣿⡀⢠⣾⣿⠏⠀⠠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⠉⠀⣿⣿⣿⣿
-  ⣿⣿⣿⣧⠈⢹⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿
-  ⣿⣿⣿⣿⡄⠈⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣴⣾⣿⣿⣿⣿⣿
-  ⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿
-  ⣿⣿⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-  ⣿⣿⣿⣿⣿⣦⣄⣀⣀⣀⣀⠀⠀⠀⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡄⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠙⣿⣿⡟⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿
-  ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇⠀⠁⠀⠀⠹⣿⠃⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿
-  ⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⢐⣿⣿⣿⣿⣿⣿⣿⣿⣿
-  ⣿⣿⣿⣿⠿⠛⠉⠉⠁⠀⢻⣿⡇⠀⠀⠀⠀⠀⠀⢀⠈⣿⣿⡿⠉⠛⠛⠛⠉⠉
-  ⣿⡿⠋⠁⠀⠀⢀⣀⣠⡴⣸⣿⣇⡄⠀⠀⠀⠀⢀⡿⠄⠙⠛⠀⣀⣠⣤⣤⠄⠀
-        `}</code>
-                    </pre>
-                  </div>
+                  <CodeArt />
                 )}
               </div>
             </Content>

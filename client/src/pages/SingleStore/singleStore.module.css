@@ -16,7 +16,6 @@
     align-items: center;
     justify-content: start;
     gap: 2rem;
-
 }
 
 .photoContainer {
@@ -67,7 +66,7 @@
 }
 
 .reviewsContainer {
-    margin: 2rem 0;
+    margin: 2rem;
 }
 
 .reviewFormArticle {
@@ -154,6 +153,14 @@
         flex-direction: row;
         justify-content: space-between;
         gap: 2rem;
+    }
+
+    .image {
+        aspect-ratio: auto 4/3;
+        object-fit: cover;
+        max-height: 24rem;
+        background-color: var(--primary-aqua);
+        border-radius: var(--br-primary);
     }
 
     .contentWrapper {

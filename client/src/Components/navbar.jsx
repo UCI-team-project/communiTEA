@@ -29,8 +29,6 @@ const Navbar = ({ navItem }) => {
     ),
   })
 
-  // console.log(navItem);
-
   function populateNav(item) {
     if (item === 'home') {
       return ['1']

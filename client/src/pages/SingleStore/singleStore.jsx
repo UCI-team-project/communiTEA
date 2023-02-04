@@ -1,13 +1,14 @@
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/alt-text */
-import { Button } from 'antd/es/radio'
 import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import FooterComponent from '../../Components/footer/footer'
 import HeaderComponent from '../../Components/header'
 import RecentReviewsContainer from '../../Components/recentReviews/recentReviewsContainer'
+import { StarOutlined } from '@ant-design/icons'
 import style from './singleStore.module.css'
-import { useLocation } from 'react-router-dom'
 
-const SingleStore = () => {
+export default function SingleStore() {
   const location = useLocation()
   const path = location.pathname.split('/')
   const storeID = path[path.length - 1]
@@ -16,13 +17,14 @@ const SingleStore = () => {
   const [storeData, setStoreData] = useState({})
 
   useEffect(() => {
-    document.title = 'CommuniTEA - Search results'
+    document.title = `CommuniTEA - ${storeData?.name}`
     fetchYelpReviews()
     fetchStoreDetails()
   }, [])
 
   const expressAPI = process.env.REACT_APP_API_ENDPOINT
 
+  // functions to fetch yelp reviews and single store information
   async function fetchYelpReviews() {
     const endpoint = `/reviews/${storeID}`
     const api = expressAPI + endpoint
@@ -32,7 +34,6 @@ const SingleStore = () => {
       .then((res) => res.json())
       .then((reviews) => setReviews(reviews))
   }
-
   async function fetchStoreDetails() {
     const endpoint = `/store/${storeID}`
     const api = expressAPI + endpoint
@@ -43,7 +44,6 @@ const SingleStore = () => {
       .then((stores) => setStoreData(stores))
   }
 
-  console.log(storeData)
   return (
     <>
       {storeData && (
@@ -59,9 +59,6 @@ const SingleStore = () => {
                     {storeData.name}
                   </a>
                 </h1>
-                <p id='rating' className={style.rating}>
-                  {storeData.rating}
-                </p>
               </header>
               <section className={style.photoContainer}>
                 {storeData?.photos?.map((photo) => (
@@ -71,13 +68,15 @@ const SingleStore = () => {
               <div className={style.descriptionWrapper}>
                 <section className={style.storeDescription}>
                   <div>
-                    {' '}
                     <article>
                       <div className={style.categoryContainer}>
                         {storeData?.categories?.map((category, key) => (
                           <p key={key}>{category.alias}</p>
                         ))}
                       </div>
+                      <p id='rating' className={style.rating}>
+                        {storeData?.rating} <StarOutlined />
+                      </p>
                       <p>{storeData?.location?.address1}</p>
                       <p>
                         {storeData?.location?.city},{' '}
@@ -113,11 +112,9 @@ const SingleStore = () => {
               </article>
             </div>
           </main>
-          <FooterComponent />{' '}
+          <FooterComponent />
         </>
       )}
     </>
   )
 }
-
-export default SingleStore
