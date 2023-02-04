@@ -5,8 +5,11 @@
     z-index: 50;
 }
 
+
 .carouselImg {
-    width: 36rem;
+    width: 100%;
+    height: 55vh;
+    object-fit: cover;
     z-index: 50;
     border-radius: 8px;
 }
