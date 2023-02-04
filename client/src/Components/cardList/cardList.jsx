@@ -63,7 +63,6 @@ export default function CardList() {
   return (
     <List
       className={style.demoLoadMoreList}
-      // loading={initLoading}
       itemLayout='horizontal'
       loadMore={loadMore}
       dataSource={itemArray}
@@ -74,10 +73,8 @@ export default function CardList() {
             <a key='list-loadmore-more'>more</a>,
           ]}
         >
-          {/* <Skeleton avatar title={false} loading={item.loading} active> */}
           <Skeleton avatar title={false} active>
             <List.Item.Meta
-              // avatar={<Avatar src={item.picture.large} />}
               title={<a href='https://ant.design'>{item.name}</a>}
               description='Ant Design, a design language for background applications, is refined by Ant UED Team'
             />

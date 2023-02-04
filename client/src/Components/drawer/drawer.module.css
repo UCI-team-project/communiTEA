@@ -1,13 +1,18 @@
 .btn {
   background-color: #82b5c0;
-  border: none; /* Remove borders */
-  color: white; /* White text */
-  padding: 12px 16px; /* Some padding */
-  font-size: 16px; /* Set a font size */
-  cursor: pointer; /* Mouse pointer on hover */
-position: fixed;
-right: 5px;
-top: 5px;
+  border: none;
+  /* Remove borders */
+  color: white;
+  /* White text */
+  padding: 12px 16px;
+  /* Some padding */
+  font-size: 16px;
+  /* Set a font size */
+  cursor: pointer;
+  /* Mouse pointer on hover */
+  position: fixed;
+  right: 5px;
+  top: 5px;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -30,7 +35,6 @@ top: 5px;
 }
 
 /* spaces out drawer listings */
-.drawerTitle {  
-  font-size:2rem;
+.drawerTitle {
+  font-size: 2rem;
 }
-

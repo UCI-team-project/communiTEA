@@ -49,7 +49,7 @@ function App() {
              * */}
             <Route path='/' element={<Home />} />
             <Route path='/dashboard' element={<Dashboard />} />
-            <Route path='/store' element={<SingleStore />} />
+            <Route path='/store/:storeId' element={<SingleStore />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />

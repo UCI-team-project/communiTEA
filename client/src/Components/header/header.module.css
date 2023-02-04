@@ -1,7 +1,7 @@
 .icon {
   max-height: 25px;
   max-width: 25px;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 a {
@@ -9,6 +9,10 @@ a {
   color: black;
 }
 
+a:visited {
+  text-decoration: none;
+  color: black;
+}
 
 a:hover {
   color: var(--secondary-brown);
@@ -16,9 +20,8 @@ a:hover {
 
 .header {
   background-color: #88DACB;
-  position:fixed;
-  /* z-index: 0; */
-
+  position: fixed;
+  z-index: 50;
   font-size: 1.5rem;
   width: 100vw;
   padding-top: 10px;

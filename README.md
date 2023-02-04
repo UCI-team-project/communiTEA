@@ -1,15 +1,22 @@
 # CommuniTEA
 
-<!-- ![Screenshot of web app](./assets/images/homepage.png)
-![Screenshot of web app](./assets/images/dashboard.png) -->
+![Screenshot of web app](./client/src/assets/images/communiTEA.png)
 
 ## Description
 
-This web app lets users browse a wide selection of delicious milk tea businesses where they can view the reviews and also leave their own ratings.
+This MERN stack web app lets users browse a wide selection of delicious milk tea businesses where they can view information about specific Milk Tea stores.
 
-Users are also able to add different businesses to their favorites list.
+Users are able to view store reviews and can also leave their own reviews. Users can add different businesses to their favorites list as well.
+
+Create a free account and get started today!
 
 ## Table of Contents
+
+1. [User Stories](#user-stories)
+2. [Technologies Used](#technologies-used)
+3. [Usage](#usage)
+4. [Contributors](#contributors)
+5. [Installation](#installation)
 
 ## User Stories
 
@@ -25,14 +32,14 @@ Users are also able to add different businesses to their favorites list.
 - [x] MongoDB
 - [x] Mongoose
 - [x] GraphQL
-- [x] Material UI
+- [x] Ant Design
 - [x] Deployed on Heroku
 - [x] Yelp Fusion API
 
 ## Usage
 
 ```
-Enter a business to search up to view reviews
+Enter a location (city, state, zip code, etc...) to search nearby Milk Tea Places
 ```
 
 ## Contributors
@@ -64,19 +71,15 @@ npm install
 seed database
 
 ```
+cd server/
+
 npm run seed
 ```
 
-start development server
+start development React client and Express server
 
 ```
 npm run develop
-```
-
-build app for production
-
-```
-npm run build
 ```
 
 ### Client
@@ -89,6 +92,12 @@ cd client/
 
 ```
 npm run start
+```
+
+build app for production
+
+```
+npm run build
 ```
 
 ### Server

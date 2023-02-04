@@ -1,7 +1,6 @@
 .favoritesListContainer {
     display: flex;
     flex-direction: column;
-
 }
 
 .singleItemContainer {
@@ -10,7 +9,6 @@
     gap: 2rem;
     background-color: rgb(241, 241, 241);
     border-radius: 6px;
-    /* width: 24rem; */
 }
 
 .listItemContainer {
@@ -22,7 +20,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
 }
 
 .rating {
@@ -31,9 +28,7 @@
 
 
 @media (min-width: 968px) {
-
     .singleItemContainer {
         width: 24rem;
     }
-
 }

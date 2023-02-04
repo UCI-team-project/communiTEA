@@ -1,10 +1,10 @@
 require('dotenv').config()
 
-const express = require("express");
-const { ApolloServer } = require("apollo-server-express");
-const { join } = require("path");
-const { authMiddleware } = require("./utils/auth.js");
-const axios = require("axios");
+const express = require('express')
+const { ApolloServer } = require('apollo-server-express')
+const routes = require('./routes')
+const { join } = require('path')
+const { authMiddleware } = require('./utils/auth.js')
 
 const { typeDefs, resolvers } = require('./schemas')
 const db = require('./config')
@@ -29,44 +29,22 @@ app.get('/', (req, res) => {
   res.sendFile(join(__dirname, 'client', 'build', 'index.html'))
 })
 
-// let config = {
-//   headers: {
-//     Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
-//   },
-//   params: {
-//     term: "boba",
-//     location: "92683",
-//     radius: 10000,
-//     sort_by: "best_match",
-//     limit: 1,
-//   },
-// };
+app.use(routes)
 
-// app.get("/api/yelp", async (req, res) => {
-//   const response = await axios
-//     .get("https://api.yelp.com/v3/businesses/search", config)
-//     .then((response) => {
-//       console.log(response.data);
-//       res.json(response.data);
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//     });
-// });
-
+// start Express/Apollo server
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start()
   server.applyMiddleware({ app })
 
-  db.once("open", () => {
+  db.once('open', () => {
     app.listen(PORT, () => {
       console.log(`
         \n------------------------------------------
         \nAPI server running on port ${PORT}!
         \nUse GraphQL at http://localhost:${PORT}${server.graphqlPath}
-        \n------------------------------------------`);
-    });
-  });
-};
+        \n------------------------------------------`)
+    })
+  })
+}
 
 startApolloServer(typeDefs, resolvers)
