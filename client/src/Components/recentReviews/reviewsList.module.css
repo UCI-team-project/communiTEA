@@ -8,7 +8,6 @@
     flex-direction: column;
     gap: 2rem;
     width: 24rem;
-
 }
 
 .listItemContainer {
@@ -16,7 +15,6 @@
     padding: 2rem;
     border-radius: 6px;
     width: 24rem;
-
 }
 
 .containerRow {

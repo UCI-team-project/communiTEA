@@ -4,10 +4,7 @@ import capitalizeFirstLetter from '../../utils/capitalizeFirstLetter'
 import style from './footer.module.css'
 import { GithubOutlined } from '@ant-design/icons'
 
-const footerLinks = ['home', 'dashboard', 'profile', 'login']
-const githubLink = 'https://github.com/UCI-team-project/communiTEA'
-
-const FooterComponent = () => {
+export default function FooterComponent() {
   return (
     <footer>
       <section className={style.footerSection}>
@@ -33,4 +30,5 @@ const FooterComponent = () => {
   )
 }
 
-export default FooterComponent
+const footerLinks = ['home', 'dashboard', 'profile', 'login']
+const githubLink = 'https://github.com/UCI-team-project/communiTEA'

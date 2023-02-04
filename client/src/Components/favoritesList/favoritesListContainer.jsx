@@ -1,7 +1,7 @@
-import React from 'react'
 import SingleItem from './singleItem'
 import style from './favoritesList.module.css'
-const FavoritesContainer = () => {
+
+export default function FavoritesContainer() {
   return (
     <div className={style.favoritesListContainer}>
       <h2>Favorites List</h2>
@@ -9,5 +9,3 @@ const FavoritesContainer = () => {
     </div>
   )
 }
-
-export default FavoritesContainer
