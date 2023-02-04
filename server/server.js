@@ -96,7 +96,7 @@ app.get('/api/yelp/store/:id', async (req, res) => {
     },
   }
 
-  const yelpAPI = `https://api.yelp.com/v3/businesses/${id}/reviews?limit=20&sort_by=yelp_sort`
+  const yelpAPI = `https://api.yelp.com/v3/businesses/${id}`
   const response = await axios
     .get(yelpAPI, options)
     .then((response) => {
