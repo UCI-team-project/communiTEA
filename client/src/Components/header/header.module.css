@@ -9,10 +9,6 @@ a {
   color: black;
 }
 
-a:visited {
-  text-decoration: none;
-  color: black;
-}
 
 a:hover {
   color: var(--secondary-brown);
@@ -28,4 +24,5 @@ a:hover {
   padding-bottom: 10px;
   padding-left: 15px;
   left: 0px;
+  z-index: 100;
 }
