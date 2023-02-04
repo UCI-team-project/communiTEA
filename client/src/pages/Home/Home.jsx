@@ -1,18 +1,19 @@
 /* eslint-disable react/jsx-no-target-blank */
-import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import TrendingShopsContainer from '../../Components/trendingshops/trendingshopsContainer'
-import ImageCarousel from '../../Components/carousel/carousel'
-import SearchBar from '../../Components/searchBar/searchBar'
-import FooterComponent from '../../Components/footer/footer'
-import HeaderComponent from '../../Components/header'
-import { Button } from 'antd'
-import style from './home.module.css'
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import TrendingShopsContainer from "../../Components/trendingshops/trendingshopsContainer";
+import ImageCarousel from "../../Components/carousel/carousel";
+import SearchBar from "../../Components/searchBar/searchBar";
+import FooterComponent from "../../Components/footer/footer";
+import HeaderComponent from "../../Components/header";
+import { Button } from "antd";
+import style from "./home.module.css";
+import Auth from "../../utils/auth";
 
 export default function Home() {
   useEffect(() => {
-    document.title = 'CommuniTEA - Home'
-  }, [])
+    document.title = "CommuniTEA - Home";
+  }, []);
 
   return (
     <>
@@ -21,7 +22,7 @@ export default function Home() {
       </div>
       <div className={style.homeContainer}>
         <div className={style.wrapper}>
-          <h1 className=''>CommuniTEA</h1>
+          <h1 className="">CommuniTEA</h1>
           <div className={style.headerTextWrapper}>
             <p className={style.headerText}>{headerText.header.text}</p>
           </div>
@@ -29,43 +30,51 @@ export default function Home() {
             <ImageCarousel />
             <article className={style.apiContainer}>
               <p className={style.apiInfo}>
-                {' '}
+                {" "}
                 {headerText.api.text}
                 <a
                   href={headerText.href}
                   className={style.apiLink}
-                  target='_blank'
+                  target="_blank"
                 >
-                  - Yelp Fusion API{' '}
+                  - Yelp Fusion API{" "}
                 </a>
               </p>
             </article>
           </article>
-          <section className={style.bottomSection}>
-            <div className={style.cta}>
-              <SearchBar />
-              <Link to='/login'>
-                <Button className={style.btn1}>LOGIN</Button>
-              </Link>
-              <p>or</p>
-              <Link to='/signup'>
-                <Button className={style.btn2}>SIGNUP</Button>
-              </Link>
-            </div>
-            <section className={style.trendingShopsContainer}>
-              <TrendingShopsContainer />
+          {Auth.loggedIn() ? (
+            <section className={style.bottomSection}>
+              <section className={style.trendingShopsContainer}>
+                <TrendingShopsContainer />
+              </section>
             </section>
-          </section>
+          ) : (
+            <section className={style.bottomSection}>
+              <div className={style.cta}>
+                <SearchBar />
+                <Link to="/login">
+                  <Button className={style.btn1}>LOGIN</Button>
+                </Link>
+                <p>or</p>
+                <Link to="/signup">
+                  <Button className={style.btn2}>SIGNUP</Button>
+                </Link>
+              </div>
+              <section className={style.trendingShopsContainer}>
+                <TrendingShopsContainer />
+              </section>
+            </section>
+          )}
         </div>
       </div>
       <FooterComponent />
     </>
-  )
+  );
 }
 
 const headerText = {
   header: {
-    text: 'Unsure of where to go for delicious boba drinks? Find the best boba spots near you curated by our friendly community!',
+    text: "Unsure of where to go for delicious boba drinks? Find the best boba spots near you curated by our friendly community!",
   },
   api: {
     text: `"With millions of business updates every month, Yelp Fusion
@@ -75,5 +84,5 @@ const headerText = {
     users, the Yelp data set remains unparalleled in its rich
     detail, freshness, and accuracy."`,
   },
-  href: 'https://fusion.yelp.com/',
-}
+  href: "https://fusion.yelp.com/",
+};
