@@ -4,7 +4,7 @@ const axios = require('axios')
 // fetch all businesses based on location
 router.get('/', async (req, res) => {
   const location = req.headers.location
-  const yelpAPI = `https://api.yelp.com/v3/businesses/search?location=${location}&term=milk+tea&radius=10000&sort_by=best_match&limit=20`
+  const allStoresAPI = `https://api.yelp.com/v3/businesses/search?location=${location}&term=milk+tea&radius=10000&sort_by=best_match&limit=20`
   const options = {
     method: 'GET',
     headers: {
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
     },
   }
   const fetchSingleStore = await axios
-    .get(yelpAPI, options)
+    .get(allStoresAPI, options)
     .then((response) => {
       res.json(response.data)
     })
@@ -23,9 +23,10 @@ router.get('/', async (req, res) => {
   fetchSingleStore
 })
 
-// get yelp reviews of a single store
-router.get('/reviews/:id', async (req, res) => {
+// fetch specific details of a single store
+router.get('/store/:id', async (req, res) => {
   const id = req.params.id
+  const singleStoreDetailsAPI = `https://api.yelp.com/v3/businesses/${id}`
   const options = {
     method: 'GET',
     headers: {
@@ -33,10 +34,8 @@ router.get('/reviews/:id', async (req, res) => {
       Authorization: `Bearer ${process.env.API_KEY}`,
     },
   }
-
-  const yelpAPI = `https://api.yelp.com/v3/businesses/${id}/reviews?limit=20&sort_by=yelp_sort`
   const response = await axios
-    .get(yelpAPI, options)
+    .get(singleStoreDetailsAPI, options)
     .then((response) => {
       res.json(response.data)
     })
@@ -46,10 +45,10 @@ router.get('/reviews/:id', async (req, res) => {
   response
 })
 
-// fetch specific details of a single store
-router.get('/store/:id', async (req, res) => {
+// get yelp reviews of a single store
+router.get('/reviews/:id', async (req, res) => {
   const id = req.params.id
-  const yelpAPI = `https://api.yelp.com/v3/businesses/${id}`
+  const yelpReviewsAPI = `https://api.yelp.com/v3/businesses/${id}/reviews?limit=20&sort_by=yelp_sort`
   const options = {
     method: 'GET',
     headers: {
@@ -57,15 +56,15 @@ router.get('/store/:id', async (req, res) => {
       Authorization: `Bearer ${process.env.API_KEY}`,
     },
   }
+
   const response = await axios
-    .get(yelpAPI, options)
+    .get(yelpReviewsAPI, options)
     .then((response) => {
       res.json(response.data)
     })
     .catch((err) => {
       console.error(err)
     })
-
   response
 })
 
