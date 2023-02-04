@@ -2,6 +2,7 @@ import EmptyCard from '../skeleton/emptyCard'
 import { Carousel } from 'antd'
 import { StarOutlined } from '@ant-design/icons'
 import style from './reviewsList.module.css'
+import formatDate from '../../utils/formatDate'
 
 export default function SingleItem({ reviews }) {
   const onChange = (currentSlide) => {
@@ -22,7 +23,7 @@ export default function SingleItem({ reviews }) {
                   <h3>"{item.text}"</h3>
                 </div>
                 <p>
-                  - {item.user.name} {item.time_created}
+                  - {item.user.name} {formatDate(item.time_created)}
                 </p>
               </article>
             </div>
