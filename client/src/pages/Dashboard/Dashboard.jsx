@@ -24,8 +24,9 @@ export default function Dashboard() {
     document.title = 'CommuniTEA - Dashboard'
   }, [])
 
+  const expressAPI = process.env.REACT_APP_API_ENDPOINT
   async function fetchStores() {
-    await fetch('http://localhost:3001/api/yelp', {
+    await fetch(expressAPI, {
       method: 'GET',
       headers: {
         location: location,

@@ -56,7 +56,8 @@ const SearchResults = ({ storesData }) => {
           <List.Item.Meta
             // avatar={<Avatar src={item.avatar} />}
             title={
-              <a target='_blank' href={`/store/${item.name}`}>
+              // eslint-disable-next-line react/jsx-no-target-blank
+              <a target='_blank' href={`/store/${item.id}`}>
                 {item.name}
               </a>
             }

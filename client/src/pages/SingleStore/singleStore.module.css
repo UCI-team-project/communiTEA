@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 4rem;
 }
 
 .main {
@@ -18,6 +19,14 @@
 
 }
 
+.photoContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
 .imageContainer {
     width: 100%;
     display: flex;
@@ -25,27 +34,40 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
+
 }
 
 .image {
-    height: 12rem;
-    width: 90%;
-
+    aspect-ratio: auto 4/3;
+    object-fit: cover;
+    max-height: 24rem;
     background-color: var(--primary-aqua);
     border-radius: var(--br-primary);
+    margin: 0 1rem;
 }
 
+.descriptionWrapper {
+    width: 100%;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
 
 .storeDescription {
-    margin-top: 4rem;
-    height: 24rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     width: 100%;
+    padding: 2rem;
+    margin-top: 2rem;
     border-radius: var(--br-primary);
-    background-color: gainsboro;
+    background-color: rgb(241, 241, 241);
 }
 
 .reviewsContainer {
-    margin: 4rem 0;
+    margin: 2rem 0;
 }
 
 .reviewFormArticle {
@@ -67,6 +89,10 @@
     gap: 2rem;
 }
 
+.reviewForm>label {
+    font-size: 1.5rem;
+}
+
 .reviewForm>textarea {
     width: 100%;
     border-radius: var(--br-primary);
@@ -82,12 +108,37 @@
 .reviewBtn {
     width: 12rem;
     padding: 1rem;
-    background-color: ;
     border-radius: var(--br-primary);
     border: none;
 }
 
 .reviewBtn:hover {
+    opacity: 75%;
+}
+
+.categoryContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.categoryContainer>p {
+    background-color: var(--primary-blue);
+    font-weight: bolder;
+    padding: .5rem;
+    border-radius: 4px;
+}
+
+.addToFavBtn {
+    background-color: var(--secondary-brown);
+    padding: .5rem;
+    border: none;
+    border-radius: var(--br-primary);
+    width: 10rem;
+    height: 2rem;
+}
+
+.addToFavBtn:hover {
     opacity: 75%;
 }
 
@@ -105,13 +156,6 @@
         gap: 2rem;
     }
 
-    .image {
-        height: 12rem;
-        width: 16rem;
-        background-color: var(--primary-aqua);
-        border-radius: var(--br-primary);
-    }
-
     .contentWrapper {
         width: 80%;
         display: flex;
@@ -119,5 +163,20 @@
         justify-content: center;
         align-items: flex-start;
         max-width: 1200px;
+    }
+
+    .photoContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .descriptionWrapper {
+        flex-direction: row;
+    }
+
+    .storeDescription {
+        width: 50%;
     }
 }
