@@ -11,6 +11,9 @@ import FooterComponent from "../../Components/footer/footer";
 import HeaderComponent from "../../Components/header";
 import CodeArt from "../../Components/codeArt/art";
 
+import { useMutation } from "@apollo/client";
+import { ADD_STORE } from "../../utils/mutations";
+
 import { Breadcrumb, Card, Layout, Skeleton, theme } from "antd";
 // import { Card } from 'antd'
 import style from "./dashboard.module.css";
@@ -22,7 +25,7 @@ export default function Dashboard() {
   const userData = data?.me || {};
 
   const welcomer = `Welcome back ${userData.full_name}!`;
-  console.log(userData);
+  // console.log(userData);
 
   const [stores, setStores] = useState({});
   const [location, setLocation] = useState("");
@@ -46,10 +49,22 @@ export default function Dashboard() {
     token: { colorBgContainer },
   } = theme.useToken();
 
+  // const [addStores, { error, addData }] = useMutation(ADD_STORE);
+
   // form for location search
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     fetchStores();
+
+    // add_store mutation on every store from search results? not working
+    // try {
+    //   const { storesDB } = await addStores({
+    //     variables: { storeInput: stores},
+    //   });
+    //   console.log(storesDB);
+    // } catch (err) {
+    //   console.error(err);
+    // }
   };
 
   if (loading) {
