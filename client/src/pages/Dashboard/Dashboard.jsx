@@ -1,19 +1,29 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { QUERY_ME } from '../../utils/queries';
+import { useQuery }from '@apollo/client';
 import Auth from '../../utils/auth'
+
 import RecentReviewsContainer from '../../Components/recentReviews/recentReviewsContainer'
 import FavoritesContainer from '../../Components/favoritesList/favoritesListContainer'
 import SearchResults from '../../Components/searchResults/searchResults'
 import FooterComponent from '../../Components/footer/footer'
 import HeaderComponent from '../../Components/header'
 import CodeArt from '../../Components/codeArt/art'
-import { Breadcrumb, Layout, Skeleton, theme } from 'antd'
-import { Card } from 'antd'
+
+import { Breadcrumb, Card, Layout, Skeleton, theme } from 'antd'
+// import { Card } from 'antd'
 import style from './dashboard.module.css'
 
 const { Content } = Layout
 
 export default function Dashboard() {
+  const { loading, data } = useQuery(QUERY_ME);
+  const userData = data?.me || {};
+
+  const welcomer = `Welcome back ${userData.full_name}`;
+  console.log(userData);
+
   const [stores, setStores] = useState({})
   const [location, setLocation] = useState('')
 
@@ -40,6 +50,10 @@ export default function Dashboard() {
   const handleSubmit = (e) => {
     e.preventDefault()
     fetchStores()
+  }
+
+  if (loading) {
+    return <h2>LOADING...</h2>;
   }
 
   return (
@@ -79,7 +93,7 @@ export default function Dashboard() {
                 <section className={style.profileHeaderSection}>
                   <article>
                     <Card
-                      title='Welcome back John Doe'
+                      title={welcomer}
                       bordered={false}
                       style={{
                         width: '100%',
@@ -126,8 +140,8 @@ export default function Dashboard() {
 
                     {/* displays the user's favorites list  */}
                     <section className={style.reviewSection}>
-                      <FavoritesContainer />
-                      <RecentReviewsContainer />
+                      <FavoritesContainer favStores={userData.savedStores}/>
+                      <RecentReviewsContainer reviews={userData.reviews} />
                     </section>
                   </>
                 ) : (

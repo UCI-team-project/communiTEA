@@ -1,17 +1,25 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/alt-text */
 import { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import FooterComponent from '../../Components/footer/footer'
 import HeaderComponent from '../../Components/header'
 import RecentReviewsContainer from '../../Components/recentReviews/recentReviewsContainer'
 import { StarOutlined } from '@ant-design/icons'
 import style from './singleStore.module.css'
+import { useQuery } from '@apollo/client'
+import { GET_STORE } from '../../utils/queries'
 
 export default function SingleStore() {
+  const store_id = useParams();
+
   const location = useLocation()
   const path = location.pathname.split('/')
   const storeID = path[path.length - 1]
+
+  // this is the query used to retrieve a store from db if needed
+  // const { loading, data } = useQuery(GET_STORE(store_id));
+  // const storeData = data?.getStore || {};
 
   const [reviews, setReviews] = useState({})
   const [storeData, setStoreData] = useState({})
@@ -21,6 +29,13 @@ export default function SingleStore() {
     fetchYelpReviews()
     fetchStoreDetails()
   }, [])
+
+
+  // --> I think we should just use reviews from out site right? <--
+  // well depends, we can save the store to our database when a use clicks 
+  // on a search results, therefore it can be in our database prior to rendering 
+  // this page. but i also think its fine to only save store to db if user 
+  // interacts with it (review, react, favorites)... 
 
   const expressAPI = process.env.REACT_APP_API_ENDPOINT
 
@@ -43,6 +58,10 @@ export default function SingleStore() {
       .then((res) => res.json())
       .then((stores) => setStoreData(stores))
   }
+
+  // if (loading) {
+  //   <h2>Loading...</h2>
+  // }
 
   return (
     <>

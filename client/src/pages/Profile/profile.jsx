@@ -5,11 +5,19 @@ import style from "./profile.module.css";
 import { Card } from "antd";
 import FooterComponent from "../../Components/footer/footer";
 import { Link } from "react-router-dom";
+import { QUERY_ME } from '../../utils/queries';
+import { useQuery }from '@apollo/client';
 import Auth from "../../utils/auth";
 
 const { Content } = Layout;
 
 const Profile = () => {
+  const { loading, data } = useQuery(QUERY_ME);
+  const userData = data?.me || {};
+
+  const welcomer = `Welcome back ${userData.full_name}`;
+  console.log(userData);
+
   useEffect(() => {
     document.title = "CommuniTEA - Profile";
   }, []);
@@ -52,7 +60,7 @@ const Profile = () => {
                     <section className={style.profileHeaderSection}>
                       <article>
                         <Card
-                          title="Welcome back John Doe"
+                          title={welcomer}
                           bordered={false}
                           style={{
                             width: 500,

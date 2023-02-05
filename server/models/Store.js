@@ -25,8 +25,12 @@ const storeSchema = new Schema({
     required: true,
   },
   categories: [{ type : String }],
-  URL: {
+  yelpURL: {
     type: String,
+    required: true,
+  },
+  image: {
+    type: String, 
     required: true,
   },
   photos: [{ type: String }],

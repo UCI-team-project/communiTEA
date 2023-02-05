@@ -8,21 +8,22 @@ export default function SingleItem({ reviews }) {
     console.log(currentSlide)
   }
 
+  console.log(reviews);
   return (
     <div className={style.singleItemContainer}>
       <Carousel afterChange={onChange}>
         {reviews ? (
-          reviews?.reviews?.map((item, key) => (
-            <div key={key} style={contentStyle}>
+          reviews?.map((review) => (
+            <div key={review._id} style={contentStyle}>
               <article className={style.listItemContainer}>
                 <p className={style.rating}>
-                  {item.rating} <StarOutlined />
+                  {review.score} <StarOutlined />
                 </p>
                 <div className={style.containerRow}>
-                  <h3>"{item.text}"</h3>
+                  <h3>"{review.content}"</h3>
                 </div>
                 <p>
-                  - {item.user.name} {item.time_created}
+                  - {review.full_name} {review.createdAt}
                 </p>
               </article>
             </div>

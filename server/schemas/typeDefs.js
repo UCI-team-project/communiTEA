@@ -2,7 +2,7 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
-    _id: ID
+    _id: ID!
     username: String!
     password: String!
     first_name: String!
@@ -19,7 +19,8 @@ const typeDefs = gql`
     name: String!
     address: String!
     categories: [String]
-    URL: String!
+    yelpURL: String!
+    image: String!
     photos: [String]
     reactions: [Reaction]
     reviews: [Review]
@@ -60,7 +61,8 @@ const typeDefs = gql`
     name: String!
     address: String
     categories: [String]
-    URL: String
+    yelpURL: String
+    image: String
     photos: [String]
   }
 
@@ -94,10 +96,10 @@ const typeDefs = gql`
     favStore(store_id: ID!): User
     removeStore(store_id: ID!): User
     addReaction(reaction: String!, store_id: ID!): Store
-    removeReaction( store_id: ID!): Store
+    removeReaction(store_id: ID!): Store
     addReview(reviewEntry: reviewInput!): Review
     updateReview(reviewId: ID!, content: String, score: Float): Review
-    removeReview( reviewId:ID!): User
+    removeReview(reviewId:ID!): User
   }
 `;
 

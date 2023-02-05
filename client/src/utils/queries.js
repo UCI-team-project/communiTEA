@@ -5,7 +5,6 @@ export const QUERY_ME = gql`
     me {
       _id
       username 
-      password
       first_name
       last_name
       full_name
@@ -16,8 +15,8 @@ export const QUERY_ME = gql`
         name
         address
         categories
-        URL 
-        photos
+        yelpURL
+        image 
         avg_rating
       }
       reviews {
@@ -25,11 +24,11 @@ export const QUERY_ME = gql`
         content
         score
         createdAt
-        storeId
+        store_id
         storeName
         storeURL
         username
-        fullname
+        full_name
       }
     }
   }
@@ -51,8 +50,8 @@ export const GET_SINGLE_USER = gql`
         name
         address
         categories
-        URL 
-        photos
+        yelpURL
+        image 
         avg_rating
       }
       reviews {
@@ -60,11 +59,11 @@ export const GET_SINGLE_USER = gql`
         content
         score
         createdAt
-        storeId
+        store_id
         storeName
         storeURL
         username
-        fullname
+        full_name
       }
     }
   }
@@ -78,8 +77,8 @@ export const GET_ALL_STORES = gql`
       name
       address
       categories
-      URL
-      photos
+      yelpURL
+      image 
       avg_rating
     }
   }
@@ -93,7 +92,8 @@ export const GET_STORE = gql `
       name
       address
       categories
-      URL
+      yelpURL
+      image 
       photos
       avg_rating
       reactions {

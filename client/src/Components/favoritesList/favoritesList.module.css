@@ -27,6 +27,26 @@
 }
 
 
+.imageContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+}
+
+.image {
+  aspect-ratio: auto 4/3;
+  object-fit: cover;
+  max-height: 14rem;
+  background-color: var(--primary-aqua);
+  border-radius: var(--br-primary);
+  margin: 0 1rem;
+}
+
+
 @media (min-width: 968px) {
     .singleItemContainer {
         width: 24rem;
