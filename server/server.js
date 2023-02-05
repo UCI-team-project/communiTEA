@@ -2,7 +2,7 @@ require("dotenv").config();
 const cors = require("cors");
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
-// const routes = require('./routes')
+const routes = require("./routes");
 const { join } = require("path");
 const { authMiddleware } = require("./utils/auth");
 
@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
   res.sendFile(join(__dirname, "client", "build", "index.html"));
 });
 
-// app.use(routes)
+app.use(routes);
 
 // start Express/Apollo server
 const startApolloServer = async (typeDefs, resolvers) => {
