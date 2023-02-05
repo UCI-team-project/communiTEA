@@ -1,5 +1,5 @@
 require('dotenv').config()
-
+var cors = require('cors')
 const express = require('express')
 const { ApolloServer } = require('apollo-server-express')
 // const routes = require('./routes')
@@ -11,7 +11,7 @@ const db = require('./config')
 
 const PORT = process.env.PORT || 3001
 const app = express()
-
+app.use(cors())
 const server = new ApolloServer({
   typeDefs,
   resolvers,

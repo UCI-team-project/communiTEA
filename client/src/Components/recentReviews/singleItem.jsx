@@ -1,46 +1,46 @@
-import EmptyCard from '../skeleton/emptyCard'
-import { Carousel } from 'antd'
-import { StarOutlined } from '@ant-design/icons'
-import style from './reviewsList.module.css'
+import EmptyCard from "../skeleton/emptyCard";
+import { Carousel } from "antd";
+import { StarOutlined } from "@ant-design/icons";
+import style from "./reviewsList.module.css";
+import formatDate from "../../utils/formatDate";
 
 export default function SingleItem({ reviews }) {
   const onChange = (currentSlide) => {
-    console.log(currentSlide)
-  }
+    console.log(currentSlide);
+  };
 
-  console.log(reviews);
   return (
     <div className={style.singleItemContainer}>
       <Carousel afterChange={onChange}>
-        {reviews.length ? (
-          reviews?.map((review) => (
-            <div key={review._id} style={contentStyle}>
+        {reviews ? (
+          reviews?.reviews?.map((item, key) => (
+            <div key={key} style={contentStyle}>
               <article className={style.listItemContainer}>
                 <p className={style.rating}>
-                  {review.score} <StarOutlined />
+                  {item.rating} <StarOutlined />
                 </p>
                 <div className={style.containerRow}>
-                  <h3>"{review.content}"</h3>
+                  <h3>"{item.text}"</h3>
                 </div>
                 <p>
-                  - {review.full_name} {review.createdAt}
+                  - {item.user.name} {formatDate(item.time_created)}
                 </p>
               </article>
             </div>
           ))
         ) : (
-          <EmptyCard item={"reviews"}/>
+          <EmptyCard />
         )}
       </Carousel>
     </div>
-  )
+  );
 }
 
 const contentStyle = {
   margin: 0,
-  height: '160px',
-  color: '#fff',
-  lineHeight: '160px',
-  textAlign: 'center',
-  background: '#364d79',
-}
+  height: "160px",
+  color: "#fff",
+  lineHeight: "160px",
+  textAlign: "center",
+  background: "#364d79",
+};

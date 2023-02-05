@@ -1,6 +1,11 @@
 .recentReviewsContainer {
     display: flex;
     flex-direction: column;
+    width: 100%;
+}
+
+.recentReviewsContainer>h2 {
+    margin-left: 2rem;
 }
 
 .singleItemContainer {

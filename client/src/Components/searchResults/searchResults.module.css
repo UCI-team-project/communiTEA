@@ -5,13 +5,13 @@
     justify-content: center;
 }
 
-.addToFavBtn {
+.moreInfoBtn {
     border-radius: var(--br-primary);
     border: none;
     padding: 0.5rem;
 }
 
-.addToFavBtn:hover {
+.moreInfoBtn:hover {
     opacity: 75%;
 }
 

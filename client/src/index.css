@@ -26,3 +26,7 @@ html, body {
 body {
     font-family: 'Itim', cursive;
 }
+
+a, button {
+    cursor: pointer;
+}
