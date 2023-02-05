@@ -51,7 +51,6 @@ export default function Home() {
           ) : (
             <section className={style.bottomSection}>
               <div className={style.cta}>
-                <SearchBar />
                 <Link to="/login">
                   <Button className={style.btn1}>LOGIN</Button>
                 </Link>

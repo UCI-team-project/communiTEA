@@ -16,6 +16,12 @@
     margin-bottom: 8rem;
 }
 
+.loadText {
+    font-size: 2rem;
+    padding-top: 350px;
+    padding-bottom:350px;
+}
+
 .text {
     width: 80%;
     display: flex;
@@ -33,6 +39,7 @@
 }
 
 .inputField {
+    border: 1px black solid;
     width: 100%;
     padding: 1rem;
 }
