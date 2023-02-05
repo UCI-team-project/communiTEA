@@ -50,11 +50,7 @@ export default function SearchResults({ storesData }) {
           <List.Item.Meta
             title={
               // eslint-disable-next-line react/jsx-no-target-blank
-              <a
-                className={style.test}
-                target="_blank"
-                href={`/store/${item.id}`}
-              >
+              <a target="_self" href={`/store/${item.id}`}>
                 {item.name}
               </a>
             }
@@ -71,7 +67,11 @@ export default function SearchResults({ storesData }) {
                   <p>price: {item?.price}</p>
                   <p>{item?.display_phone}</p>
                 </article>
-                <button className={style.moreInfoBtn}>More info</button>
+                <>
+                  <a target="_self" href={`/store/${item.id}`}>
+                    <button className={style.moreInfoBtn}>More info</button>
+                  </a>
+                </>
                 <article></article>
               </section>
             }

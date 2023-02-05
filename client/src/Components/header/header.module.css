@@ -15,6 +15,7 @@ a:hover {
 }
 
 .header {
+  font-family: "Itim", cursive;
   background-color: #88DACB;
   position: fixed;
   z-index: 50;
