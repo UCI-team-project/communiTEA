@@ -1,32 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
 
 :root {
-    --primary-blue: #88DACB;
-    --primary-aqua: aquamarine;
-    --secondary-brown: #C0AF82;
-    --primary-grey: #f1f1f1;
+  --primary-blue: #88dacb;
+  --primary-aqua: aquamarine;
+  --secondary-brown: #c0af82;
+  --primary-grey: #f1f1f1;
 
-    /* border radius */
-    --br-primary: 8px;
+  /* border radius */
+  --br-primary: 8px;
 }
 
 * {
-    box-sizing: border-box;
-
+  box-sizing: border-box;
 }
 
-html, body {
-    margin: 0;
-    padding: 0
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
 body {
-    font-family: 'Itim', cursive;
+  font-family: "Itim", cursive;
 }
 
-a, button {
-    cursor: pointer;
+a,
+button {
+  cursor: pointer;
 }
