@@ -1,3 +1,3 @@
 import { Empty } from 'antd'
-const EmptyCard = () => <Empty description={'No reviews added'} />
+const EmptyCard = ({item}) => <Empty description={`No ${item} added`} />
 export default EmptyCard

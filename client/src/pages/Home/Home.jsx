@@ -22,7 +22,7 @@ export default function Home() {
       </div>
       <div className={style.homeContainer}>
         <div className={style.wrapper}>
-          <h1 className="">CommuniTEA</h1>
+          <h1 className={style.wrapperHeader}>CommuniTEA</h1>
           <div className={style.headerTextWrapper}>
             <p className={style.headerText}>{headerText.header.text}</p>
           </div>

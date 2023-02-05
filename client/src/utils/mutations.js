@@ -8,8 +8,6 @@ export const REGISTER_USER = gql`
         _id
         username
         password
-        first_name
-        last_name
         full_name
       }
     }
@@ -24,10 +22,8 @@ export const LOGIN_USER = gql`
         _id
         username
         password
-        first_name
-        last_name
         full_name
-        description
+
       }
     }
   }
@@ -55,15 +51,16 @@ export const ADD_STORE = gql`
       name
       address
       categories
-      URL 
+      yelpURL
+      image 
       photos
     }
   }
 `;
 
 export const FAV_STORE = gql`
-  mutation favStore($userId: ID!, $store_id: ID!) {
-    favStore(userId: $userId, store_id: $store_id) {
+  mutation favStore($store_id: ID!) {
+    favStore(store_id: $store_id) {
       _id
       username 
       password
@@ -77,7 +74,8 @@ export const FAV_STORE = gql`
         name
         address
         categories
-        URL 
+        yelpURL
+        image 
         photos
       }
       reviews {
@@ -97,8 +95,8 @@ export const FAV_STORE = gql`
 `
 
 export const REMOVE_STORE = gql`
-  mutation removeStore($userId: ID!, $store_id: ID!) {
-    removeStore(userId: $userId, store_id: $store_id){
+  mutation removeStore($store_id: ID!) {
+    removeStore(store_id: $store_id){
       _id
       username 
       password
@@ -112,7 +110,8 @@ export const REMOVE_STORE = gql`
         name
         address
         categories
-        URL 
+        yelpURL
+        image 
         photos
       }
       reviews {
@@ -132,14 +131,15 @@ export const REMOVE_STORE = gql`
 `;
 
 export const ADD_REACTION = gql`
-  mutation addReaction($reaction: String!, $userId: ID!, $store_id: ID!) {
-    addReaction(reaction: $reaction, userId: $userId, store_id: $store_id) {
+  mutation addReaction($reaction: String!, $store_id: ID!) {
+    addReaction(reaction: $reaction, store_id: $store_id) {
       _id
       storeId
       name
       address
       categories
-      URL
+      yelpURL
+      image 
       photos
       reactions {
         reaction
@@ -165,14 +165,15 @@ export const ADD_REACTION = gql`
 `;
 
 export const REMOVE_REACTION = gql`
-  mutation removeReaction($userId: ID!, $store_id: ID!) {
-    removeReaction(userId: $userId, store_id: $store_id) {
+  mutation removeReaction($store_id: ID!) {
+    removeReaction(store_id: $store_id) {
       _id
       storeId
       name
       address
       categories
-      URL
+      yelpURL
+      image 
       photos
       reactions {
         reaction
@@ -232,8 +233,8 @@ export const UPDATE_REVIEW = gql `
 `;
 
 export const REMOVE_REVIEW = gql`
-  mutation removeReview($userId: ID!, $reviewId: ID!) {
-    removeReview(userId: $userId, reviewId: $reviewId) {
+  mutation removeReview($reviewId: ID!) {
+    removeReview(reviewId: $reviewId) {
       _id
       username 
       password
@@ -247,7 +248,8 @@ export const REMOVE_REVIEW = gql`
         name
         address
         categories
-        URL 
+        yelpURL
+        image 
         photos
       }
       reviews {

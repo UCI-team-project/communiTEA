@@ -1,125 +1,141 @@
 .navContainer {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .siteLayoutContent {
-    min-height: 280px;
-    padding: 24px;
+  min-height: 280px;
+  padding: 24px;
 }
 
 #components-layout-demo-top .logo {
-    float: left;
-    width: 120px;
-    height: 31px;
-    margin: 16px 24px 16px 0;
-    background: rgba(255, 255, 255, 0.3);
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .ant-row-rtl #components-layout-demo-top .logo {
-    float: right;
-    margin: 16px 0 16px 24px;
+  float: right;
+  margin: 16px 0 16px 24px;
 }
 
 .wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 8rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8rem;
 }
 
 .dashboardContainer {
-    width: 100%;
-    max-width: 1220px;
+  width: 100%;
+  max-width: 1220px;
 }
 
 .reviewSection {
-    margin-top: 4rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .profileHeaderSection {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 0rem;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+
+  /* flex-direction: column;
+ align-items: flex-start;*/
+  text-align: center;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 
 .cardBody {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: space-around;
+  font-weight: 500;
+}
+.welcomer {
+  background-color: #88dacb;
+  /* text-align: center; */
+}
 
+.welcomeContainer {
+  width: 100%;
 }
 
 .text {
-    font-size: 1.5rem;
-    text-align: center;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 .art {
-    font-size: 0.6rem;
+  font-size: 0.6rem;
 }
 
 .locationForm {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.locationForm>h3 {
-    font-size: 1.5rem;
+.locationForm > h3 {
+  font-size: 1.5rem;
 }
 
 .formInput {
-    padding: .5rem;
-    border-radius: 4px;
-    margin-right: 2rem;
-    height: 2.5rem;
-    width: 24rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-right: 2rem;
+  height: 2.5rem;
+  width: 24rem;
 }
 
 .formSubmitBtn {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 1rem;
-    height: 2.5rem;
-    border-radius: var(--br-primary);
-    border: none;
-    text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+  height: 2.5rem;
+  border-radius: var(--br-primary);
+  border: none;
+  text-align: center;
 }
 
 .formSubmitBtn:hover {
-    opacity: 75%;
+  opacity: 75%;
 }
 
 .inputContainer {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .skeletonContainer {
-    margin: 2rem;
+  margin: 2rem;
 }
 
 @media (min-width: 968px) {
-    .dashboardContainer {
-        width: 80vw;
-    }
+  .dashboardContainer {
+    width: 80vw;
+  }
 
-    .reviewSection {
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-around;
-    }
+  .reviewSection {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 
-    .locationForm {
-        margin-left: 2rem;
-    }
-
+  .locationForm {
+    margin-left: 2rem;
+  }
 }

@@ -2,7 +2,7 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
-    _id: ID
+    _id: ID!
     username: String!
     password: String!
     first_name: String!
@@ -19,7 +19,8 @@ const typeDefs = gql`
     name: String!
     address: String!
     categories: [String]
-    URL: String!
+    yelpURL: String!
+    image: String!
     photos: [String]
     reactions: [Reaction]
     reviews: [Review]
@@ -60,7 +61,8 @@ const typeDefs = gql`
     name: String!
     address: String
     categories: [String]
-    URL: String
+    yelpURL: String
+    image: String
     photos: [String]
   }
 
@@ -81,23 +83,28 @@ const typeDefs = gql`
 
   type Query {
     me: User
-    getSingleUser(userId: ID!): User 
-    getAllStores: [Store] 
+    getSingleUser(userId: ID!): User
+    getAllStores: [Store]
     getStore(store_id: ID!): Store
   }
 
   type Mutation {
-    register(username: String!, password: String!, first_name: String!, last_name: String!): Auth
+    register(
+      username: String!
+      password: String!
+      first_name: String!
+      last_name: String!
+    ): Auth
     login(username: String!, password: String!): Auth
     updateUser(userData: userInput!): User
     addStore(storeData: storeInput!): Store
     favStore(store_id: ID!): User
     removeStore(store_id: ID!): User
     addReaction(reaction: String!, store_id: ID!): Store
-    removeReaction( store_id: ID!): Store
+    removeReaction(store_id: ID!): Store
     addReview(reviewEntry: reviewInput!): Review
     updateReview(reviewId: ID!, content: String, score: Float): Review
-    removeReview( reviewId:ID!): User
+    removeReview(reviewId: ID!): User
   }
 `;
 

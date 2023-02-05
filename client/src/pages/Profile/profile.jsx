@@ -5,11 +5,19 @@ import style from "./profile.module.css";
 import { Card } from "antd";
 import FooterComponent from "../../Components/footer/footer";
 import { Link } from "react-router-dom";
+import { QUERY_ME } from "../../utils/queries";
+import { useQuery } from "@apollo/client";
 import Auth from "../../utils/auth";
 
 const { Content } = Layout;
 
 const Profile = () => {
+  const { loading, data } = useQuery(QUERY_ME);
+  const userData = data?.me || {};
+
+  const welcomer = `Welcome back ${userData.full_name}!`;
+  console.log(userData);
+
   useEffect(() => {
     document.title = "CommuniTEA - Profile";
   }, []);
@@ -50,13 +58,11 @@ const Profile = () => {
                   <>
                     <h1>Profile</h1>
                     <section className={style.profileHeaderSection}>
-                      <article>
+                      <article className={style.welcomeContainer}>
                         <Card
-                          title="Welcome back John Doe"
+                          title={welcomer}
                           bordered={false}
-                          style={{
-                            width: 500,
-                          }}
+                          className={style.welcomer}
                         >
                           <div className={style.cardBody}>
                             <Link to="/dashboard">View Milk Tea places</Link>

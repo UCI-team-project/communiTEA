@@ -6,14 +6,39 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findOne({ _id: context.user._id }).select("-__v -password");
-        return user.populate("savedStores reviews");
+        const user = 
+          await User.findOne({ _id: context.user._id })
+                    .populate([{
+                      path: "savedStores",
+                      model: "Store",
+                      populate: [{
+                        path: "reviews",
+                        model: "Review",
+                      }]},
+                      {
+                        path: "reviews",
+                        model: "Review"
+                      }])
+                      .select("-__v -password");
+        return user;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
     getSingleUser: async ( parent, { userId }) => {
-      const user = await User.findById(userId);
-      return user.populate("savedStores reviews");
+      const user = 
+        await User.findById(userId)
+                  .populate([{
+                    path: "savedStores",
+                    model: "Store",
+                    populate: [{
+                      path: "reviews",
+                      model: "Review",
+                    }]},
+                    {
+                      path: "reviews",
+                      model: "Review"
+                    }]);
+      return user;
     },
     getAllStores: async (parent, args) => {
       const stores = await Store.find({}).populate("reactions.by reviews");

@@ -1,37 +1,52 @@
 .imageContainer {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.addToFavBtn {
-    border-radius: var(--br-primary);
-    border: none;
-    padding: 0.5rem;
+.moreInfoBtn {
+  background-color: #88dacb;
+  border-radius: var(--br-primary);
+  border: none;
+  padding: 0.5rem;
 }
 
-.addToFavBtn:hover {
-    opacity: 75%;
+.moreInfoBtn:hover {
+  opacity: 75%;
 }
 
 .storeImg {
-    background-color: gainsboro;
-    aspect-ratio: 4 / 3;
-    border-radius: var(--br-primary);
-    object-fit: cover;
+  background-color: gainsboro;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--br-primary);
+  object-fit: cover;
+}
+
+.test:hover {
+  color: #88dacb !important;
 }
 
 .categoryContainer {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 0 2rem;
 }
 
-.categoryContainer>p {
-    background-color: var(--primary-blue);
-    font-weight: bolder;
-    padding: .5rem;
-    border-radius: 4px;
+.categoryContainer > p {
+  background-color: var(--primary-blue);
+  font-weight: bolder;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
 
+.storeListItem {
+  background-color: #eaeaea;
+  padding: 15px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
