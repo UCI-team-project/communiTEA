@@ -12,7 +12,7 @@ export default function SingleItem({ reviews }) {
   return (
     <div className={style.singleItemContainer}>
       <Carousel afterChange={onChange}>
-        {reviews ? (
+        {reviews.length ? (
           reviews?.map((review) => (
             <div key={review._id} style={contentStyle}>
               <article className={style.listItemContainer}>
@@ -29,7 +29,7 @@ export default function SingleItem({ reviews }) {
             </div>
           ))
         ) : (
-          <EmptyCard />
+          <EmptyCard item={"reviews"}/>
         )}
       </Carousel>
     </div>
