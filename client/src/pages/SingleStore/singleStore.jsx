@@ -25,10 +25,9 @@ export default function SingleStore() {
   const [storeData, setStoreData] = useState({});
   const [dbData, setDbData] = useState({});
 
-  const { loading, data} = useQuery(GET_STORE, {
-    variables: { ...storeId }
+  const { loading, data } = useQuery(GET_STORE, {
+    variables: { ...storeId },
   });
-
 
   // useEffect(() => {
   //   fetchYelpReviews();
@@ -38,7 +37,7 @@ export default function SingleStore() {
 
   // without the dependency array, document title rerenders after storedata loads
   useEffect(() => {
-    console.log(data)
+    console.log(data);
     if (loading === false) {
       if (data) {
         console.log(data);
@@ -49,7 +48,7 @@ export default function SingleStore() {
       }
     }
     document.title = `CommuniTEA - ${storeData?.name}`;
-  }, [loading, data])
+  }, [loading, data]);
 
   // useEffect(() => {
   //   if (!storeData) {
@@ -59,17 +58,17 @@ export default function SingleStore() {
   //   document.title = `CommuniTEA - ${storeData?.name}`;
   // }, []);
 
-  const expressAPI = process.env.REACT_APP_API_ENDPOINT;
+  const expressAPI = "https://tranquil-plains-63846.herokuapp.com/api/yelp";
 
-  const [ favStore, { error: favError }] = useMutation(FAV_STORE);
-  const [ addStore, { error: addError } ] = useMutation(ADD_STORE);
+  const [favStore, { error: favError }] = useMutation(FAV_STORE);
+  const [addStore, { error: addError }] = useMutation(ADD_STORE);
 
   const favoriteStore = async (e) => {
     e.preventDefault();
 
     try {
       const { data: storeSaved } = await addStore({
-        variables: { storeData: { ...dbData }}
+        variables: { storeData: { ...dbData } },
       });
       console.log(storeSaved.addStore._id);
       const { data: favData } = await favStore({
@@ -99,8 +98,10 @@ export default function SingleStore() {
     })
       .then((res) => res.json())
       .then((storeData) => {
-        const storeAddress = `${storeData.location.address1} ${storeData.location.address2}, ${storeData.location.city}, ${storeData.location.state} ${storeData.location.zip_code}`
-        const storeCategories = storeData.categories.map(category => category.title);
+        const storeAddress = `${storeData.location.address1} ${storeData.location.address2}, ${storeData.location.city}, ${storeData.location.state} ${storeData.location.zip_code}`;
+        const storeCategories = storeData.categories.map(
+          (category) => category.title
+        );
         const storeInput = {
           storeId: storeData.id,
           name: storeData.name,
@@ -111,11 +112,11 @@ export default function SingleStore() {
           yelpURL: storeData.url,
           image: storeData.image_url,
           photos: storeData.photos,
-        }
-        setStoreData(storeData); 
+        };
+        setStoreData(storeData);
         setDbData(storeInput);
       });
-  }
+  };
 
   // if (loading) {
   //   ;<h2>Loading...</h2>
@@ -155,19 +156,21 @@ export default function SingleStore() {
                         ))}
                       </div>
                       <p id="rating" className={style.rating}>
-                        {storeData?.rating || storeData.avg_rating} <StarOutlined />
+                        {storeData?.rating || storeData.avg_rating}{" "}
+                        <StarOutlined />
                       </p>
-                      {storeData?.address 
-                        ? <p>{storeData.address}</p>
-                        : <>
+                      {storeData?.address ? (
+                        <p>{storeData.address}</p>
+                      ) : (
+                        <>
                           <p>{storeData?.location?.address1}</p>
                           <p>
                             {storeData?.location?.city},{" "}
                             {storeData?.location?.state}{" "}
                             {storeData?.location?.zip_code}
                           </p>
-                          </>
-                      }
+                        </>
+                      )}
                       <p>price: {storeData?.price}</p>
                       <p>{storeData?.display_phone}</p>
                       <button
