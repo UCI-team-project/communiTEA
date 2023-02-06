@@ -44,8 +44,8 @@ const resolvers = {
       const stores = await Store.find({}).populate("reactions.by reviews");
       return stores;
     },
-    getStore: async (parent, { store_id }) => {
-      const store = await Store.findById(store_id);
+    getStore: async (parent, { storeId }) => {
+      const store = await Store.findOne({ storeId });
       return store.populate("reactions.by reviews");
     },
   },

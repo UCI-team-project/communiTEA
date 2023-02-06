@@ -20,6 +20,8 @@ const storeSchema = new Schema({
     type: String,
     required: true,
   },
+  price: String,
+  phone: String,
   address: {
     type: String,
     required: true,

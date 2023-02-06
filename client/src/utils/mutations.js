@@ -23,7 +23,6 @@ export const LOGIN_USER = gql`
         username
         password
         full_name
-
       }
     }
   }
@@ -49,6 +48,8 @@ export const ADD_STORE = gql`
       _id
       storeId
       name
+      price
+      phone
       address
       categories
       yelpURL
@@ -72,6 +73,8 @@ export const FAV_STORE = gql`
         _id
         storeId
         name
+        price
+        phone
         address
         categories
         yelpURL
@@ -108,6 +111,8 @@ export const REMOVE_STORE = gql`
         _id
         storeId
         name
+        price
+        phone
         address
         categories
         yelpURL
@@ -136,6 +141,8 @@ export const ADD_REACTION = gql`
       _id
       storeId
       name
+      price
+      phone
       address
       categories
       yelpURL
@@ -170,6 +177,8 @@ export const REMOVE_REACTION = gql`
       _id
       storeId
       name
+      price
+      phone
       address
       categories
       yelpURL
@@ -246,6 +255,8 @@ export const REMOVE_REVIEW = gql`
         _id
         storeId
         name
+        price
+        phone
         address
         categories
         yelpURL

@@ -17,6 +17,8 @@ const typeDefs = gql`
     _id: ID!
     storeId: ID!
     name: String!
+    price: String,
+    phone: String,
     address: String!
     categories: [String]
     yelpURL: String!
@@ -59,6 +61,8 @@ const typeDefs = gql`
   input storeInput {
     storeId: ID!
     name: String!
+    price: String,
+    phone: String,
     address: String
     categories: [String]
     yelpURL: String
@@ -85,7 +89,7 @@ const typeDefs = gql`
     me: User
     getSingleUser(userId: ID!): User
     getAllStores: [Store]
-    getStore(store_id: ID!): Store
+    getStore(storeId: String!): Store
   }
 
   type Mutation {
