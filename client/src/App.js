@@ -43,7 +43,7 @@ function App() {
 
             <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/store/:storeId" element={<SingleStore />} />
+            <Route path="/store/*" element={<SingleStore />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/logout" element={<Home />} />
