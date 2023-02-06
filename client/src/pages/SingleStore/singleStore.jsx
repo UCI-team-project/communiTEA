@@ -58,7 +58,7 @@ export default function SingleStore() {
   //   document.title = `CommuniTEA - ${storeData?.name}`;
   // }, []);
 
-  const expressAPI = "https://tranquil-plains-63846.herokuapp.com/api/yelp";
+  const expressAPI = process.env.REACT_APP_API_ENDPOINT;
 
   const [favStore, { error: favError }] = useMutation(FAV_STORE);
   const [addStore, { error: addError }] = useMutation(ADD_STORE);
