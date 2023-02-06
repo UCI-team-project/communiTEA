@@ -16,7 +16,7 @@ import Signup from './pages/Signup'
 import SingleStore from './pages/SingleStore/singleStore'
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'http://localhost:3001/graphql',
 })
 
 const authLink = setContext((_, { headers }) => {
@@ -24,7 +24,7 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : '',
+      authorization: token ? `Bearer: ${token}` : '',
     },
   }
 })
@@ -41,12 +41,7 @@ function App() {
         <div>
           <Routes>
             <Route path='/home' element={<Home />} />
-            {/*
-             * TODO:
-             * - redirect user to login page if they want to access the Dashboard or Profile routes
-             * - if user is logged in, grant access to Dashboard route
-             * {user ? <Dashboard/> : <Login/>}
-             * */}
+
             <Route path='/' element={<Home />} />
             <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/store/:storeId' element={<SingleStore />} />

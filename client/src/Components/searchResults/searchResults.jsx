@@ -1,16 +1,16 @@
-import React from "react";
-import { LikeOutlined, MessageOutlined, StarOutlined } from "@ant-design/icons";
-import { List, Space } from "antd";
-import style from "./searchResults.module.css";
+import React from 'react'
+import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons'
+import { List, Space } from 'antd'
+import style from './searchResults.module.css'
 
 export default function SearchResults({ storesData }) {
   return (
     <List
-      itemLayout="vertical"
-      size="large"
+      itemLayout='vertical'
+      size='large'
       pagination={{
         onChange: (page) => {
-          console.log(page);
+          console.log(page)
         },
         pageSize: 2,
       }}
@@ -23,24 +23,24 @@ export default function SearchResults({ storesData }) {
             <IconText
               icon={StarOutlined}
               text={item.rating}
-              key="list-vertical-star-o"
+              key='list-vertical-star-o'
             />,
             <IconText
               icon={LikeOutlined}
               text={`reviews count: ${item.review_count}`}
-              key="list-vertical-like-o"
+              key='list-vertical-like-o'
             />,
             <IconText
               icon={MessageOutlined}
-              text="2"
-              key="list-vertical-message"
+              text='2'
+              key='list-vertical-message'
             />,
           ]}
           extra={
             <div className={style.imageContainer}>
               <img
                 width={272}
-                alt="logo"
+                alt='logo'
                 className={style.storeImg}
                 src={item.image_url}
               />
@@ -50,7 +50,7 @@ export default function SearchResults({ storesData }) {
           <List.Item.Meta
             title={
               // eslint-disable-next-line react/jsx-no-target-blank
-              <a target="_self" href={`/store/${item.id}`}>
+              <a target='_self' href={`/store/${item.id}`}>
                 {item.name}
               </a>
             }
@@ -68,7 +68,7 @@ export default function SearchResults({ storesData }) {
                   <p>{item?.display_phone}</p>
                 </article>
                 <>
-                  <a target="_self" href={`/store/${item.id}`}>
+                  <a target='_self' href={`/store/${item.id}`}>
                     <button className={style.moreInfoBtn}>More info</button>
                   </a>
                 </>
@@ -79,7 +79,7 @@ export default function SearchResults({ storesData }) {
         </List.Item>
       )}
     />
-  );
+  )
 }
 
 const IconText = ({ icon, text }) => (
@@ -87,4 +87,4 @@ const IconText = ({ icon, text }) => (
     {React.createElement(icon)}
     {text}
   </Space>
-);
+)
