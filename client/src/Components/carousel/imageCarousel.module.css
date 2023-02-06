@@ -1,6 +1,7 @@
 .imgContainer {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     z-index: 50;
 }
@@ -11,5 +12,9 @@
     height: 55vh;
     object-fit: cover;
     z-index: 50;
-    border-radius: 8px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
 }
