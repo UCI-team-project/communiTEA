@@ -13,6 +13,8 @@ export const QUERY_ME = gql`
         _id
         storeId
         name
+        price
+        phone
         address
         categories
         yelpURL
@@ -48,6 +50,8 @@ export const GET_SINGLE_USER = gql`
         _id
         storeId
         name
+        price
+        phone
         address
         categories
         yelpURL
@@ -75,6 +79,8 @@ export const GET_ALL_STORES = gql`
       _id
       storeId
       name
+      price
+      phone
       address
       categories
       yelpURL
@@ -85,11 +91,13 @@ export const GET_ALL_STORES = gql`
 `
 
 export const GET_STORE = gql `
-  query getStore($store_id: ID!) {
-    getStore(store_id: $store_id) {
+  query getStore($storeId: String!) {
+    getStore(storeId: $storeId) {
       _id
       storeId
       name
+      price
+      phone
       address
       categories
       yelpURL

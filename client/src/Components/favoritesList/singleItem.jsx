@@ -15,8 +15,8 @@ export default function SingleItem({ storeList }) {
       <Carousel afterChange={onChange}>
         {storeList &&
           storeList?.map((store) => (
-            <div key={store._id}>
-              <Link to={`/store/${store._id}`}>
+            <div key={store.storeId}>
+              <Link to={`/store/${store.storeId}`}>
                 <article className={style.listItemContainer}>
                   <img
                     src={store.image}
