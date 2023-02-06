@@ -17,6 +17,7 @@ Create a free account and get started today!
 3. [Usage](#usage)
 4. [Contributors](#contributors)
 5. [Installation](#installation)
+6. [Issues](#issues)
 
 ## User Stories
 
@@ -111,3 +112,15 @@ cd server/
 ```
 npm run start
 ```
+
+## Issues
+
+This is still an application under development, therefore certain functionalities are not fully functioning yet.
+
+Working functionalities:
+- Register, Login & Log out
+- Search query for stores based on location via Yelp Fusion
+- Add Store (fully functioning)
+- Favorite Store (though is errorous when multiple stores are favorited)
+
+However, all queries and mutations are working on the back end and can be tested with sandbox gql.
