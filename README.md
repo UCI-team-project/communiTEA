@@ -39,8 +39,12 @@ Create a free account and get started today!
 
 ## Usage
 
+Deployed application: https://tranquil-plains-63846.herokuapp.com/
+
 ```
+Register or Log in
 Enter a location (city, state, zip code, etc...) to search nearby Milk Tea Places
+Click into a store and click the favorite store button to add the store to the database as well as you favorites list.
 ```
 
 ## Contributors
