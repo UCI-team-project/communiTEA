@@ -1,5 +1,5 @@
-import React from 'react'
-import style from '../../pages/Dashboard/dashboard.module.css'
+import React from "react";
+import style from "../../pages/Dashboard/dashboard.module.css";
 
 export default function CodeArt() {
   return (
@@ -16,7 +16,7 @@ Yes, I'm
 ⠀⠀⠘⡀⠀⠀⠀⠀     CommuniTEA    ⠀⠀⠀⠀⠀⠀⡜⠀⠀⠀
 ⠀⠀⠀⠑⡀⠀⠀⠀⠀⠀⠀                    ⡔⠁⠀⠀⠀
 ⠈⠢⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀        ⡔⠁
-⢸⠀⠀⠀⢀⣀⣀⣀ ⣀⣀⣀⣀⡀⠤⡔⠀⠀⠀⠀⠀⠀⠀
+ ⠀⠀⠀            ⣀⣀⣀⣀⡀⠤⡔⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠘⣀⠄⠊⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 
 ⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠛⠛⠛⠋⠉⠈⠉⠉⠉⠉⠛⠻⢿⣿⣿⣿⣿⣿⣿⣿
@@ -48,5 +48,5 @@ Yes, I'm
         </pre>
       </div>
     </>
-  )
+  );
 }

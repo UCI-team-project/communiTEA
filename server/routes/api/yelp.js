@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: `Bearer ${process.env.API_KEY}`,
+      Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
     },
   }
   const fetchSingleStore = await axios
@@ -32,7 +32,7 @@ router.get('/store/:id', async (req, res) => {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: `Bearer ${process.env.API_KEY}`,
+      Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
     },
   }
   const response = await axios
@@ -54,7 +54,7 @@ router.get('/reviews/:id', async (req, res) => {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: `Bearer ${process.env.API_KEY}`,
+      Authorization: `Bearer ${process.env.REACT_APP_API_KEY}`,
     },
   }
 

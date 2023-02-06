@@ -45,56 +45,69 @@ export default function Login() {
       <div className={style.loginContainer}>
         <HeaderComponent />
       </div>
-      <div className={style.container}>
-        {data ? (
-          <p>
-            Success! You may now head <Link to="/">back to the homepage.</Link>
+
+      {Auth.loggedIn() ? (
+        <div className={style.container}>
+          <p className={style.loadText}>
+            <Link to="/">
+              You are already logged in! Click here to head back to the
+              homepage.
+            </Link>
           </p>
-        ) : (
-          <>
-            <h1 className={style.title}>Login</h1>
-            <p className={style.text}>
-              Find the best boba in your area. Give them a review to help your
-              fellow boba-nians in finding the best boba in the area. 😉
+        </div>
+      ) : (
+        <div className={style.container}>
+          {data ? (
+            <p className={style.loadText}>
+              Success! You may now head{" "}
+              <Link to="/">back to the homepage.</Link>
             </p>
-            <form className={style.formContainer} onSubmit={handleFormSubmit}>
-              <input
-                className={style.inputField}
-                type="text"
-                autoComplete="off"
-                name="username"
-                value={formState.username}
-                onChange={handleInputChange}
-                placeholder="Enter Username"
-              />
+          ) : (
+            <>
+              <h1 className={style.title}>Login</h1>
+              <p className={style.text}>
+                Find the best boba in your area. Give them a review to help your
+                fellow boba-nians in finding the best boba in the area. 😉
+              </p>
+              <form className={style.formContainer} onSubmit={handleFormSubmit}>
+                <input
+                  className={style.inputField}
+                  type="text"
+                  autoComplete="off"
+                  name="username"
+                  value={formState.username}
+                  onChange={handleInputChange}
+                  placeholder="Enter Username"
+                />
 
-              <input
-                className={style.inputField}
-                type="password"
-                name="password"
-                value={formState.password}
-                onChange={handleInputChange}
-                placeholder="Password"
-              />
-              <span className={style.btnContainer}>
-                <Button className={style.loginBtn} htmlType="submit" block>
-                  Login
-                </Button>
-              </span>
-              <div className={style.alternativeOptionSection}>
-                <h4 className={style.altEl}>Don't have an account yet?</h4>
-                <Link to="/signup">
-                  <Button className={style.signUpBtn}>Sign Up</Button>
-                </Link>
-              </div>
-            </form>
-          </>
-        )}
+                <input
+                  className={style.inputField}
+                  type="password"
+                  name="password"
+                  value={formState.password}
+                  onChange={handleInputChange}
+                  placeholder="Password"
+                />
+                <span className={style.btnContainer}>
+                  <Button className={style.loginBtn} htmlType="submit" block>
+                    Login
+                  </Button>
+                </span>
+                <div className={style.alternativeOptionSection}>
+                  <h4 className={style.altEl}>Don't have an account yet?</h4>
+                  <Link to="/signup">
+                    <Button className={style.signUpBtn}>Sign Up</Button>
+                  </Link>
+                </div>
+              </form>
+            </>
+          )}
 
-        {error && (
-          <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
-        )}
-      </div>
+          {error && (
+            <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
+          )}
+        </div>
+      )}
       <FooterComponent />
     </>
   );

@@ -41,11 +41,12 @@ export default function SingleStore() {
 
   const expressAPI = process.env.REACT_APP_API_ENDPOINT
 
+  // NOT WORKING YET
+
   const [save, { error, data }] = useMutation(FAV_STORE)
 
   const favoriteStore = async (e) => {
-    e.preventDefault()
-    console.log(storeData.id)
+    // console.log("store data", storeData);
     try {
       const { saveData } = await save({
         variables: { store_id: storeData.id },
