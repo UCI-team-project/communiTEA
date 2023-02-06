@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
-import style from "./login.module.css";
+import style from "./aboutus.css";
 import { Link } from "react-router-dom";
 
 import HeaderComponent from "../../Components/header";
@@ -24,27 +24,27 @@ export default function AboutUs() {
             <p>
                 Darius:
             </p>
-            <p>
+            <>
                 Japbir: Hi everyone! I am Jap and a little about myself is, I love to cook. I
                 am currently working in the logistics industry. 
             <p>
-                Jonathan:
+                Johnathan: 
             </p>
             <p>
                 Justin:
             </p>
             <p>
                 Stephanie:
-            </p>
-            <p>
-      </div>
+            </p> 
+            </div>
+        </>
       <FooterComponent />
-    </>
-<BrowserRouter>
+
   <Routes>
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
     </Route>
   </Routes>
-</BrowserRouter>
-
+  /</div>
+  </>)
+}
