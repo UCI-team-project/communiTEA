@@ -38,14 +38,6 @@ export default function DrawerComp() {
             Dashboard
           </Link>
         </div>
-
-        {/* to be deleted */}
-        <div>
-          <Link className={style.drawer} to={"/profile"}>
-            Profile
-          </Link>
-        </div>
-
         <div>
           <Link className={style.drawer} to={"/aboutus"}>
             About Us

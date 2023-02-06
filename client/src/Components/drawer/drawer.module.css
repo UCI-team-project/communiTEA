@@ -27,7 +27,7 @@
 
 .drawer {
   color: #82b5c0;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 .drawer:hover {
@@ -36,5 +36,9 @@
 
 /* spaces out drawer listings */
 .drawerTitle {
-  font-size: 2rem;
+  font-size: 2.5rem;
+}
+
+.ant-drawer-title {
+  font-size: 5rem;
 }
