@@ -29,6 +29,8 @@ Create a free account and get started today!
 
 - [x] JavaScript (ES6+)
 - [x] React
+- [x] Node.js
+- [x] Express.js
 - [x] MongoDB
 - [x] Mongoose
 - [x] GraphQL
