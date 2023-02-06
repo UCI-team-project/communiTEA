@@ -138,10 +138,12 @@ export default function SingleStore() {
                   </a>
                 </h1>
               </header>
-              <section className={style.photoContainer}>
-                {storeData?.photos?.map((photo, key) => (
-                  <img key={key} src={photo} className={style.image} />
-                ))}
+              <section>
+                <div className={style.photoContainer}>
+                  {storeData?.photos?.map((photo, key) => (
+                    <img key={key} src={photo} className={style.image} />
+                  ))}
+                </div>
               </section>
               <div className={style.descriptionWrapper}>
                 <section className={style.storeDescription}>

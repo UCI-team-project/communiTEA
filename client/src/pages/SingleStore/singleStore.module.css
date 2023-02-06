@@ -34,7 +34,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
   -webkit-border-radius: var(--br-primary);
   -moz-border-radius: var(--br-primary);
   -ms-border-radius: var(--br-primary);
@@ -42,12 +42,7 @@
 }
 
 .image {
-  margin: 0 1rem;
-  width: 100%;
-  max-width: 22rem;
-  max-height: 24rem;
-  width: 22rem;
-  height: 24rem;
+  width: 30%;
   aspect-ratio: auto 4/3;
   object-fit: cover;
   background-color: var(--primary-aqua);
@@ -149,13 +144,12 @@
   .imageContainer {
     flex-direction: row;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 1rem;
   }
 
   .image {
     aspect-ratio: auto 4/3;
     object-fit: cover;
-    max-height: 24rem;
     background-color: var(--primary-aqua);
     border-radius: var(--br-primary);
   }
@@ -164,7 +158,7 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 1rem;
   }
 
   .descriptionWrapper {
