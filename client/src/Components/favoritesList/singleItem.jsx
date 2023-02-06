@@ -1,14 +1,14 @@
-import { Link } from 'react-router-dom'
-import { Carousel } from 'antd'
-import { StarOutlined } from '@ant-design/icons'
-import style from './favoritesList.module.css'
+import { Link } from "react-router-dom";
+import { Carousel } from "antd";
+import { StarOutlined } from "@ant-design/icons";
+import style from "./favoritesList.module.css";
 
 export default function SingleItem({ storeList }) {
   const onChange = (currentSlide) => {
-    console.log(currentSlide)
-  }
+    console.log(currentSlide);
+  };
 
-  console.log(storeList)
+  console.log("storelist", storeList);
 
   return (
     <div className={style.singleItemContainer}>
@@ -36,7 +36,7 @@ export default function SingleItem({ storeList }) {
           ))}
       </Carousel>
     </div>
-  )
+  );
 }
 
 // const contentStyle = {
