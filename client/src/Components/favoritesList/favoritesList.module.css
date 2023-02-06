@@ -1,31 +1,33 @@
 .favoritesListContainer {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .singleItemContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    background-color: rgb(241, 241, 241);
-    border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: rgb(241, 241, 241);
+  border-radius: 6px;
 }
 
 .listItemContainer {
-    padding: 2rem;
-    border-radius: 6px;
+  padding: 2rem;
+  border-radius: 6px;
 }
 
 .containerRow {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.2rem;
 }
+
+
 
 .rating {
-    font-size: 1rem;
+  font-size: 1rem;
 }
-
 
 .imageContainer {
   width: 100%;
@@ -34,21 +36,23 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
-
 }
 
 .image {
-  aspect-ratio: auto 4/3;
+  /* aspect-ratio: auto 4/3; */
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
   object-fit: cover;
-  max-height: 14rem;
+  /* max-height: 14rem; */
   background-color: var(--primary-aqua);
   border-radius: var(--br-primary);
-  margin: 0 1rem;
+  /* margin: 0 1rem; */
 }
 
 
 @media (min-width: 968px) {
-    .singleItemContainer {
-        width: 24rem;
-    }
+  .singleItemContainer {
+    width: 100%;
+  }
 }
