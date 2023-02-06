@@ -3,7 +3,7 @@ import { Carousel } from 'antd'
 import { StarOutlined } from '@ant-design/icons'
 import style from './favoritesList.module.css'
 
-export default function SingleItem({storeList}) {
+export default function SingleItem({ storeList }) {
   const onChange = (currentSlide) => {
     console.log(currentSlide)
   }
@@ -13,23 +13,27 @@ export default function SingleItem({storeList}) {
   return (
     <div className={style.singleItemContainer}>
       <Carousel afterChange={onChange}>
-        {storeList.map((store) => (
-          <div key={store._id}>
-            <Link to={`/store/${store._id}`}> 
-              <article className={style.listItemContainer}>
-                <img src={store.image} alt={store.name} className={style.image}/>
-                <div className={style.containerRow}>
-                  <h3>{store.name}</h3>
-                  <p className={style.rating}>
-                    {store.avg_rating} <StarOutlined />
-                  </p>
-                </div>
-                <p>{store.address}</p>
-
-              </article>
-            </Link>
-          </div>
-        ))}
+        {storeList &&
+          storeList?.map((store) => (
+            <div key={store._id}>
+              <Link to={`/store/${store._id}`}>
+                <article className={style.listItemContainer}>
+                  <img
+                    src={store.image}
+                    alt={store.name}
+                    className={style.image}
+                  />
+                  <div className={style.containerRow}>
+                    <h3>{store.name}</h3>
+                    <p className={style.rating}>
+                      {store.avg_rating} <StarOutlined />
+                    </p>
+                  </div>
+                  <p>{store.address}</p>
+                </article>
+              </Link>
+            </div>
+          ))}
       </Carousel>
     </div>
   )

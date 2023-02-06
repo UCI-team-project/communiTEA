@@ -2,6 +2,7 @@ const router = require('express').Router()
 const axios = require('axios')
 
 // fetch all businesses based on location
+// endpoint: /api/yelp
 router.get('/', async (req, res) => {
   const location = req.headers.location
   const allStoresAPI = `https://api.yelp.com/v3/businesses/search?location=${location}&term=milk+tea&radius=10000&sort_by=best_match&limit=20`
@@ -14,8 +15,8 @@ router.get('/', async (req, res) => {
   }
   const fetchSingleStore = await axios
     .get(allStoresAPI, options)
-    .then((response) => {
-      res.json(response.data)
+    .then((allStores) => {
+      res.json(allStores.data)
     })
     .catch((err) => {
       console.error(err)
@@ -36,8 +37,8 @@ router.get('/store/:id', async (req, res) => {
   }
   const response = await axios
     .get(singleStoreDetailsAPI, options)
-    .then((response) => {
-      res.json(response.data)
+    .then((singleStore) => {
+      res.json(singleStore.data)
     })
     .catch((err) => {
       console.error(err)
@@ -59,8 +60,8 @@ router.get('/reviews/:id', async (req, res) => {
 
   const response = await axios
     .get(yelpReviewsAPI, options)
-    .then((response) => {
-      res.json(response.data)
+    .then((yelpReviews) => {
+      res.json(yelpReviews.data)
     })
     .catch((err) => {
       console.error(err)
