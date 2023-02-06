@@ -22,7 +22,7 @@ export default function Dashboard() {
   const userData = data?.me || {};
 
   const welcomer = `Welcome back ${userData.full_name}!`;
-  console.log(userData);
+  // console.log(userData)
 
   const [stores, setStores] = useState({});
   const [location, setLocation] = useState("");
@@ -47,7 +47,8 @@ export default function Dashboard() {
   } = theme.useToken();
 
   // form for location search
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     fetchStores();
   };
@@ -101,8 +102,8 @@ export default function Dashboard() {
                         >
                           <div className={style.cardBody}>
                             <Link to="/dashboard">View Milk Tea places</Link>
-                            <Link to="/dashboard">View favorites List</Link>
-                            <Link to="/dashboard">View reviews</Link>
+                            <Link to="/dashboard">View Favorites List</Link>
+                            <Link to="/dashboard">View Reviews</Link>
                           </div>
                         </Card>
                       </article>

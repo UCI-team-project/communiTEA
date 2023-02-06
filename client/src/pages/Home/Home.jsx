@@ -22,7 +22,7 @@ export default function Home() {
       </div>
       <div className={style.homeContainer}>
         <div className={style.wrapper}>
-          <h1 className={style.wrapperHeader}>CommuniTEA</h1>
+          {/* <h1 className={style.wrapperHeader}>CommuniTEA</h1> */}
           <div className={style.headerTextWrapper}>
             <p className={style.headerText}>{headerText.header.text}</p>
           </div>
@@ -51,7 +51,6 @@ export default function Home() {
           ) : (
             <section className={style.bottomSection}>
               <div className={style.cta}>
-                <SearchBar />
                 <Link to="/login">
                   <Button className={style.btn1}>LOGIN</Button>
                 </Link>
@@ -74,7 +73,7 @@ export default function Home() {
 
 const headerText = {
   header: {
-    text: "Unsure of where to go for delicious boba drinks? Find the best boba spots near you curated by our friendly community!",
+    text: "Welcome to your new favorite website for all your Boba needs. Find the best boba in your area. Unsure of where to go for delicious boba drinks? Find the best boba spots near you curated by our friendly community!",
   },
   api: {
     text: `"With millions of business updates every month, Yelp Fusion

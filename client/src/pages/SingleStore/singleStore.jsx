@@ -30,6 +30,13 @@ export default function SingleStore() {
   });
 
 
+  // useEffect(() => {
+  //   fetchYelpReviews();
+  //   fetchStoreDetails();
+  //   document.title = `CommuniTEA - ${storeData?.name}`;
+  // }, []);
+
+  // without the dependency array, document title rerenders after storedata loads
   useEffect(() => {
     console.log(data)
     if (loading === false) {
@@ -111,9 +118,10 @@ export default function SingleStore() {
   }
 
   // if (loading) {
-  //   <h2>Loading...</h2>
+  //   ;<h2>Loading...</h2>
   // }
 
+  // console.log(storeData.name);
   return (
     <>
       {storeData && (
@@ -170,24 +178,20 @@ export default function SingleStore() {
                   </div>
                 </section>
                 <section className={style.reviewsContainer}>
-                  {/* reviews don'r work rn... */}
-                  <RecentReviewsContainer reviews={storeData.reviews || reviews} />
+                  {storeData && (
+                    <RecentReviewsContainer
+                      reviews={reviews}
+                      storeData={storeData}
+                    />
+                  )}
                 </section>
               </div>
               <article className={style.reviewFormArticle}>
-                <form action="#" className={style.reviewForm}>
-                  <label htmlFor="comment">Comments</label>
-                  <textarea
-                    name="review"
-                    id="reviewForm"
-                    cols="30"
-                    rows="10"
-                    placeholder="Leave a comment..."
-                  ></textarea>
-                  <div className={style.reviewBtnContainer}>
-                    <button className={style.reviewBtn}>Post</button>
-                  </div>
-                </form>
+                {/* <ReviewForm
+                  storeName={storeData?.name}
+                  storeId={storeData?.id}
+                  storeURL={storeData?.url}
+                /> */}
               </article>
             </div>
           </main>

@@ -45,7 +45,8 @@
 }
 
 .headerText {
-  font-size: 1.5rem;
+  min-width: 80%;
+  font-size: 1.8rem;
   text-align: center;
   display: flex;
   justify-content: center;

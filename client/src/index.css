@@ -28,8 +28,23 @@ body {
 body {
   font-family: "Itim", cursive;
 }
+* {
+  font-family: "Itim", cursive;
+}
 
 a,
 button {
   cursor: pointer;
+}
+
+/* hotfix for antdesign components grabbed through chrome devtools */
+:where(.css-dev-only-do-not-override-1n7nwfa).ant-drawer .ant-drawer-title {
+  color: rgba(0, 0, 0, 0.88);
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+:where(.css-dev-only-do-not-override-1n7nwfa).ant-card .ant-card-head-title {
+    font-size: 1.8rem;
+    font-weight: 500;
 }

@@ -6,6 +6,7 @@
   align-items: center;
 }
 
+
 .siteLayoutContent {
   min-height: 280px;
   padding: 24px;
@@ -66,6 +67,7 @@
 }
 .welcomer {
   background-color: #88dacb;
+  font-size: 1.2rem;
   /* text-align: center; */
 }
 

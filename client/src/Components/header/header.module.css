@@ -15,10 +15,11 @@ a:hover {
 }
 
 .header {
+  font-family: "Itim", cursive;
   background-color: #88DACB;
   position: fixed;
   z-index: 50;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   width: 100vw;
   padding-top: 10px;
   padding-bottom: 10px;
