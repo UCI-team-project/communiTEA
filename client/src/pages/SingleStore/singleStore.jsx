@@ -27,11 +27,18 @@ export default function SingleStore() {
   const [reviews, setReviews] = useState({});
   const [storeData, setStoreData] = useState({});
 
+  // useEffect(() => {
+  //   fetchYelpReviews();
+  //   fetchStoreDetails();
+  //   document.title = `CommuniTEA - ${storeData?.name}`;
+  // }, []);
+
+  // without the dependency array, document title rerenders after storedata loads
   useEffect(() => {
     document.title = `CommuniTEA - ${storeData?.name}`;
     fetchYelpReviews();
     fetchStoreDetails();
-  }, []);
+  });
 
   // --> I think we should just use reviews from out site right? <--
   // well depends, we can save the store to our database when a use clicks
@@ -51,7 +58,7 @@ export default function SingleStore() {
       const { saveData } = await save({
         variables: { store_id: storeData.id },
       });
-      console.log(saveData);
+      // console.log(saveData);
     } catch (err) {
       console.error(err);
     }
@@ -81,7 +88,7 @@ export default function SingleStore() {
   //   ;<h2>Loading...</h2>
   // }
 
-  console.log(storeData.name);
+  // console.log(storeData.name);
   return (
     <>
       {storeData && (
