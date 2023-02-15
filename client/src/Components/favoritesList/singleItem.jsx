@@ -8,7 +8,7 @@ export default function SingleItem({ storeList }) {
     console.log(currentSlide);
   };
 
-  console.log("storelist", storeList);
+  // console.log("storelist", storeList);
 
   return (
     <div className={style.singleItemContainer}>

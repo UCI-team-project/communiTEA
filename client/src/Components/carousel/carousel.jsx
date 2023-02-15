@@ -7,12 +7,13 @@ import image4 from "../../assets/images/slush.jpg";
 import style from "./imageCarousel.module.css";
 
 export default function ImageCarousel() {
-  const onChange = (currentSlide) => {
-    console.log(currentSlide);
-  };
+  // const onChange = (currentSlide) => {
+  //   console.log(currentSlide);
+  // };
 
   return (
-    <Carousel autoplay autoplaySpeed={8000} afterChange={onChange}>
+    // <Carousel autoplay autoplaySpeed={8000} afterChange={onChange}>
+    <Carousel autoplay autoplaySpeed={8000}>
       {itemArray.map((item, key) => (
         <div key={key} style={contentStyle}>
           <article className="">
