@@ -39,7 +39,7 @@ const typeDefs = gql`
     content: String!
     score: Float!
     createdAt: String
-    store_id: String!
+    store_id: ID!
     storeName: String!
     storeURL: String!
     userId: ID!
@@ -78,7 +78,7 @@ const typeDefs = gql`
   input reviewInput {
     content: String!
     score: Float!
-    store_id: String!
+    store_id: ID!
     storeName: String!
     storeURL: String!
     username: String!

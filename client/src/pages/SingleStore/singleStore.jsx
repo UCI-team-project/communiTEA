@@ -9,11 +9,13 @@ import { StarOutlined } from "@ant-design/icons";
 import style from "./singleStore.module.css";
 import { useQuery, useMutation } from "@apollo/client";
 import { GET_STORE } from "../../utils/queries";
-import { ADD_STORE, FAV_STORE } from "../../utils/mutations";
+import { ADD_STORE, FAV_STORE, ADD_REVIEW } from "../../utils/mutations";
+import { Button } from "antd";
+// import ReviewForm from "../../Components/reviewForm/reviewForm.jsx";
 
 export default function SingleStore() {
   const storeId = useParams();
-  console.log(storeId);
+  // console.log(storeId);
 
   const location = useLocation();
   const path = location.pathname.split("/");
@@ -75,6 +77,42 @@ export default function SingleStore() {
         variables: { store_id: storeSaved.addStore._id },
       });
       console.log(favData);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const [addReview, { error: reviewError }] = useMutation(ADD_REVIEW);
+
+  const [formState, setFormState] = useState({
+    content: "",
+    score: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormState({ ...formState, [name]: value });
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    // console.log("formstate", formState);
+    const reviewInput = {
+      content: formState.content,
+      score: formState.score,
+      store_id: storeData.id,
+      storeName: storeData.name,
+      storeURL: storeData.url,
+      username: "pagetest",
+      full_name: "temp user",
+    };
+    console.log("reviewinput", reviewInput);
+
+    try {
+      const { data: reviewData } = await addReview({
+        variables: { reviewEntry: { ...reviewInput } },
+      });
+      console.log("reviewdata", reviewData);
     } catch (err) {
       console.error(err);
     }
@@ -198,6 +236,33 @@ export default function SingleStore() {
                   storeURL={storeData?.url}
                 /> */}
               </article>
+            </div>
+            <div className={style.container}>
+              <div className={style.form}>
+                <form onSubmit={handleFormSubmit}>
+                  <div className={style.input}>
+                    <label htmlFor="content">Content</label>
+                    <input
+                      type="text"
+                      name="content"
+                      id="content"
+                      value={formState.content}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className={style.input}>
+                    <label htmlFor="score">Score</label>
+                    <input
+                      type="number"
+                      name="score"
+                      id="score"
+                      value={formState.score}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <Button htmlType="submit">Submit</Button>
+                </form>
+              </div>
             </div>
           </main>
           <FooterComponent />

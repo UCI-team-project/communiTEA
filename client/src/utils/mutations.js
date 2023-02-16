@@ -1,8 +1,18 @@
 import { gql } from "@apollo/client";
 
 export const REGISTER_USER = gql`
-  mutation register($username: String!, $password: String!, $first_name: String!, $last_name: String!) {
-    register(username: $username, password: $password, first_name: $first_name, last_name: $last_name) {
+  mutation register(
+    $username: String!
+    $password: String!
+    $first_name: String!
+    $last_name: String!
+  ) {
+    register(
+      username: $username
+      password: $password
+      first_name: $first_name
+      last_name: $last_name
+    ) {
       token
       user {
         _id
@@ -43,7 +53,7 @@ export const UPDATE_USER = gql`
 `;
 
 export const ADD_STORE = gql`
-  mutation addStore( $storeData: storeInput!) {
+  mutation addStore($storeData: storeInput!) {
     addStore(storeData: $storeData) {
       _id
       storeId
@@ -53,7 +63,7 @@ export const ADD_STORE = gql`
       address
       categories
       yelpURL
-      image 
+      image
       photos
     }
   }
@@ -63,7 +73,7 @@ export const FAV_STORE = gql`
   mutation favStore($store_id: ID!) {
     favStore(store_id: $store_id) {
       _id
-      username 
+      username
       password
       first_name
       last_name
@@ -78,11 +88,11 @@ export const FAV_STORE = gql`
         address
         categories
         yelpURL
-        image 
+        image
         photos
       }
       reviews {
-        _id 
+        _id
         content
         score
         createdAt
@@ -95,13 +105,13 @@ export const FAV_STORE = gql`
       }
     }
   }
-`
+`;
 
 export const REMOVE_STORE = gql`
   mutation removeStore($store_id: ID!) {
-    removeStore(store_id: $store_id){
+    removeStore(store_id: $store_id) {
       _id
-      username 
+      username
       password
       first_name
       last_name
@@ -116,11 +126,11 @@ export const REMOVE_STORE = gql`
         address
         categories
         yelpURL
-        image 
+        image
         photos
       }
       reviews {
-        _id 
+        _id
         content
         score
         createdAt
@@ -146,7 +156,7 @@ export const ADD_REACTION = gql`
       address
       categories
       yelpURL
-      image 
+      image
       photos
       reactions {
         reaction
@@ -156,7 +166,7 @@ export const ADD_REACTION = gql`
         }
       }
       reviews {
-        _id 
+        _id
         content
         score
         createdAt
@@ -182,7 +192,7 @@ export const REMOVE_REACTION = gql`
       address
       categories
       yelpURL
-      image 
+      image
       photos
       reactions {
         reaction
@@ -192,7 +202,7 @@ export const REMOVE_REACTION = gql`
         }
       }
       reviews {
-        _id 
+        _id
         content
         score
         createdAt
@@ -210,7 +220,7 @@ export const REMOVE_REACTION = gql`
 export const ADD_REVIEW = gql`
   mutation addReview($reviewEntry: reviewInput!) {
     addReview(reviewEntry: $reviewEntry) {
-      _id 
+      _id
       content
       score
       createdAt
@@ -224,10 +234,10 @@ export const ADD_REVIEW = gql`
   }
 `;
 
-export const UPDATE_REVIEW = gql `
+export const UPDATE_REVIEW = gql`
   mutation updateReview($reviewId: ID!, $content: String, $score: Float) {
     updateReview(reviewId: $reviewId, content: $content, score: $score) {
-      _id 
+      _id
       content
       score
       createdAt
@@ -245,7 +255,7 @@ export const REMOVE_REVIEW = gql`
   mutation removeReview($reviewId: ID!) {
     removeReview(reviewId: $reviewId) {
       _id
-      username 
+      username
       password
       first_name
       last_name
@@ -260,11 +270,11 @@ export const REMOVE_REVIEW = gql`
         address
         categories
         yelpURL
-        image 
+        image
         photos
       }
       reviews {
-        _id 
+        _id
         content
         score
         createdAt
@@ -277,5 +287,4 @@ export const REMOVE_REVIEW = gql`
       }
     }
   }
-`
-
+`;

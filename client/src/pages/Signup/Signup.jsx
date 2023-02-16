@@ -1,40 +1,40 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { useMutation } from '@apollo/client'
-import FooterComponent from '../../Components/footer/footer'
-import HeaderComponent from '../../Components/header'
-import { REGISTER_USER } from '../../utils/mutations'
-import Auth from '../../utils/auth'
-import { Button } from 'antd'
-import style from './signup.module.css'
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import FooterComponent from "../../Components/footer/footer";
+import HeaderComponent from "../../Components/header";
+import { REGISTER_USER } from "../../utils/mutations";
+import Auth from "../../utils/auth";
+import { Button } from "antd";
+import style from "./signup.module.css";
 
 export default function Signup() {
   const [formState, setFormState] = useState({
-    username: '',
-    first_name: '',
-    last_name: '',
-    password: '',
-  })
+    username: "",
+    first_name: "",
+    last_name: "",
+    password: "",
+  });
 
-  const [register, { error, data }] = useMutation(REGISTER_USER)
+  const [register, { error, data }] = useMutation(REGISTER_USER);
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormState({ ...formState, [name]: value })
-  }
+    const { name, value } = e.target;
+    setFormState({ ...formState, [name]: value });
+  };
 
   const handleFormSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
       const { data } = await register({
         variables: { ...formState },
-      })
+      });
 
-      Auth.login(data.register.token)
+      Auth.login(data.register.token);
     } catch (err) {
-      console.error(err)
+      console.error(err);
     }
-  }
+  };
 
   return (
     <>
@@ -44,7 +44,7 @@ export default function Signup() {
       <div className={style.container}>
         {data ? (
           <p>
-            Success! You may now head <Link to='/'>back to the homepage.</Link>
+            Success! You may now head <Link to="/">back to the homepage.</Link>
           </p>
         ) : (
           <>
@@ -56,44 +56,44 @@ export default function Signup() {
             <form className={style.formContainer} onSubmit={handleFormSubmit}>
               <input
                 className={style.inputField}
-                type='text'
-                name='username'
+                type="text"
+                name="username"
                 value={formState.username}
                 onChange={handleChange}
-                placeholder='Enter Username'
+                placeholder="Enter Username"
               />
               <input
                 className={style.inputField}
-                type='text'
-                name='first_name'
+                type="text"
+                name="first_name"
                 value={formState.first_name}
                 onChange={handleChange}
-                placeholder='Enter First Name'
+                placeholder="Enter First Name"
               />
               <input
                 className={style.inputField}
-                type='text'
-                name='last_name'
+                type="text"
+                name="last_name"
                 value={formState.last_name}
                 onChange={handleChange}
-                placeholder='Enter Last Name'
+                placeholder="Enter Last Name"
               />
               <input
                 className={style.inputField}
-                type='password'
-                name='password'
+                type="password"
+                name="password"
                 value={formState.password}
                 onChange={handleChange}
-                placeholder='Password'
+                placeholder="Password"
               />
               <span className={style.btnContainer}>
-                <Button className={style.signUpBtn} htmlType='submit' block>
+                <Button className={style.signUpBtn} htmlType="submit" block>
                   Sign Up
                 </Button>
               </span>
               <div className={style.alternativeOptionSection}>
                 <h4 className={style.altEl}>Already have an account?</h4>
-                <Link to='/login'>
+                <Link to="/login">
                   <Button className={style.loginBtn}>Login</Button>
                 </Link>
               </div>
@@ -101,10 +101,10 @@ export default function Signup() {
           </>
         )}
         {error && (
-          <div className='my-3 p-3 bg-danger text-white'>{error.message}</div>
+          <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
         )}
       </div>
       <FooterComponent />
     </>
-  )
+  );
 }

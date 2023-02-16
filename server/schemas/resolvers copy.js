@@ -6,45 +6,38 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        const user = await User.findOne({ _id: context.user._id })
-          .populate([
-            {
-              path: "savedStores",
-              model: "Store",
-              populate: [
-                {
-                  path: "reviews",
-                  model: "Review",
-                },
-              ],
-            },
-            {
-              path: "reviews",
-              model: "Review",
-            },
-          ])
-          .select("-__v -password");
+        const user = 
+          await User.findOne({ _id: context.user._id })
+                    .populate([{
+                      path: "savedStores",
+                      model: "Store",
+                      populate: [{
+                        path: "reviews",
+                        model: "Review",
+                      }]},
+                      {
+                        path: "reviews",
+                        model: "Review"
+                      }])
+                      .select("-__v -password");
         return user;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    getSingleUser: async (parent, { userId }) => {
-      const user = await User.findById(userId).populate([
-        {
-          path: "savedStores",
-          model: "Store",
-          populate: [
-            {
-              path: "reviews",
-              model: "Review",
-            },
-          ],
-        },
-        {
-          path: "reviews",
-          model: "Review",
-        },
-      ]);
+    getSingleUser: async ( parent, { userId }) => {
+      const user = 
+        await User.findById(userId)
+                  .populate([{
+                    path: "savedStores",
+                    model: "Store",
+                    populate: [{
+                      path: "reviews",
+                      model: "Review",
+                    }]},
+                    {
+                      path: "reviews",
+                      model: "Review"
+                    }]);
       return user;
     },
     getAllStores: async (parent, args) => {
@@ -58,12 +51,7 @@ const resolvers = {
   },
   Mutation: {
     register: async (parent, { username, password, first_name, last_name }) => {
-      const user = await User.create({
-        username,
-        password,
-        first_name,
-        last_name,
-      });
+      const user = await User.create({ username, password, first_name, last_name });
       const token = signToken(user);
       return { token, user };
     },
@@ -89,7 +77,7 @@ const resolvers = {
         const user = await User.findByIdAndUpdate(
           { _id: context.user._id },
           { ...userData },
-          { new: true }
+          { new: true },
         );
         return user.populate("savedStores reviews");
       }
@@ -110,21 +98,21 @@ const resolvers = {
         // Add store to favorites
         const user = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { savedStores: store_id } },
-          { new: true }
-        );
-        return user.populate("savedStores reviews");
+          { $addToSet: { savedStores: store_id}},
+          { new: true },
+        )
+        return user.populate("savedStores reviews"); 
       }
       throw new AuthenticationError("You need to be logged in!");
     },
     removeStore: async (parent, { store_id }, context) => {
-      if (context.user) {
+      if (context.user){
         // Remove store from favorites without deleting the store
         const user = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedStores: store_id } }, //storeId is _id
+          { $pull: { savedStores: store_id }}, //storeId is _id 
           { new: true }
-        );
+        )
         return user.populate("savedStores reviews");
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -132,33 +120,34 @@ const resolvers = {
     addReaction: async (parent, { reaction, store_id }, context) => {
       if (context.user) {
         // Checks if user already reacted to the store
-        let store = await Store.findOne({
-          _id: store_id,
-          "reactions.by": context.user._id,
-        });
+        let store = await Store.findOne(
+          { 
+            _id: store_id,
+            "reactions.by": context.user._id
+          });
         // If not, allow reaction
         if (!store) {
-          // Check if reaction already exists
+          // Check if reaction already exists 
           store = await Store.findOneAndUpdate(
             {
               _id: store_id,
-              "reactions.reaction": reaction,
+              "reactions.reaction": reaction
             },
-            { $push: { "reactions.$.by": context.user._id } },
-            { new: true }
+            { $push: { "reactions.$.by": context.user._id }},
+            { new: true},
           );
           // If not, create new reaction object
           if (!store) {
             const reactionObj = {
               reaction: reaction,
-              by: [context.user._id],
+              by: [ context.user._id ]
             };
             store = await Store.findByIdAndUpdate(
-              store_id,
-              { $addToSet: { reactions: reactionObj } },
-              { new: true }
+              store_id, 
+              { $addToSet: { reactions: reactionObj }},
+              { new: true },
             );
-          }
+          };
           return store.populate("reactions.by reviews");
         }
         // throw error, if user already reacted to store
@@ -170,12 +159,12 @@ const resolvers = {
       if (context.user) {
         // Removes user reaction on store
         const store = await Store.findOneAndUpdate(
-          {
+          { 
             _id: store_id,
-            "reactions.by": context.user._id,
+            "reactions.by": context.user._id
           },
-          { $pull: { "reactions.$.by": context.user._id } },
-          { new: true }
+          { $pull: { "reactions.$.by": context.user._id }},
+          { new: true },
         );
         return store.populate("reactions.by reviews");
       }
@@ -185,24 +174,14 @@ const resolvers = {
       if (context.user) {
         // takes review content, score, store_id, storeName, storeURL, username, and full_name
         // creates review and update association with user and store
-        const newReview = await Review.create({
-          ...reviewEntry,
-          userId: context.user._id,
-        });
+        const newReview = await Review.create({ ...reviewEntry, userId: context.user._id });
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $addToSet: { reviews: newReview._id } }
+          { $addToSet: { reviews: newReview._id }},
         );
-        // await Store.findByIdAndUpdate(reviewEntry.store_id, {
-        //   $addToSet: { reviews: newReview._id },
-        // });
-        // return newReview;
-
-        await Store.findOneAndUpdate(
-          { store_id: reviewEntry.store_id },
-          {
-            $addToSet: { reviews: newReview._id },
-          }
+        await Store.findByIdAndUpdate(
+          reviewEntry.store_id,
+          { $addToSet: { reviews: newReview._id }},
         );
         return newReview;
       }
@@ -210,11 +189,11 @@ const resolvers = {
     },
     updateReview: async (parent, { reviewId, content, score }, context) => {
       if (context.user) {
-        // updates review content &/ score
+        // updates review content &/ score 
         const updateReview = await Review.findOneAndUpdate(
           { _id: reviewId, userId: context.user._id },
           { content, score },
-          { new: true }
+          { new: true },
         );
         return updateReview;
       }
@@ -228,16 +207,16 @@ const resolvers = {
         if (review.userId === context.user_id) {
           const user = await User.findOneAndUpdate(
             { reviews: review._id },
-            { $pull: { reviews: review._id } },
-            { new: true }
+            { $pull: { reviews: review._id }},
+            { new: true },
           );
           await Store.findOneAndUpdate(
-            { reviews: review._id },
-            { $pull: { reviews: review._id } }
+            { reviews: review._id},
+            { $pull: { reviews: review._id }}
           );
-          await review.deleteOne();
-          return user.populate("savedStores reviews");
-        }
+          await review.deleteOne()
+          return user.populate("savedStores reviews")
+        };
         throw new AuthenticationError("Not owner of review!");
       }
       throw new AuthenticationError("You need to be logged in!");
